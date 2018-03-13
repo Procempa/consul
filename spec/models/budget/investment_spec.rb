@@ -340,6 +340,23 @@ describe Budget::Investment do
     end
   end
 
+  describe "#by_valuator_group" do
+
+    it "returns investments assigned to a valuator's group" do
+      valuator = create(:valuator)
+      valuator_group = create(:valuator_group, valuators: [valuator])
+      assigned_investment = create(:budget_investment, valuator_groups: [valuator_group])
+      other_assigned_investment = create(:budget_investment, valuator_groups: [valuator_group])
+      create(:budget_investment, valuators: [valuator], valuator_groups: [create(:valuator_group)])
+      create(:budget_investment, valuators: [valuator], valuator_groups: [])
+
+      by_valuator_group = described_class.by_valuator_group(valuator.valuator_group_id)
+
+      expect(by_valuator_group.size).to eq(2)
+      expect(by_valuator_group).to contain_exactly(assigned_investment, other_assigned_investment)
+    end
+  end
+
   describe "scopes" do
     describe "valuation_open" do
       it "returns all investments with false valuation_finished" do
