@@ -1,0 +1,16 @@
+---
+pt-BR:
+  admin:
+    site_customization:
+      images:
+        index:
+          update: Atualizar
+        update:
+          notice: Atenção
+    settings:
+      index:
+        map:
+          flash:
+            update: Atualizar
+          form:
+            submit: Salvar
