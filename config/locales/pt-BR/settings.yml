@@ -1,0 +1,59 @@
+pt-BR:
+  settings:
+    comments_body_max_length: "Tamanho máximo dos comentários"
+    official_level_1_name: "Cargos públicos de nível 1"
+    official_level_2_name: "Cargos públicos de nível 2"
+    official_level_3_name: "Cargos públicos de nível 3"
+    official_level_4_name: "Cargos públicos de nível 4"
+    official_level_5_name: "Cargos públicos de nível 5"
+    max_ratio_anon_votes_on_debates: "Porcentagem máxima de votos anônimos por debate"
+    max_votes_for_proposal_edit: "Número de votos com que uma proposta deixa de poder ser editada"
+    max_votes_for_debate_edit: "Número de votos com que um Debate deixa de poder ser editado"
+    proposal_code_prefix: "Prefixo para os códigos das propostas"
+    votes_for_proposal_success: "Número de votos necessários para aprovar uma Proposta"
+    months_to_archive_proposals: "Meses para arquivar Propostas"
+    email_domain_for_officials: "Dominio de email para cargos públicos"
+    per_page_code_head: "Código a incluir em cada página (<head>)"
+    per_page_code_body: "Código a incluir em cada página (<body>)"
+    twitter_handle: "Usuário do Twitter"
+    twitter_hashtag: "Hashtag para Twitter"
+    facebook_handle: "Usuário do Facebook"
+    youtube_handle: "Usuário do Youtube"
+    telegram_handle: "Usuário do Telegram"
+    instagram_handle: "Usuário do Instagram"
+    blog_url: "URL do blog"
+    transparency_url: "URL de transparência"
+    opendata_url: "URL de Open Data"
+    url: "URL principal"
+    org_name: "Organização"
+    place_name: "Lugar"
+    feature:
+      budgets: Orçamento participativo
+      twitter_login: Login do Twitter
+      facebook_login: Login do Facebook
+      google_login: Login do Google
+      proposals: Propostas
+      debates: Debates
+      polls: Votações
+      signature_sheets: Folhas de assinatura
+      spending_proposals: Projetos de investimento
+      spending_proposal_features:
+        voting_allowed: Votações sobre projetos de investimento
+      legislation: Legislação
+      user:
+        recommendations: Recomendações
+      community: Comunidade em propostas e projetos de investimento
+      map: Geolocalização de propostas e projetos de investimento
+      allow_images: Permitir upload e exibir imagens
+      allow_attached_documents: Allow upload and show of attached documents
+    map_latitude: Latitude
+    map_longitude: Longitude
+    map_zoom: Zoom
+    mailer_from_name: Nome do email remetente
+    mailer_from_address: Endereço de email do remetente
+    meta_title: "Título do site (SEO)"
+    meta_description: "Descrição do site (SEO)"
+    meta_keywords: "Palavras-chave (SEO)"
+    verification_offices_url: URL dos escritórios de verificação
+    min_age_to_participate: Idade mínima para participar
+    proposal_improvement_path: Link para a informação sobre o melhoramento de propostas

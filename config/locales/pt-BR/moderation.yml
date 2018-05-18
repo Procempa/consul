@@ -1,0 +1,77 @@
+pt-BR:
+  moderation:
+    comments:
+      index:
+        block_authors: Bloquear autores
+        confirm: Tem certeza?
+        filter: Filtrar
+        filters:
+          all: Todos
+          pending_flag_review: Pendente
+          with_ignored_flag: Marcar como visto
+        headers:
+          comment: Comentário
+          moderate: Moderar
+        hide_comments: Ocultar comentários
+        ignore_flags: Marcar como visto
+        order: Ordem
+        orders:
+          flags: Mais sinalizado
+          newest: Mais recente
+        title: Comentários
+    dashboard:
+      index:
+        title: Moderação
+    debates:
+      index:
+        block_authors: Bloquear autores
+        confirm: Tem certeza?
+        filter: Filtrar
+        filters:
+          all: Todos
+          pending_flag_review: Pendente
+          with_ignored_flag: Marcados como visto
+        headers:
+          debate: Debate
+          moderate: Moderar
+        hide_debates: Ocultar os debates
+        ignore_flags: Marcar como visto
+        order: Ordem
+        orders:
+          created_at: Mais recente
+          flags: Mais sinalizado
+        title: Debates
+    header:
+      title: Moderação
+    menu:
+      flagged_comments: Comentários
+      flagged_debates: Debates
+      proposals: Propostas
+      users: Bloquear usuários
+    proposals:
+      index:
+        block_authors: Bloquear autores
+        confirm: Tem certeza?
+        filter: Filtro
+        filters:
+          all: Todos
+          pending_flag_review: Revisão pendente
+          with_ignored_flag: Marcar como visto
+        headers:
+          moderate: Moderar
+          proposal: Proposta
+        hide_proposals: Ocultar propostas
+        ignore_flags: Marcar como visto
+        order: Ordenar por
+        orders:
+          created_at: Mais recentes
+          flags: Mais sinalizado
+        title: Propostas
+    users:
+      index:
+        hidden: Bloqueados
+        hide: Bloquear
+        search: Buscar
+        search_placeholder: e-mail ou nome de usuário
+        title: Bloquear usuários
+      notice_hide: Usuário bloqueado. Todos os debates e comentários do usuário foram ocultados.

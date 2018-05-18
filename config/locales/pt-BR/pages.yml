@@ -1,0 +1,92 @@
+pt-BR:
+  pages:
+    census_terms: Para confirmar a conta, você deve ter 16 anos ou mais e ser registrado, tendo fornecido as informações solicitadas previamente. Ao aceitar o processo de verificação, você também concorda com a verificação dessas informações, bem como com os métodos de contato em tais arquivos. Os dados fornecidos serão incorporados e processados em um arquivo mencionado nos termos e condições de uso do Portal.
+    conditions: Termos e condições de uso
+    general_terms: Termos e condições de uso
+    help:
+      title: "%{org} é uma plataforma de participação cidadã"
+      subtitle: "Em %{org} você pode fazer propostas, votar em consultas de cidadãos, propor projetos de orçamento participativo, decidir sobre regulamentos municipais e debates abertos para trocar opiniões com outras pessoas."
+      guide: "Este guia explica para que servem e como funcionam cada uma das seções de %{org}."
+      menu:
+        debates: "Debates"
+        proposals: "Propostas"
+        budgets: "Orçamentos participativos"
+        polls: "Votações"
+        other: "Outras informações de interesse"
+        processes: "Processos"
+      debates:
+        title: "Debates"
+        description: "Na seção %{link} você pode apresentar e compartilhar sua opinião com outras pessoas sobre questões de seu interesse relacionadas à cidade. É também um lugar para gerar ideias que através de outras seções de %{org} levam a ações concretas pela Prefeitura."
+        link: "debates de cidadãos"
+        feature_html: "Você pode abrir debates, comentar e avaliá-los com o <strong>concordo</strong> ou <strong>não concordo</strong>. Para isso você tem que %{link}."
+        feature_link: "registre-se em %{org}"
+        image_alt: "Botões para classificar os debates"
+        figcaption: '"Eu concordo" e "Discordo" botões para classificar os debates.'
+      proposals:
+        title: "Propostas"
+        description: "Na seção %{link} você pode fazer propostas para a Prefeitura realizá-los. As propostas necessitam de apoio, e se alcançam o apoio suficiente, são colocadas em votação pública. As propostas aprovadas nestas votações pelos cidadãos são aceitas pela Prefeitura e realizadas."
+        link: "propostas dos cidadãos"
+        feature_html: "Para criar uma proposta você deve se registrar em %{org}. As propostas que recebem o suporte no site de 1% das pessoas com direito de voto (%{supports} de pessoas de mais de 16 anos de idade registrados) vão para votação. Para apoiar as propostas, é necessário verificar a sua conta."
+        image_alt: "Botão para apoiar uma proposta"
+        figcaption_html: 'Botão para "Apoiar" uma proposta. <br> Quando ela atingir o número de apoios irá para votação.'
+      budgets:
+        title: "Orçamento participativo"
+        description: "A seção %{link} auxilia às pessoas a decidirem diretamente qual o destino de uma parte do orçamento municipal."
+        link: "orçamentos participativos"
+        feature: "Neste processo, todo ano as pessoas elaboram, apoiam e votam nos projetos. Os mais votados passam a ser financiados com o orçamento municipal."
+        phase_1_html: "Entre Janeiro e início de Março, pessoas registradas em %{org} podem <strong>present</strong>."
+        phase_2_html: "Em março, proponentes tem que reunir apoio, na forma de <strong>pré seleção</strong>."
+        phase_3_html: "Entre abril e o começo de maio, os peritos da <strong>Prefeitura</strong> vão classificar os projetos em ordem de mais ou menos apoiados e verificar se eles são viáveis."
+        phase_4_html: "Finalmente, entre Maio e Junho, todos os cidadãos podem <strong>votar</strong> projetos que lhes interessem mais."
+        phase_5_html: "A partir da aprovação dos orçamentos no ano seguinte, a Prefeitura começa a colocar em prática os projetos vencedores."
+        image_alt: "Diferentes fases de um orçamento participativo"
+        figcaption_html: 'Fases de "Apoio" e "Votação" dos orçamentos participativos.'
+      polls:
+        title: "Votações"
+        description: "A seção %{link} é ativada toda vez que uma proposta atinge 1% de apoio e vai para votação, ou quando a Prefeitura propõe uma questão para as pessoas decidirem."
+        link: "votações"
+        feature_1: "Para participar da votação, você precisa %{link} e verificar sua conta."
+        feature_1_link: "registrar em %{org_name}"
+        feature_2: "Todos os eleitores registrados com mais de 16 anos podem votar."
+        feature_3: "Os resultados de todos os votos são vinculativos para o governo municipal."
+      processes:
+        title: "Processos"
+        description: "Na seção %{link}, os cidadãos participam da redação e modificação dos regulamentos que afetam a cidade e podem opinar sobre as políticas municipais em debates anteriores."
+        link: "processos"
+        feature: "Para participar de um processo, você tem que %{sign_up} e verificar a página %{link} periodicamente para verificar quais normas e políticas estão sendo discutidas e consultadas."
+        sign_up: "inscrever-se em %{org}"
+      faq:
+        title: "Problemas técnicos?"
+        description: "Leia o FAQ e resolva suas dúvidas."
+        button: "Visualizar perguntas frequentes"
+        page:
+          title: "Perguntas frequentes"
+          description: "Utilize essa página para resolver Perguntas Frequentes dos usuários do site."
+          faq_1_title: "Pergunta 1"
+          faq_1_description: "Este é um exemplo para a descrição da pergunta um."
+      other:
+        title: "Outras informações de interesse"
+        how_to_use: "Use o %{org_name} em sua cidade"
+      how_to_use:
+        text: |-
+          Use-o em seu governo local ou nos ajude a melhorá-lo, é software livre.
+          
+          Este Portal do Governo Aberto usa o [CONSUL app] (https://github.com/consul/consul 'consul github') que é um software livre, com [licença AGPLv3] (http://www.gnu.org/licenses/ agpl-3.0.html 'AGPLv3 gnu'), que significa em palavras simples que qualquer um pode usar o código livremente, copiá-lo, vê-lo em detalhes, modificá-lo e redistribuí-lo ao mundo com as modificações que quiser (permitindo que outros façam o mesmo). Porque pensamos que a cultura é melhor e mais rica quando é liberada.
+          
+          Se você é um programador, pode ver o código e nos ajudar a melhorá-lo no [CONSUL app](https://github.com/consul/consul 'consul github').
+      titles:
+        how_to_use: Use-o em seu governo local
+    privacy: Política de privacidade
+    titles:
+      accessibility: Acessibilidade
+      conditions: Termos de uso
+      help: "O que é %{org}? -Participação cidadã"
+      privacy: Política de privacidade
+    verify:
+      code: Código que você recebeu na carta
+      email: Email
+      info: 'Para verificar sua conta introduza seus dados de acesso:'
+      info_code: 'Agora introduza o código recebido na carta:'
+      password: Senha
+      submit: Verificar minha conta
+      title: Verifique sua conta
