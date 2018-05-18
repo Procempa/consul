@@ -3,3 +3,85 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+//Variáveis de cor OP Digital
+
+$cinza-base: #39393d; //#3B3B45;
+$texto: lighten($cinza-base, 10%);// #525257;
+$texto-secundario: lighten($cinza-base, 35%);//#919198 - Textos de menor destaque, mais apagados
+$bordas: lighten($cinza-base, 55%); //#C5C5C9; 
+$fundo-claro: lighten($cinza-base, 67%); //#E5E5E7; //Fundo de blocos de apoio na página e cards 
+
+
+$destaque: #FFDF57; // amarelo para elementos decorativos
+$destaque2: #09AFA7; // verde para checkboxes, radios e outros elementos coloridos de forms
+$cta: #566AD2;  //Cor de elementos call to action: botões, links, etc.
+
+//Cores de status
+$cor-info: #31708f; // Rever!
+$cor-sucesso: #6AB649;
+$cor-aviso: #F2B90D;
+$cor-erro: #D93855;
+
+
+//Consul overrides
+
+$base-font-size:      rem-calc(16);
+$small-font-size:     rem-calc(14);
+$tiny-font-size:      rem-calc(12);
+
+$brand:             $cta; // é usada nos links etc.
+$dark:              $cinza-base;
+
+$text:              $texto;
+$text-medium:       $texto-secundario;
+//$text-light:        #bfbfbf;
+
+$border:            $bordas;
+
+$link:              $cta;
+$link-hover:        darken($link, 20%);
+
+//$debates:           $brand;
+
+$like:              $destaque2;
+$unlike:            lighten($cor-erro, 10%);
+
+$delete:            $cor-erro;
+$check:             $cor-sucesso; //talvez trocar pra destaque2?
+
+//$proposals:         #ffa42d;
+//$proposals-dark:    #794500;
+
+//$budget:            #7e328a;
+//$budget-hover:      #7571bf;
+
+//$highlight:         #e7f2fc;
+//$highlight-soft:    #f3f8fd;
+//$light:             #f5f7fa;
+$featured:          $destaque;
+
+$footer-border:     $bordas;
+
+$success-bg:        lighten($cor-sucesso, 25%);
+$success-border:    lighten($cor-sucesso, 15%);
+$color-success:     $cor-sucesso;
+
+$info-bg:           lighten($cor-info, 45%);
+$info-border:       lighten($cor-info, 35%);
+$color-info:        $cor-info;
+
+$warning-bg:        lighten($cor-aviso, 25%);
+$warning-border:    lighten($cor-aviso, 15%);
+$color-warning:     $cor-aviso;
+
+$alert-bg:          lighten($cor-erro, 35%);
+$alert-border:      lighten($cor-erro, 25%);
+$color-alert:       $cor-erro;
+
+
+//Foundation overrides
+
+//$primary: $cor-info;
+$body-font-family: 'Lato', 'Helvetica', 'Arial', sans-serif !important;
+$body-font-color: $texto;

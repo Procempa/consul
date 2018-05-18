@@ -3,3 +3,154 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+
+//-------OVERRIDES -------
+
+//Layout
+p {
+  line-height: $global-lineheight;
+}
+
+a {
+  &:focus {
+    outline: 2px solid $link;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $body-font-family;
+}
+
+
+.button.hollow {
+  border: 2px solid $link;
+}
+
+header {
+  background: #fff;
+  border: 0 none;
+  > .row {
+  	background-color: $cinza-base;
+  	@include breakpoint(medium) {
+  		background-color: transparent; //rever
+  	}
+  }
+}
+
+.top-bar {
+  background: #fff !important;
+  color: $link;
+
+  .top-bar-title a {
+  	color: $texto;
+  }
+  .logo {
+  	color: $texto;
+  }
+
+  .menu > li {
+
+    @include breakpoint(medium) {
+    }
+    a {
+      color: #fff;
+      @include breakpoint(small only) {
+      	&:hover, &:focus, &.active {
+			color: $destaque;
+	      }
+      }
+      @include breakpoint(medium) {
+		color: $link;
+      }
+    }
+    .button {
+    	background: transparent;
+    	@include breakpoint(small only) {
+			&:hover {
+				text-decoration: underline!important;
+			}
+    	}
+
+      	@include breakpoint(medium) {
+        	background: $link;
+        	color: #fff;
+      }
+    }
+  }
+
+  .menu-icon.dark {
+    &::after,
+    &:hover::after {
+      background: $link;
+      box-shadow: 0 7px 0 $link, 0 14px 0 $link;
+    }
+  }
+
+ /* .menu {
+    &.is-dropdown-submenu {
+      background: #fff;
+    }
+
+    .is-submenu-item {
+      a {
+        color: $text;
+      }
+    }
+  } */
+}
+
+.subnavigation {
+  @include breakpoint(medium) {
+  	background-color: $cinza-base;
+  	//color: #fff;
+  }
+  a {
+  	color: #fff;
+  	&:hover, &:focus, &.active {
+  		color: $destaque;
+  	}
+  	&:focus {
+  		outline: 2px solid $destaque; 
+  	}
+  	&.active {
+  		border-bottom: 4px solid $destaque;
+  	}
+  }
+}
+
+.footer {
+    background-color: $fundo-claro;
+    border-top: 0 none;
+
+ }
+
+.menu.simple {
+  li {
+    a {
+      color: $link;
+      &:hover {
+        color: $link-hover;
+      }
+    }
+    &.active {
+      border-bottom: 4px solid $text;
+      color: $text;
+    }
+  }
+}
+
+
+
+
+// -------- ESTILOS PRÓPRIOS OP DIGITAL -------
+
+.section-header {
+	background: $destaque;
+	padding-top: 2rem;
+}
