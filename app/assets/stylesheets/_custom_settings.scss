@@ -63,16 +63,16 @@ $featured:          $destaque;
 
 $footer-border:     $bordas;
 
-$success-bg:        lighten($cor-sucesso, 25%);
-$success-border:    lighten($cor-sucesso, 15%);
+$success-bg:        lighten($cor-sucesso, 45%);
+$success-border:    lighten($cor-sucesso, 25%);
 $color-success:     $cor-sucesso;
 
 $info-bg:           lighten($cor-info, 45%);
 $info-border:       lighten($cor-info, 35%);
 $color-info:        $cor-info;
 
-$warning-bg:        lighten($cor-aviso, 25%);
-$warning-border:    lighten($cor-aviso, 15%);
+$warning-bg:        lighten($cor-aviso, 45%);
+$warning-border:    lighten($cor-aviso, 25%);
 $color-warning:     $cor-aviso;
 
 $alert-bg:          lighten($cor-erro, 35%);

@@ -28,8 +28,13 @@ h6 {
 }
 
 
-.button.hollow {
-  border: 2px solid $link;
+.button {
+	&.hollow {
+	  border: 2px solid $link;
+	}
+	&.success {
+		background: $cor-sucesso;
+	}
 }
 
 header {
@@ -145,7 +150,23 @@ header {
   }
 }
 
+.callout {
+	&.success, &.notice {
+		color: darken($cor-sucesso, 15%);
+	}
+	&.warning {
+		color: darken($cor-aviso, 15%);
+	}
+	&.alert, &.error {
+		color: darken($cor-erro, 10%);
+	}
+}
 
+//Admin
+.admin-sidebar {
+    background: $cinza-base;
+    background: linear-gradient(to bottom, $cinza-base 0%, $texto 100%);
+}
 
 
 // -------- ESTILOS PRÓPRIOS OP DIGITAL -------
