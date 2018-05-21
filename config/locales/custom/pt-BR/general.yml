@@ -14,3 +14,11 @@ pt-BR:
             update: Atualizar
           form:
             submit: Salvar
+  layouts:
+    footer:
+      copyright: Prefeitura de Porto Alegre, %{year}
+      description: Serviço desenvolvido com o %{consul}.
+      faq: Perguntas Frequentes
+      transparency_url: http://www2.portoalegre.rs.gov.br/transparencia/
+    header: 
+      external_link_opendata_url: http://datapoa.com.br/  

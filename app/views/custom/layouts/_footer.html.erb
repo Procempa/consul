@@ -1,0 +1,58 @@
+<footer>
+  <div class="row">
+    <div class="small-12 large-6 column">
+      <div class="brasao float-left hide-for-small-only">
+        <%= image_tag(image_path_for('brasao_rodape_sistemas.svg'), alt: "Brasão da prefeitura de Porto Alegre", onerror: "this.src='/assets/brasao_rodape_sistemas.png'; this.onerror=null;" ) %>
+      </div>
+      <div class="info-prefeitura">
+        <strong class="lead">Prefeitura Municipal de Porto Alegre</strong>
+        <p>
+        Praça Montevidéo, 10 - Rio Grande do Sul - Brasil<br>
+        CEP 90010-170
+        </p>
+      </div>
+    </div>
+
+    <div class="small-12 large-6 column">
+      <ul class="menu large-float-right">
+        <li>
+           <%= link_to t("layouts.footer.transparency_title"), setting['transparency_url'].presence || t("layouts.footer.transparency_url"), class: "title", target: "blank", rel: "nofollow" %>
+        </li>
+        <li>
+          <%= link_to t("layouts.footer.open_data_title"), setting['opendata_url'].presence || t("layouts.header.external_link_opendata_url"), class: "title", target: "blank", rel: "nofollow" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <%# <div class="subfooter row info">
+    <div class="small-12 column">
+      <%= t("layouts.footer.copyright", year: Time.current.year) %>
+      <%# &nbsp;|
+      <ul class="no-bullet inline-block">
+        <li class="inline-block"><%= link_to t("layouts.footer.privacy"), page_path('privacy') %>
+          <%# &nbsp;|</li>
+        <li class="inline-block"><%= link_to t("layouts.footer.conditions"), page_path('conditions') %>
+        <%#  &nbsp;|</li>
+        <li class="inline-block"><%= link_to t("layouts.footer.faq"), faq_path %>
+        <%#</li>
+      </ul>
+    </div>
+  </div> 
+  %>
+  
+  <div class="assinatura">
+    <div class="row">
+      <span class="column small-12 medium-8">
+        <%= t("layouts.footer.description",
+          consul:  link_to(t("layouts.footer.consul"), t("layouts.footer.consul_url"), target: "blank", rel: "nofollow")).html_safe
+        %>
+      </span>
+      <div class="column small-12 medium-4 medium-align-right">
+         <%= image_tag(image_path_for('desenvolvimento_procempa_br.svg'), alt: "Desenvolvimento Procempa", onerror: "this.src='/assets/desenvolvimento_procempa_br.png'; this.onerror=null;") %>
+      </div>
+    </div>
+  </div>
+
+<%# - ícones redes sociais removidos-  se quiser recolocar ver views/layouts/_footer.html.erb %>
+
+</footer>

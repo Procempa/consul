@@ -27,6 +27,10 @@ h6 {
   font-family: $body-font-family;
 }
 
+.lead {
+  font-size: $lead-font-size;
+}
+
 
 .button {
 	&.hollow {
@@ -132,8 +136,24 @@ header {
 .footer {
     background-color: $fundo-claro;
     border-top: 0 none;
-
+    a {
+      &:hover, &:focus {
+        color: $cta;
+      }
+    }
  }
+
+.footer, .push {
+  min-height: $line-height * 7.25;
+}
+
+.wrapper {
+  margin: 0 auto (-$line-height) * 9.375;
+}
+
+.info-prefeitura p {
+  font-size: rem-calc(16);
+}
 
 .menu.simple {
   li {
@@ -174,4 +194,47 @@ header {
 .section-header {
 	background: $destaque;
 	padding-top: 2rem;
+}
+
+.brasao {
+  margin-right: 1rem;
+}
+
+.assinatura {
+  background-color: $cinza-base;
+  color: #fff;
+  padding: rem-calc(8) 0;
+  margin-top: 1rem;
+  a {
+    color: $destaque;
+    text-decoration: none;
+    &:hover, &:focus {
+      color: $destaque;
+      text-decoration: underline;
+    }
+  }
+  img {
+    @include breakpoint (small only) {
+      padding-top: 1rem;
+    }
+  }
+}
+
+//Utilidades
+.medium-float-right {
+  @include breakpoint (medium) {
+    float: right;
+  }
+}
+.large-float-right {
+  @include breakpoint (large) {
+    float: right;
+  }
+}
+
+//Alinhar à direita sem float - só funciona em elementos com display inline e inline-block
+.medium-align-right {
+  @include breakpoint (medium) {
+    text-align: right;
+  }
 }
