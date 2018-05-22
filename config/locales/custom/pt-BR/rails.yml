@@ -1,0 +1,11 @@
+pt-BR:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  number:
+    currency:
+      format:
+        unit: "R$"
+  time:
+    formats:
+      datetime: "%d/%m/%Y %H:%M:%S"

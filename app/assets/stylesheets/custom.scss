@@ -33,6 +33,7 @@ h6 {
 
 
 .button {
+  border-radius: 0;
 	&.hollow {
 	  border: 2px solid $link;
 	}
@@ -182,6 +183,7 @@ header {
 	}
 }
 
+//Home
 .jumbo {
   margin-top: 0;
   &.highlight {
@@ -192,6 +194,16 @@ header {
     @include breakpoint (large) {
       min-height: 18rem;
     }
+  }
+}
+
+//Polls
+.poll {
+  border: 0 none;
+  border-bottom: 1px solid $bordas;
+  margin-bottom: 2rem;
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

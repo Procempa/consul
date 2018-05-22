@@ -26,6 +26,7 @@ pt-BR:
       poll_questions: Orçamento Participativo
       budgets: (Orçamento participativo - original Consul)
   polls:
+    dates: "De %{open_at} a %{closed_at}"
     index:
       filters:
         current: Votações abertas
