@@ -182,6 +182,19 @@ header {
 	}
 }
 
+.jumbo {
+  margin-top: 0;
+  &.highlight {
+    background: linear-gradient(rgba(#000, .35), rgba(#000, .25)), url('pexels-photo-398532.jpg') 0 25%/cover;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(#000, .8);
+    position: relative;
+    @include breakpoint (large) {
+      min-height: 18rem;
+    }
+  }
+}
+
 //Admin
 .admin-sidebar {
     background: $cinza-base;
