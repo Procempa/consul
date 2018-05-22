@@ -22,4 +22,17 @@ pt-BR:
       transparency_url: http://www2.portoalegre.rs.gov.br/transparencia/
     header: 
       external_link_opendata_url: http://datapoa.com.br/
-      open_city_title: Porto Alegre PARTICIPA  
+      open_city_title: Porto Alegre PARTICIPA
+      poll_questions: Orçamento Participativo
+      budgets: (Orçamento participativo - original Consul)
+  polls:
+    index:
+      filters:
+        current: Votações abertas
+        incoming: Em breve
+        expired: Terminadas
+      title: Orçamento Participativo
+      participate_button: "Votar"
+      already_answer: "Você já participou desta votação"
+      section_header:
+        title: Orçamento Participativo   
