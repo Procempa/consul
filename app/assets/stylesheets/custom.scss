@@ -192,6 +192,10 @@ header {
   }
 }
 
+.tabs {
+  border-color: $bordas;
+}
+
 .callout {
 	&.success, &.notice {
 		color: darken($cor-sucesso, 15%);
@@ -268,6 +272,65 @@ header {
   margin-bottom: 2rem;
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.poll-more-info, .poll-more-info-answers {
+    border-top: 1px solid $fundo-claro;
+}
+
+.social-share-button {
+   .ssb-icon {
+    background-color: $link;
+    border-radius: 50%;
+    height: 2.5rem!important;
+    width: 2.5rem!important;
+    &:before {
+      line-height: 2.5rem!important;
+    }
+    &:hover, &:focus {
+      background-color: $link-hover;
+      color: #fff;
+    } 
+  }
+}
+.icon-whatsapp {
+  background-color: $link;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0.5rem;
+    &:before {
+      line-height: 1.5rem!important;
+      background-color: transparent!important;
+      height: 2.5rem!important;
+      width: 2.5rem!important;
+    }
+    &:hover, &:focus {
+      background-color: $link-hover;
+      //color: #fff;
+    } 
+}
+
+.ssb-icon + .ssb-icon {
+  margin-left: 0.5rem;
+}
+
+.ssb-telegram:before {
+  font-size: 1.25rem;
+}
+
+.poll-more-info-answers {
+  background-color: transparent;
+  border-bottom: 1px solid $fundo-claro;
+  .column:nth-child(2n+1), .columns:nth-child(2n+1) {
+    border-right: 2px solid $bordas;
+  }  
+  .answer-description.short {
+    height: auto;
+    max-height: 18.75rem;
   }
 }
 
