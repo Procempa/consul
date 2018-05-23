@@ -171,6 +171,27 @@ header {
   }
 }
 
+.breadcrumbs {
+  margin: 1rem 0;
+  > li {
+    margin-bottom: 0!important;
+    font-size: rem-calc(12)!important;
+    color: $texto;
+    -moz-osx-font-smoothing: auto;
+    &:not(:last-child):after {
+      color: $bordas;
+      font-family: "icons";
+      content: "\63\63";
+      text-transform: none!important;
+      letter-spacing: rem-calc(-9);
+      margin: 0 0.75rem 0 0.25rem; 
+    }
+    > a {
+      color: $link;
+    }
+  }
+}
+
 .callout {
 	&.success, &.notice {
 		color: darken($cor-sucesso, 15%);
