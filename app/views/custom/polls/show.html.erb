@@ -3,8 +3,8 @@
 <div class="polls-show">
   <%= render "poll_header" %>
 
-  <div class="row">
-    <div class="small-12 large-9 column margin">
+  <div class="row margin">
+    <div class="small-12 medium-9 column">
       <%= safe_html_with_links simple_format(@poll.summary) %>
       <% if @poll.geozones.any? %>
         <ul class="no-bullet margin-top tags">
@@ -15,6 +15,14 @@
       <% end %>
 
     </div>
+    <aside class="small-12 medium-3 column">
+      <%= render partial: 'shared/social_share', locals: {
+        share_title: t("shared.share"),
+        title: @poll.name,
+        url: poll_url(@poll),
+        description: @poll.name
+      } %>
+    </aside>
   </div>
 
   <%= render "poll_subnav" %>
@@ -47,15 +55,6 @@
       <% end %>
 
     </div>
-
-    <aside class="small-12 medium-3 column margin-top">
-      <%= render partial: 'shared/social_share', locals: {
-        share_title: t("shared.share"),
-        title: @poll.name,
-        url: poll_url(@poll),
-        description: @poll.name
-      } %>
-    </aside>
   </div>
 
   <div class="expanded poll-more-info">

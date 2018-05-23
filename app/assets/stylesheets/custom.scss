@@ -204,6 +204,49 @@ header {
 	}
 }
 
+.social-share-button {
+   .ssb-icon {
+    background-color: $link;
+    border-radius: 50%;
+    height: 2.5rem!important;
+    width: 2.5rem!important;
+    &:before {
+      line-height: 2.5rem!important;
+    }
+    &:hover, &:focus {
+      background-color: $link-hover;
+      color: #fff;
+    } 
+  }
+}
+.icon-whatsapp {
+  background-color: $link;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0.5rem;
+    &:before {
+      line-height: 1.5rem!important;
+      background-color: transparent!important;
+      height: 2.5rem!important;
+      width: 2.5rem!important;
+    }
+    &:hover, &:focus {
+      background-color: $link-hover;
+      //color: #fff;
+    } 
+}
+
+.ssb-icon + .ssb-icon {
+  margin-left: 0.5rem;
+}
+
+.ssb-telegram:before {
+  font-size: 1.25rem;
+}
+
 //Home
 .jumbo {
   margin-top: 0;
