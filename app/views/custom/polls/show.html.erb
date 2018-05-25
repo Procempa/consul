@@ -58,7 +58,7 @@
   </div>
 
   <div class="expanded">
-    <div class="row margin poll-more-info">
+    <div class="row margin margin-footer poll-more-info">
       <div class="small-12 medium-9 column margin-top">
         <h3><%= t("polls.show.more_info_title") %></h3>
         <%= safe_html_with_links simple_format(@poll.description) %>
@@ -73,6 +73,7 @@
     </div>
   </div>
 
+ <% if @poll_questions_answers.present? %>
   <div class="row poll-more-info-answers">
     <div class="padding clearfix">
 
@@ -144,6 +145,7 @@
     </div>
 
   </div>
+  <% end %>
 
   <div class="tabs-content" data-tabs-content="polls_tabs" role="tablist">
     <%= render "filter_subnav" %>

@@ -375,6 +375,55 @@ header {
   }
 }
 
+//Polls
+.pseudo-checkbox {
+  display: block;
+  margin-bottom: 1.5rem;
+  position: relative;
+  margin-left: 2rem;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 2px solid $bordas;
+    margin-left: -2rem;
+  }
+  &.answered {
+    &:before {
+      border-color: $destaque2;
+    }
+    &:after {
+      position: absolute;
+      top: rem-calc(-2);
+      left: rem-calc(3);
+      margin-left: -2rem;
+      content: "\6c";
+      font-family: "icons";
+      text-transform: none;
+      color: $destaque2;
+      font-size: 1.125rem;
+    }
+  }
+  &.js-question-answer {
+    color: $texto;
+    &:hover, &:focus {
+      text-decoration: none;
+      &:before {
+        border-color: $destaque2;
+      }
+    }
+    &:focus {
+      outline: none;
+      &:before {
+        box-shadow: 0 0 rem-calc(6) $destaque2;
+      }
+    }
+  }
+}
+
 //Utilidades
 .medium-float-right {
   @include breakpoint (medium) {
