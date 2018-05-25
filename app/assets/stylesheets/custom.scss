@@ -412,6 +412,28 @@ header {
   }
 }
 
+.mini-jumbo{
+  position: relative;
+  margin-bottom: 1rem;
+  &:after {
+    background: linear-gradient(rgba(#000, .0), rgba(#000, .25));
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  h3 {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    padding: 0 1rem;
+    text-shadow: 1px 1px 3px rgba(#000, .8);
+    z-index: 2;
+  }
+}
+
 //Polls
 .pseudo-checkbox {
   display: block;
