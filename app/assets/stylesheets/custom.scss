@@ -269,10 +269,47 @@ header {
 .poll {
   border: 0 none;
   border-bottom: 1px solid $bordas;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  padding: 2rem 0;
   &:last-child {
     margin-bottom: 0;
   }
+  &.with-image {
+   padding: 2rem 0;
+    &:first-of-type {
+      margin-top: -0.75rem;
+    }
+    img {
+      max-height: 80px;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+    }
+    .button {
+      @include breakpoint (small only) {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.image-container {
+  background-color: transparent;
+}
+
+.poll .icon-poll-answer.already-answer,
+.poll-question .icon-poll-answer.already-answer {
+//  border-top: 20px solid $destaque2;
+ // border-right: 15px solid $destaque2;
+//  border-left: 15px solid $destaque2;
+//  border-bottom: 15px solid transparent;
+    border: 0 none;
+    &:after {
+      font-size: 1.5rem;
+      color: $destaque2;
+      top: 0;
+      left: -1.5rem;
+    }
 }
 
 .poll-more-info, .poll-more-info-answers {
