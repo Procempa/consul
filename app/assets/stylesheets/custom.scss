@@ -481,6 +481,13 @@ header {
       }
     }
   }
+  &.disabled {
+    color: $text-medium;
+    cursor: not-allowed;
+    &:before {
+      background-color: lighten($fundo-claro, 7%);
+    }
+  }
 }
 
 //Utilidades
