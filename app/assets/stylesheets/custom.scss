@@ -56,9 +56,21 @@ header {
 .top-bar {
   background: #fff !important;
   color: $link;
+  height: 4rem;
+  line-height: 0;
 
   .top-bar-title a {
   	color: $texto;
+    line-height: 0; //?
+    padding-top: 1rem;
+    img {
+      height: 40px;
+      width: auto;
+      vertical-align: top;
+      @include breakpoint (medium) {
+        height: auto;
+      }
+    }
   }
   .logo {
   	color: $texto;
@@ -93,8 +105,12 @@ header {
       }
     }
   }
-
-  .menu-icon.dark {
+.menu-button {
+  margin-bottom: 0;
+  padding: 0.75rem;
+  margin-top: 1rem;
+}
+ /* .menu-icon.dark {
     &::after,
     &:hover::after {
       background: $link;

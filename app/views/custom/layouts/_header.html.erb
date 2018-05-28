@@ -3,21 +3,19 @@
   <div class="row">
     <div class="top-bar">
 
-      <%= link_to setting['org_name'], root_path, class: "logo show-for-small-only" %>
+      <div class="top-bar-title">
+          <%= link_to root_path, class: "logo", accesskey: "0" do %>
+            <%= image_tag(image_path_for('marca-opdigital.svg'), alt: "Marca OP Digital", onerror: "this.src='/assets/marca-opdigital.png'; this.onerror=null;") %>
+            <span class="show-for-sr"><%= setting['org_name'] %></span>
+          <% end %>
+        </div>
 
-      <span data-responsive-toggle="responsive_menu" data-hide-for="medium" class="float-right">
+      <span data-responsive-toggle="responsive_menu" data-hide-for="medium" class="float-right button menu-button">
         <span class="menu-icon dark" data-toggle></span>
         <%= t("application.menu")%>
       </span>
 
       <div id="responsive_menu">
-        <div class="top-bar-title">
-          <%= link_to root_path, class: "hide-for-small-only", accesskey: "0" do %>
-            <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-small-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
-            <%= setting['org_name'] %>
-          <% end %>
-        </div>
-
         <div class="top-bar-right">
           <ul class="menu" data-responsive-menu="medium-dropdown">
             <%= render "shared/admin_login_items" %>
