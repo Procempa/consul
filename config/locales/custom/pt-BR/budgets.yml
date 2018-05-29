@@ -3,7 +3,6 @@ pt-BR:
     phase:
       accepting: Envio de projetos
       reviewing: Revisão inicial de projetos
-      selecting: Votação de projetos
       finished: Resultados
     index:
       empty_budgets: Não há orçamentos cadastrados.
