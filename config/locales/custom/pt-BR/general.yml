@@ -43,4 +43,6 @@ pt-BR:
       title: Demandas
       section_header:
         title: Demandas
+  form:
+    accept_terms: Eu concordo com a %{policy} e os %{conditions}
 

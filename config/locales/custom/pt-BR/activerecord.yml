@@ -1,0 +1,5 @@
+pt-BR:
+  activerecord:
+    attributes:
+      budget/investment:
+        heading_id: "Tema"

@@ -1,0 +1,14 @@
+pt-BR:
+  budgets:
+    phase:
+      accepting: Envio de projetos
+      reviewing: Revisão inicial de projetos
+      selecting: Votação de projetos
+      finished: Resultados
+    index:
+      empty_budgets: Não há orçamentos cadastrados.
+    investments:
+      form:
+        map_skip_checkbox: "Este projeto não possui uma localização específica ou não sei onde ele se localiza"
+      index:
+        by_heading: "Projetos de investimento com o tema: %{heading}"
