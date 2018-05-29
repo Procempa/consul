@@ -23,9 +23,9 @@ pt-BR:
     header: 
       external_link_opendata_url: http://datapoa.com.br/
       open_city_title: Porto Alegre PARTICIPA
-      poll_questions: Votações
+      poll_questions: Consultas Públicas
       budgets: Orçamento Participativo
-      proposals: Consultas Públicas
+      debates: Demandas
   polls:
     dates: "De %{open_at} a %{closed_at}"
     index:
@@ -33,14 +33,14 @@ pt-BR:
         current: Votações abertas
         incoming: Em breve
         expired: Terminadas
-      title: Votações
+      title: Consultas Públicas
       participate_button: "Votar"
       already_answer: "Você já participou desta votação"
       section_header:
-        title: Votações
-  proposals:
-    index:
-      title: Consultas Públicas
-      section_header:
         title: Consultas Públicas
+  debates:
+    index:
+      title: Demandas
+      section_header:
+        title: Demandas
 
