@@ -3,7 +3,7 @@ class Budget < ActiveRecord::Base
   include Measurable
   include Sluggable
 
-  CURRENCY_SYMBOLS = %w(€ $ £ ¥).freeze
+  CURRENCY_SYMBOLS = %w(€ $ £ ¥ Voto).freeze
 
   validates :name, presence: true, uniqueness: true
   validates :phase, inclusion: { in: Budget::Phase::PHASE_KINDS }
