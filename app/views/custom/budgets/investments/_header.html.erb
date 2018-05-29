@@ -1,22 +1,26 @@
 <% if @heading.present? %>
+  <div class="row no-margin-top">
+    <div class="small-12 column">
+      <ul class="breadcrumbs">
+        <li><%= link_to t("budgets.investments.index.title"), budgets_path  %></li>
+        <li><%= t("budgets.investments.index.by_heading", heading: @heading.name) %></li>
+      </ul>
+    </div>
+  </div>
 
-<div class="row">
-        <div class="small-12 column">
-          <%= back_link_to budgets_path %>
-
-          <% if can? :show, @ballot %>
-            <%= link_to t("budgets.investments.header.check_ballot"),
-                        budget_ballot_path(@budget),
-                        class: "button float-right" %>
-          <% end %>
-        </div>
-      </div>
+  <!-- O que esta parte faz? Testar -->
+  <div class="row">
+    <div class="small-12 column">
+      <% if can? :show, @ballot %>
+        <%= link_to t("budgets.investments.header.check_ballot"),
+                          budget_ballot_path(@budget),
+                          class: "button float-right" %>
+      <% end %>
+    </div>
+  </div>
       
-  <section class="margin-bottom">
-    <div class="expanded section-header">
-
-      
-
+  <section>
+    <div class="expanded section-header margin-bottom">
       <div class="row progress-votes">
         <div class="small-12 column">
           <% if can? :show, @ballot %>
@@ -63,12 +67,20 @@
       </div>
     </div>
   </section>
+
 <% else %>
-  <div class="expanded jumbo-budget padding no-margin-top margin-bottom">
+  <div class="row no-margin-top">
+    <div class="small-12 column">
+      <ul class="breadcrumbs">
+        <li><%= link_to budget_path(@budget) %></li>
+        <li><%= t("budgets.investments.index.title") %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="expanded section-header margin-bottom">
     <div class="row">
       <div class="small-12 column">
-        <%= back_link_to budget_path(@budget) %>
-
         <h2 class="margin-top">
           <%= t("budgets.investments.index.title") %>
         </h2>

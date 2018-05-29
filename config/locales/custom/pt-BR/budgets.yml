@@ -10,4 +10,4 @@ pt-BR:
       form:
         map_skip_checkbox: "Este projeto não possui uma localização específica ou não sei onde ele se localiza"
       index:
-        by_heading: "Projetos de investimento com o tema: %{heading}"
+        by_heading: "%{heading}"
