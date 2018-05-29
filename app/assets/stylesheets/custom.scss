@@ -387,6 +387,29 @@ header {
   }
 }
 
+//Budgets 
+.section-header{
+  .info {
+    background-color: rgba(#fff, 0.4);
+    padding-top: 0.5rem;
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      margin-bottom: 0.25rem;
+    }
+    .button, .callout {
+      margin-top: 0.75rem;
+    }
+  }
+  &.with-info {
+    padding-top: 0;
+    h1 {
+      padding-top: 2.5rem;
+    }
+  }
+}
+
 //Admin
 .admin-sidebar {
     background: $cinza-base;
