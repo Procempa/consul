@@ -71,26 +71,28 @@
   <div id="budget_info" class="budget-info">
     <div class="row margin-top">
       <div class="small-12 column">
-
+        <h2>Temas do OP Digital</h2>
         <div id="groups_and_headings" class="groups-and-headings">
-          <% current_budget.groups.each do |group| %>
-            <h2 id="<%= group.name.parameterize %>"><%= group.name %></h2>
             <ul class="no-bullet">
+              <% current_budget.groups.each do |group| %>
               <% group.headings.order_by_group_name.each do |heading| %>
-                <li class="heading small-12 medium-4 large-2">
+                <li class="heading column">
                   <% unless current_budget.informing? %>
                     <%= link_to budget_investments_path(current_budget.id, heading_id: heading.id) do %>
-                      <%= heading_name_and_price_html(heading, current_budget) %>
+                      <img src="/assets/transporte.jpg" alt=""> <!-- Imagem de marcação; trocar depois via código! -->
+                      <h3><%= heading.name %></h3>
                     <% end %>
                   <% else %>
                     <div>
-                      <%= heading_name_and_price_html(heading, current_budget) %>
+                      <img src="/assets/transporte.jpg" alt=""> <!-- Imagem de marcação; trocar depois via código! -->
+                      <h3><%= heading.name %></h3>
                     </div>
                   <% end %>
                 </li>
               <% end %>
-            </ul>
+            
           <% end %>
+          </ul>
         </div>
       </div>
     </div>
