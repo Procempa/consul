@@ -410,6 +410,31 @@ header {
   }
 }
 
+.groups-and-headings {
+  .heading {
+    border-radius: 0;
+    border: 0 none;
+    border-bottom: 2px solid $bordas;
+    padding: 0.5rem 0;
+    &:first-child {
+      border-top: 2px solid $bordas;
+      padding-top: 1rem;
+    }
+    a {
+      color: $texto;
+      &:hover, &:focus {
+        h1, h2, h3, h4, h5, h6 {
+           color: $texto;
+        }
+      }
+    }
+    &:hover {
+      text-decoration: underline;
+      background-color: transparent;
+    }
+  }
+}
+
 //Admin
 .admin-sidebar {
     background: $cinza-base;
