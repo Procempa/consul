@@ -1,0 +1,173 @@
+From c7d1141b109047a438989f2dd0590345c06a69e6 Mon Sep 17 00:00:00 2001
+From: Thiago Presa <thiago.presa@procempa.com.br>
+Date: Mon, 11 Jun 2018 17:35:59 -0300
+Subject: [PATCH] Adicionando acessopoa de hom
+
+---
+ Gemfile                                                | 1 +
+ Gemfile.lock                                           | 8 +++++++-
+ app/controllers/users/omniauth_callbacks_controller.rb | 9 ++++++++-
+ app/models/user.rb                                     | 2 +-
+ app/views/devise/_omniauth_form.html.erb               | 6 ++++++
+ config/initializers/devise.rb                          | 1 +
+ config/initializers/omniauth.rb                        | 8 ++++++++
+ db/schema.rb                                           | 2 +-
+ 8 files changed, 33 insertions(+), 4 deletions(-)
+ create mode 100644 config/initializers/omniauth.rb
+
+diff --git a/Gemfile b/Gemfile
+index b0fe141..89b6351 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -34,6 +34,7 @@ gem 'omniauth', '~> 1.8.1'
+ gem 'omniauth-facebook', '~> 4.0.0'
+ gem 'omniauth-google-oauth2', '~> 0.4.0'
+ gem 'omniauth-twitter', '~> 1.4.0'
++gem 'omniauth-saml'
+ gem 'paperclip', '~> 5.2.1'
+ gem 'paranoia', '~> 2.4.0'
+ gem 'pg', '~> 0.21.0'
+diff --git a/Gemfile.lock b/Gemfile.lock
+index 5b6de0a..e3cca38 100644
+--- a/Gemfile.lock
++++ b/Gemfile.lock
+@@ -297,6 +297,9 @@ GEM
+     omniauth-oauth2 (1.4.0)
+       oauth2 (~> 1.0)
+       omniauth (~> 1.2)
++    omniauth-saml (1.10.1)
++      omniauth (~> 1.3, >= 1.3.2)
++      ruby-saml (~> 1.7)
+     omniauth-twitter (1.4.0)
+       omniauth-oauth (~> 1.1)
+       rack
+@@ -395,6 +398,8 @@ GEM
+     rubocop-rspec (1.24.0)
+       rubocop (>= 0.53.0)
+     ruby-progressbar (1.9.0)
++    ruby-saml (1.8.0)
++      nokogiri (>= 1.5.10)
+     rubyzip (1.2.1)
+     rvm1-capistrano3 (1.4.0)
+       capistrano (~> 3.0)
+@@ -544,6 +549,7 @@ DEPENDENCIES
+   omniauth (~> 1.8.1)
+   omniauth-facebook (~> 4.0.0)
+   omniauth-google-oauth2 (~> 0.4.0)
++  omniauth-saml
+   omniauth-twitter (~> 1.4.0)
+   paperclip (~> 5.2.1)
+   paranoia (~> 2.4.0)
+@@ -579,4 +585,4 @@ DEPENDENCIES
+   whenever (~> 0.10.0)
+ 
+ BUNDLED WITH
+-   1.16.1
++   1.16.2
+diff --git a/app/controllers/users/omniauth_callbacks_controller.rb b/app/controllers/users/omniauth_callbacks_controller.rb
+index c83eecb..57fc2cc 100644
+--- a/app/controllers/users/omniauth_callbacks_controller.rb
++++ b/app/controllers/users/omniauth_callbacks_controller.rb
+@@ -1,4 +1,5 @@
+ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
++  skip_before_action :verify_authenticity_token
+ 
+   def twitter
+     sign_in_with :twitter_login, :twitter
+@@ -12,6 +13,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+     sign_in_with :google_login, :google_oauth2
+   end
+ 
++  def saml
++    sign_in_with :saml, :saml
++  end
++
+   def after_sign_in_path_for(resource)
+     if resource.registering_with_oauth
+       finish_signup_path
+@@ -23,10 +28,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+   private
+ 
+     def sign_in_with(feature, provider)
+-      raise ActionController::RoutingError.new('Not Found') unless Setting["feature.#{feature}"]
++#      raise ActionController::RoutingError.new('Not Found') unless Setting["feature.#{feature}"]
+ 
+       auth = env["omniauth.auth"]
+ 
++      byebug
++
+       identity = Identity.first_or_create_from_oauth(auth)
+       @user = current_user || identity.user || User.first_or_initialize_for_oauth(auth)
+ 
+diff --git a/app/models/user.rb b/app/models/user.rb
+index db89225..5c45c1d 100644
+--- a/app/models/user.rb
++++ b/app/models/user.rb
+@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
+       oauth_email: oauth_email,
+       password: Devise.friendly_token[0, 20],
+       terms_of_service: '1',
+-      confirmed_at: oauth_email_confirmed ? DateTime.current : nil
++      confirmed_at: DateTime.current #oauth_email_confirmed ? DateTime.current : nil
+     )
+   end
+ 
+diff --git a/app/views/devise/_omniauth_form.html.erb b/app/views/devise/_omniauth_form.html.erb
+index f2c5672..234e18f 100644
+--- a/app/views/devise/_omniauth_form.html.erb
++++ b/app/views/devise/_omniauth_form.html.erb
+@@ -32,6 +32,12 @@
+         </div>
+       <% end %>
+ 
++        <div class="small-12 medium-6 large-4 column end">
++          <%= link_to t("omniauth.google_oauth2.name"), user_omniauth_authorize_path(:saml),
++                      title: t("omniauth.google_oauth2.sign_in"),
++                      class: "button-google button expanded" %>
++        </div>
++
+       <div class="small-12 column auth-divider">
+         <span><%= t("omniauth.or_fill") %></span>
+       </div>
+diff --git a/config/initializers/devise.rb b/config/initializers/devise.rb
+index 6acce50..3039860 100644
+--- a/config/initializers/devise.rb
++++ b/config/initializers/devise.rb
+@@ -246,6 +246,7 @@ Devise.setup do |config|
+   config.omniauth :twitter, Rails.application.secrets.twitter_key, Rails.application.secrets.twitter_secret
+   config.omniauth :facebook, Rails.application.secrets.facebook_key, Rails.application.secrets.facebook_secret, scope: 'email', info_fields: 'email,name,verified'
+   config.omniauth :google_oauth2, Rails.application.secrets.google_oauth2_key, Rails.application.secrets.google_oauth2_secret
++  config.omniauth :saml,       idp_sso_target_url: 'target_url', idp_cert: "MIICoTCCAYkCBgFcoaH+VzANBgkqhkiG9w0BAQsFADAUMRIwEAYDVQQDDAlhY2Vzc29wb2EwHhcNMTcwNjEzMTMyNDI3WhcNMjcwNjEzMTMyNjA3WjAUMRIwEAYDVQQDDAlhY2Vzc29wb2EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQClGi7JUP2qiP4XY1bUKNUpgoeeniQhy0PgaoLko4hIlICNWe9B3HOPG8ZpIxuKBMx1s3iM1LiLhbX8C5olRd+4IlpYVYaUlSg+CsesSY0vMKIHiGyJF8gDNVGAqkFME9/d4FI01FhCko4j65zvDWTgr3KNtQYHQQE2JwmRl1H0Lz0PiCCKQ0uu3ZlQOqEzQ/5mr1WdXDpggkemUVSN85AZDC4NcEwPVLoAC32Ncunynwp2cRaG+jmvb6qn9ZUlwyXL1MjHlj/O3FNODpjAtF/9lc0UW9Hc7xiYLDKOXXrM7ib2kv7R0a44D2oA+9JnWiBUwwJFROVYqY8VaTS2XQS9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAII1sbx6kt3cQXZbWdUuxL60ESSP0yHV+PJyRafY/0o8lmBdt5XWoRAM5CnWJRc9BEWMiRSBoVU/J5jk29J+86jE61bWsbY1bwJ6g+a2q5L9QXPugVG6trMDUbmEWqKg30J6x66URCeMfWQY7u5yGq4O7vg8lvCRX9126fxTJVOUC6zBd9vXTCPQGr5IQmqeIIdVVFDioNAAEhWl3ABh+hvqlxYvEysvYunoFqCVKiL91pfbENTSODLhcOGHJxyZx5Xte4Jq7l905nHpv+DWxMOi3UnyO/dN0AakqAquFnzlSZJh65ZFnkS+MGekHqvdngsOLFkbsIefDZixW4HZIvs="
+ 
+   # ==> Warden configuration
+   # If you want to use other strategies, that are not supported by Devise, or
+diff --git a/config/initializers/omniauth.rb b/config/initializers/omniauth.rb
+new file mode 100644
+index 0000000..f146f0e
+--- /dev/null
++++ b/config/initializers/omniauth.rb
+@@ -0,0 +1,8 @@
++Rails.application.config.middleware.use OmniAuth::Builder do
++   provider :saml,
++     :issuer                             => "consul",
++     :idp_sso_target_url                 => "https://acessopoa-hom.procempa.com.br/auth/realms/acessopoa/protocol/saml",
++     :idp_sso_target_url_runtime_params  => {:original_request_param => :mapped_idp_param},
++     :idp_cert                           => "MIICoTCCAYkCBgFcoaH+VzANBgkqhkiG9w0BAQsFADAUMRIwEAYDVQQDDAlhY2Vzc29wb2EwHhcNMTcwNjEzMTMyNDI3WhcNMjcwNjEzMTMyNjA3WjAUMRIwEAYDVQQDDAlhY2Vzc29wb2EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQClGi7JUP2qiP4XY1bUKNUpgoeeniQhy0PgaoLko4hIlICNWe9B3HOPG8ZpIxuKBMx1s3iM1LiLhbX8C5olRd+4IlpYVYaUlSg+CsesSY0vMKIHiGyJF8gDNVGAqkFME9/d4FI01FhCko4j65zvDWTgr3KNtQYHQQE2JwmRl1H0Lz0PiCCKQ0uu3ZlQOqEzQ/5mr1WdXDpggkemUVSN85AZDC4NcEwPVLoAC32Ncunynwp2cRaG+jmvb6qn9ZUlwyXL1MjHlj/O3FNODpjAtF/9lc0UW9Hc7xiYLDKOXXrM7ib2kv7R0a44D2oA+9JnWiBUwwJFROVYqY8VaTS2XQS9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAII1sbx6kt3cQXZbWdUuxL60ESSP0yHV+PJyRafY/0o8lmBdt5XWoRAM5CnWJRc9BEWMiRSBoVU/J5jk29J+86jE61bWsbY1bwJ6g+a2q5L9QXPugVG6trMDUbmEWqKg30J6x66URCeMfWQY7u5yGq4O7vg8lvCRX9126fxTJVOUC6zBd9vXTCPQGr5IQmqeIIdVVFDioNAAEhWl3ABh+hvqlxYvEysvYunoFqCVKiL91pfbENTSODLhcOGHJxyZx5Xte4Jq7l905nHpv+DWxMOi3UnyO/dN0AakqAquFnzlSZJh65ZFnkS+MGekHqvdngsOLFkbsIefDZixW4HZIvs=",
++     :name_identifier_format             => "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
++end
+diff --git a/db/schema.rb b/db/schema.rb
+index e2b14fe..f94378c 100644
+--- a/db/schema.rb
++++ b/db/schema.rb
+@@ -11,7 +11,7 @@
+ #
+ # It's strongly recommended that you check this file into your version control system.
+ 
+-ActiveRecord::Schema.define(version: 20180529203115) do
++ActiveRecord::Schema.define(version: 20180529204912) do
+ 
+   # These are extensions that must be enabled in order to support this database
+   enable_extension "plpgsql"
+-- 
+2.7.4
+

@@ -32,6 +32,12 @@
         </div>
       <% end %>
 
+        <div class="small-12 medium-6 large-4 column end">
+          <%= link_to t("omniauth.google_oauth2.name"), user_omniauth_authorize_path(:saml),
+                      title: t("omniauth.google_oauth2.sign_in"),
+                      class: "button-google button expanded" %>
+        </div>
+
       <div class="small-12 column auth-divider">
         <span><%= t("omniauth.or_fill") %></span>
       </div>
