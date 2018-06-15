@@ -6,14 +6,14 @@
       </div>
     <% end %>
     <div class="row" data-equalizer data-equalize-on="medium">
-      <div class="small-12 medium-3 large-2 column">
+      <div class="small-12 medium-3 column">
         <div class="image-container" data-equalizer-watch>
           <% if poll.image.present? %>
             <%= image_tag poll.image_url(:large), alt: poll.image.title.unicode_normalize %>
           <% end %>
         </div>
       </div>
-      <div class="small-12 medium-6 large-8 column" data-equalizer-watch>
+      <div class="small-12 medium-6 large-7 column" data-equalizer-watch>
         <div class="dates"></div>
         <% if poll.questions.count == 1 %>
           <% poll.questions.each do |question| %>
@@ -27,7 +27,9 @@
               <% end %>
             </h4>
             <small class="date"><%= poll_dates(poll) %></small>
-            
+            <% if poll.summary %> 
+             <%= safe_html_with_links simple_format(poll.summary) %>
+            <% end %>
           <% end %>
         <% else %>
           <h4>

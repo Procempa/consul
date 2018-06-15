@@ -305,10 +305,17 @@ header {
       }
     }
   }
+  .date + p {
+    margin-top: 1rem;
+  }
 }
 
 .image-container {
   background-color: transparent;
+  img {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .poll .icon-poll-answer.already-answer,
