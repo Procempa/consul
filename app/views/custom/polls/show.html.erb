@@ -78,7 +78,7 @@
     <div class="padding clearfix">
 
       <% @poll_questions_answers.each do |answer| %>
-        <div class="small-12 medium-6 column end answer <%= cycle('first', '') %>" id="answer_<%= answer.id %>">
+        <div class="small-12 medium-6 column margin-bottom end answer <%= cycle('first', '') %>" id="answer_<%= answer.id %>">
 
           <% if answer.description.present? %>
             <h3><%= answer.title %></h3>
@@ -90,21 +90,8 @@
 
           <% if answer.description.present? %>
             <div class="margin-top">
-              <div id="answer_description_<%= answer.id %>" class="answer-description short" data-toggler="short">
+              <div id="answer_description_<%= answer.id %>" class="answer-description" data-toggler="short">
                 <%= safe_html_with_links simple_format(answer.description) %>
-              </div>
-              <div class="margin">
-                <a id="read_more_<%= answer.id %>"
-                   data-toggle="answer_description_<%= answer.id %> read_more_<%= answer.id %> read_less_<%= answer.id %>"
-                   data-toggler="hide">
-                  <%= t("polls.show.read_more", answer: answer.title) %>
-                </a>
-                <a id="read_less_<%= answer.id %>"
-                   data-toggle="answer_description_<%= answer.id %> read_more_<%= answer.id %> read_less_<%= answer.id %>"
-                   data-toggler="hide"
-                   class="hide">
-                  <%= t("polls.show.read_less", answer: answer.title) %>
-                </a>
               </div>
             </div>
           <% end %>
