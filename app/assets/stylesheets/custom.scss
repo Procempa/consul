@@ -546,6 +546,14 @@ header {
     background: linear-gradient(to bottom, $cinza-base 0%, $texto 100%);
 }
 
+.auth-image {
+  background: $brand image-url('custom/auth_bg_novo.jpg');
+  h1 img {
+    height: auto;
+    width: 13rem;
+  }
+}
+
 
 // -------- ESTILOS PRÓPRIOS OP DIGITAL -------
 
