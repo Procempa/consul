@@ -64,6 +64,12 @@ label {
   }
 }
 
+table {
+  th, tr:nth-child(2n) {
+    background-color: lighten($bordas, 20%);
+  }
+} 
+
 .button {
   border-radius: 0;
 	&.hollow {
@@ -82,6 +88,11 @@ header {
   	@include breakpoint(medium) {
   		background-color: transparent; //rever
   	}
+  }
+  .hide-for-small-only {
+    .external-links {
+      padding: 0;
+    }
   }
 }
 
@@ -518,6 +529,15 @@ header {
       background-color: transparent;
     }
   }
+}
+
+//Mais informações / ajuda
+.jumbo.light {
+  background-color: $destaque;
+}
+
+.more-info-content h3 {
+  color: $texto;
 }
 
 //Admin
