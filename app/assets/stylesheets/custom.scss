@@ -57,6 +57,12 @@ h6 {
   font-size: $lead-font-size;
 }
 
+label {
+  color: $texto;
+  .wide-order-selector & {
+    margin-top: 0.5rem;
+  }
+}
 
 .button {
   border-radius: 0;
@@ -418,12 +424,52 @@ header {
   }
 }
 
+.polls-show {
+  .video-link {
+    border: 0 none;
+    background-color: transparent;
+    padding: 0.75rem 0;
+  }
+}
+
+.document-link {
+  .icon-document {
+    color: $link;
+    position: relative;
+    bottom: -2px;
+  }
+}
+
+
 //Galeria de imagens
 .orbit-caption {
   background-color: #fff;
-  padding-left: 0;
   font-style: italic;
   color: $text-medium;
+  //border-bottom: 2px solid $bordas;
+}
+.orbit-bullets {
+  margin-top: 0;
+}
+
+.zoom-link {
+  color: $link;
+  &:hover {
+    background-color: $link;
+  }
+}
+
+//Comentários 
+.is-author {
+  background-color: $destaque;
+}
+
+.comment-body {
+  .comment-user {
+    &.is-author, &.is-admin, &.is-moderator {
+      background: rgba($destaque, 0.15);
+    }
+  }
 }
 
 //Budgets 

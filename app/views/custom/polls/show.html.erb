@@ -98,12 +98,10 @@
 
           <% if answer.documents.present? %>
             <div class="document-link">
-              <p>
-                <span class="icon-document"></span>&nbsp;
-                <strong><%= t("polls.show.documents") %></strong>
-              </p>
+                <h4><%= t("polls.show.documents") %></h4>
 
               <% answer.documents.each do |document| %>
+              <span class="icon-document"></span>&nbsp;
                   <%= link_to document.title,
                               document.attachment.url,
                               target: "_blank",
@@ -113,13 +111,11 @@
           <% end %>
 
           <% if answer.videos.present? %>
-            <div class="video-link">
-              <p>
-                <span class="icon-video"></span>&nbsp;
-                <strong><%= t("polls.show.videos") %></strong>
-              </p>
+            <div class="video-link"> 
+                <h4><%= t("polls.show.videos") %></h4>
 
               <% answer.videos.each do |video| %>
+              <span class="icon-video"></span>&nbsp;
                   <%= link_to video.title,
                               video.url,
                               target: "_blank",
