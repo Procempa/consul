@@ -554,6 +554,31 @@ header {
   }
 }
 
+.button-acessopoa {
+  background-color: mix($cor-acessopoa, #fff, 10%);
+  border-left: 3px solid $cor-acessopoa;
+  color: $texto;
+  font-weight: bold;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0;
+  position: relative;
+  &:hover {
+    background-color: mix($cor-acessopoa, #fff, 10%);
+    color: $texto;
+  }
+  &:before {
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  left: 0;
+  padding: 1.5rem;
+  position: absolute;
+  top: 0;
+  background: image-url('custom/icone-acessopoa.png') no-repeat center;
+  }
+}
+
 
 // -------- ESTILOS PRÓPRIOS OP DIGITAL -------
 
