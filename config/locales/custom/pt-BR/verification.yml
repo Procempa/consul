@@ -1,0 +1,6 @@
+pt-BR:
+  verification:
+    residence:
+      new:
+        error_not_allowed_postal_code: Para ser verificado, você deve residir em Porto Alegre.
+        postal_code_note: Para verificar sua conta, você deve residir em Porto Alegre.
