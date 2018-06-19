@@ -598,6 +598,11 @@ header {
   .top-bar {
     .menu > li > a {
       color: $link!important;
+      vertical-align: middle;
+
+    }
+    [class^="icon-"]:not(.icon-circle) {
+      vertical-align: middle;
     }
   }
   .dropdown.menu > .is-dropdown-submenu-parent > a::after {
