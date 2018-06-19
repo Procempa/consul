@@ -73,6 +73,10 @@ table {
   }
 } 
 
+thead {
+  color: $cinza-base;
+}
+
 input, select, [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
   border-radius: 0;
 }
@@ -511,6 +515,10 @@ header {
 .initialjs-avatar {
   margin-right: 1rem;
 }
+
+.verify-account .already-verified .icon-check {
+  color: $cor-sucesso;
+}
 //Budgets 
 .section-header{
   .info {
@@ -837,6 +845,122 @@ a.back {
     }
   }
 }
+// 09. Polls results and stats
+// ---------------------------
+
+.polls-results-stats {
+  table {
+    th {
+      &.win {
+        background: mix($destaque2, #fff, 60%);
+      }
+    }
+    td {
+      &.win {
+        background: mix($destaque2, #fff, 30%);
+      }
+    }
+  }
+}
+
+
+//Checkboxes - desativado
+/*$input-border: $bordas;
+$input-action: $destaque2;
+$cta: $destaque2;
+$input-disabled-border: $bordas;
+$input-disabled-bg: lighten($bordas, 20%);
+$cursor-disabled: not-allowed;
+$texto-secundario: $text-medium;
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    + span.checkbox {
+      position: relative;
+      padding-left: 2rem;
+      margin-left: -1.5rem;
+      cursor: pointer;
+      
+      //Nestes pseudoelementos serão desenhados os estados do checkbox
+      &:before, &:after {
+        position: absolute;
+        left:0; 
+        top: 0;
+        width: 1.5rem; 
+        height: 1.5rem;
+      }
+
+      //Em :before é desenhada a caixa da checkbox (not checked)
+      &:before {
+        content: '';
+        border: 2px solid $input-border;
+        background: #fff;
+        //border-radius: $border-radius;
+      }
+      &:hover:before {
+        border-color: $input-action;
+      }
+      //Em :after é desenhado o checkbox marcado (checked)
+      &:after {
+        font-family: 'icons';
+        content: '\6c';
+        font-size: rem-calc(18);
+        line-height: 1;
+        color: $input-action;
+        padding: rem-calc(3);
+        //background-color: $input-action;
+        transition: all .2s;
+        //border-radius: $border-radius;
+      }
+    }
+  }
+  //Mudar cor da borda quando o checkbox está marcado
+  [type="checkbox"]:checked {
+    + span.checkbox {
+      &:before {
+        border: 2px solid $input-action;
+        //border-radius: $border-radius;
+      }
+    }
+  }
+
+  // checked mark aspect changes 
+  [type="checkbox"]:not(:checked) + span.checkbox:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="checkbox"]:checked + span.checkbox:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  // disabled checkbox
+  [type="checkbox"]:disabled:not(:checked) + span.checkbox:before,
+  [type="checkbox"]:disabled:checked + span.checkbox:before {
+    border-color: $input-disabled-border;
+    background-color: $input-disabled-bg;
+    //border-radius: $border-radius;
+    &:hover {
+      border-color: $input-disabled-border;
+    }
+  }
+  [type="checkbox"]:disabled:checked + span.checkbox:after {
+    color: $input-disabled-border;
+    //background-color: $input-disabled-border;
+    //border-radius: $border-radius; 
+  }
+  [type="checkbox"]:disabled + span.checkbox {
+    color: $texto-secundario;
+    cursor: $cursor-disabled;
+  }
+  // accessibility 
+  [type="checkbox"]:checked:focus + span.checkbox:before,
+  [type="checkbox"]:not(:checked):focus + span.checkbox:before {
+    border-color: $cta;
+    box-shadow: 0 0 4px $cta;
+    outline: 0 none;
+  }
+
+*/
 
 //Utilidades
 .medium-float-right {
