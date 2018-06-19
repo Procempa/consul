@@ -51,6 +51,9 @@ h4,
 h5,
 h6 {
   font-family: $body-font-family;
+  small {
+    color: $text-medium;
+  }
 }
 
 .lead {
@@ -70,9 +73,10 @@ table {
   }
 } 
 
-input, select {
+input, select, [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
   border-radius: 0;
 }
+
 
 .button {
   border-radius: 0;
@@ -232,7 +236,10 @@ header {
     }
     &.active {
       border-bottom: 4px solid $text;
-      color: $text;
+      color: $texto;
+      a {
+        color: $texto;
+      }
     }
   }
 }
@@ -499,6 +506,11 @@ header {
   }
 }
 
+//Usuário 
+
+.initialjs-avatar {
+  margin-right: 1rem;
+}
 //Budgets 
 .section-header{
   .info {
@@ -575,6 +587,9 @@ header {
       border-left: 0;
       color: $destaque;
       text-decoration: underline;
+      [class^="icon-"], &:hover [class^="icon-"] {
+        color: $destaque;
+      }
     }
   }
 }
@@ -588,8 +603,11 @@ header {
   .dropdown.menu > .is-dropdown-submenu-parent > a::after {
     border-color: $link transparent transparent;
   }
+  .menu.simple .active {
+    color: $texto;
+    border-color: $texto;
+  }
 }
-
 
 .auth-image {
   background: $brand image-url('custom/auth_bg_novo.jpg');
@@ -599,31 +617,15 @@ header {
   }
 }
 
-.button-acessopoa {
-  background-color: mix($cor-acessopoa, #fff, 10%);
-  border-left: 3px solid $cor-acessopoa;
-  color: $texto;
-  font-weight: bold;
-  height: 3rem;
-  line-height: 3rem;
-  padding: 0;
-  position: relative;
-  &:hover {
-    background-color: mix($cor-acessopoa, #fff, 10%);
-    color: $texto;
-  }
-  &:before {
-  content: '';
-  width: 1.5rem;
-  height: 1.5rem;
-  left: 0;
-  padding: 1.5rem;
-  position: absolute;
-  top: 0;
-  background: image-url('custom/icone-acessopoa.png') no-repeat center;
-  }
+
+a.back {
+  color: $link;
 }
 
+.stats-numbers p.featured {
+    background: rgba($destaque, 0.85);
+    border: 0;
+}
 
 // -------- ESTILOS PRÓPRIOS OP DIGITAL -------
 
@@ -678,6 +680,31 @@ header {
     padding: 0 1rem;
     text-shadow: 1px 1px 3px rgba(#000, .8);
     z-index: 2;
+  }
+}
+
+.button-acessopoa {
+  background-color: mix($cor-acessopoa, #fff, 10%);
+  border-left: 3px solid $cor-acessopoa;
+  color: $texto;
+  font-weight: bold;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0;
+  position: relative;
+  &:hover {
+    background-color: mix($cor-acessopoa, #fff, 10%);
+    color: $texto;
+  }
+  &:before {
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  left: 0;
+  padding: 1.5rem;
+  position: absolute;
+  top: 0;
+  background: image-url('custom/icone-acessopoa.png') no-repeat center;
   }
 }
 

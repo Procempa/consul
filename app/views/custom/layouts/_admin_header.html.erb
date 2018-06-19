@@ -1,0 +1,35 @@
+<header class="header">
+
+  <div class="expanded row">
+    <div class="top-bar">
+
+      <span data-responsive-toggle="responsive_menu" data-hide-for="medium" class="float-right button menu-button">
+        <span class="menu-icon" data-toggle></span>
+        <%= t("application.menu")%>
+      </span>
+
+
+        <div class="top-bar-title">
+          <h1>
+            <%= link_to namespaced_root_path do %>
+              <%= image_tag(image_path_for('marca-opdigital.svg'), alt: "Marca OP Digital", onerror: "this.src='/assets/marca-opdigital.png'; this.onerror=null;") %>
+              <span class="show-for-sr"><%= setting['org_name'] %></span>
+              <br><small><%= namespaced_header_title %></small>
+            <% end %>
+          </h1>
+        </div>
+        <div id="responsive_menu">
+
+        <div class="top-bar-right">
+          <ul class="menu" data-responsive-menu="medium-dropdown">
+            <%= render "admin/shared/admin_shortcuts" %>
+            <%= render "shared/admin_login_items" %>
+            <%= render "layouts/notification_item" %>
+            <%= render "devise/menu/login_items" %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
