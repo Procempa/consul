@@ -70,6 +70,10 @@ table {
   }
 } 
 
+input, select {
+  border-radius: 0;
+}
+
 .button {
   border-radius: 0;
 	&.hollow {
@@ -112,6 +116,9 @@ header {
       vertical-align: top;
       @include breakpoint (medium) {
         height: auto;
+      }
+      .admin & {
+        max-width: 10rem;
       }
     }
   }
@@ -308,6 +315,15 @@ header {
 
 .ssb-telegram:before {
   font-size: 1.25rem;
+}
+
+.input-group {
+  .button {
+    height: 3rem;
+  }
+  > :first-child, > :last-child > * {
+    border-radius: 0;
+  }
 }
 
 //Home
@@ -543,8 +559,37 @@ header {
 //Admin
 .admin-sidebar {
     background: $cinza-base;
-    background: linear-gradient(to bottom, $cinza-base 0%, $texto 100%);
+    li {
+      ul {
+        border-left: 2px solid $destaque;
+      }
+      a:hover {
+        background-color: $destaque;
+        color: $texto;
+        [class^="icon-"] {
+          color: $texto;
+        }
+      }
+    &.active a {
+      background: transparent;
+      border-left: 0;
+      color: $destaque;
+      text-decoration: underline;
+    }
+  }
 }
+
+.admin {
+  .top-bar {
+    .menu > li > a {
+      color: $link!important;
+    }
+  }
+  .dropdown.menu > .is-dropdown-submenu-parent > a::after {
+    border-color: $link transparent transparent;
+  }
+}
+
 
 .auth-image {
   background: $brand image-url('custom/auth_bg_novo.jpg');
