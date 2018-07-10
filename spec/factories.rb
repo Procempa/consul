@@ -404,8 +404,14 @@ FactoryBot.define do
     reason "unfeasible"
   end
 
+  factory :budget_investment_status, class: 'Budget::Investment::Status' do
+    sequence(:name)        { |n| "Budget investment status #{n} name" }
+    sequence(:description) { |n| "Budget investment status #{n} description" }
+  end
+
   factory :budget_investment_milestone, class: 'Budget::Investment::Milestone' do
     association :investment, factory: :budget_investment
+    association :status, factory: :budget_investment_status
     sequence(:title)     { |n| "Budget investment milestone #{n} title" }
     description          'Milestone description'
     publication_date     Date.current
@@ -743,6 +749,23 @@ FactoryBot.define do
     sequence(:title) { |n| "Thank you for supporting my proposal #{n}" }
     sequence(:body) { |n| "Please let others know so we can make it happen #{n}" }
     proposal
+    association :author, factory: :user
+
+    trait :moderated do
+      moderated true
+    end
+
+    trait :ignored do
+      ignored_at Date.current
+    end
+
+    trait :hidden do
+      hidden_at Date.current
+    end
+
+    trait :with_confirmed_hide do
+      confirmed_hide_at Time.current
+    end
   end
 
   factory :direct_message do
@@ -814,8 +837,17 @@ FactoryBot.define do
       result_publication_date Date.current + 5.days
     end
 
+    trait :published do
+      published true
+    end
+
     trait :not_published do
       published false
+    end
+
+    trait :open do
+      start_date 1.week.ago
+      end_date   1.week.from_now
     end
 
   end
@@ -960,6 +992,27 @@ LOREM_IPSUM
     segment_recipient  UserSegments::SEGMENTS.sample
     sequence(:from)    { |n| "noreply#{n}@consul.dev" }
     sequence(:body)    { |n| "Body #{n}" }
+  end
+
+  factory :widget_card, class: 'Widget::Card' do
+    sequence(:title)       { |n| "Title #{n}" }
+    sequence(:description) { |n| "Description #{n}" }
+    sequence(:link_text)   { |n| "Link text #{n}" }
+    sequence(:link_url)    { |n| "Link url #{n}" }
+
+    trait :header do
+      header true
+      sequence(:button_text)   { |n| "Button text #{n}" }
+      sequence(:button_url)    { |n| "Button url #{n}" }
+      sequence(:alignment)   { |n| "background" }
+    end
+
+    after :create do |widget_card|
+      create(:image, imageable: widget_card)
+    end
+  end
+
+  factory :widget_feed, class: 'Widget::Feed' do
   end
 
 end
