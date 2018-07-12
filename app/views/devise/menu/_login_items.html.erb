@@ -21,7 +21,10 @@
   </li>
 <% else %>
   <li>
-    <%= link_to t("devise_views.menu.login_items.login"),
-                new_user_session_path, rel: "nofollow" %>
+          <%= link_to t("devise_views.menu.login_items.login"), user_omniauth_authorize_path(:saml),
+                rel: "nofollow" %> 
+ 
+    <%#= link_to t("devise_views.menu.login_items.login"),
+                new_user_session_path, rel: "nofollow" %> 
   </li>
 <% end %>

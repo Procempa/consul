@@ -32,8 +32,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       auth = env["omniauth.auth"]
 
-      byebug
-
       identity = Identity.first_or_create_from_oauth(auth)
       @user = current_user || identity.user || User.first_or_initialize_for_oauth(auth)
 

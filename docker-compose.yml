@@ -1,44 +1,23 @@
-#Service configuration for our database
-#database:
-#
-#  # use the preferred version of the official Postgres image
-#  # see https://hub.docker.com/_/postgres/
-#  image: postgres:9.4.5
-#
-#  # persist the database between containers by storing it in a volume
-#  volumes:
-#    - consul-db-data:/var/lib/postgresql/data
-
-cache:
-  image: memcached:latest
-
 # service configuration for our dockerized Rails app
 app:
 
+  environment:
+    - SMTP_PORT=25
+    - SMTP_ADDRESS=prosmtp.procempa.com.br
+    - RAILS_ENV=staging
+
   # use the Dockerfile next to this file
-  #build: .
-  image: procempa/consul:latest
+  build: .
 
   # rely on the RAILS_ENV value of the host machine
-  environment:
-    RAILS_ENV: $RAILS_ENV
-    SECRET_KEY_BASE: $SECRET_KEY_BASE
-    RAILS_SERVE_STATIC_FILES: $RAILS_SERVE_STATIC_FILES
-    PROC_CONSUL_DB_HOST: $PROC_CONSUL_DB_HOST
-    PROC_CONSUL_DB_PORT: $PROC_CONSUL_DB_PORT
-    PROC_CONSUL_DB_POOL_SIZE: $PROC_CONSUL_DB_POOL_SIZE
-    PROC_CONSUL_DB_USER: $PROC_CONSUL_DB_USER
-    PROC_CONSUL_DB_PASS: $PROC_CONSUL_DB_PASS
-    PROC_CONSUL_DB_NAME: $PROC_CONSUL_DB_NAME
-    PROC_CONSULT_MIGRATE_DB: $PROC_CONSULT_MIGRATE_DB
+  # environment:
+  #RAILS_ENV: $RAILS_ENV
 
-  # makes the app container aware of the DB container
-  links:
-    - cache
 
   # expose the port we configured Unicorn to bind to
   ports:
-    - "3000:3000"
+    - "3001:3000"
   # map our application source code, in full, to the application root of our container
   volumes:
     - .:/var/www/consul
+
