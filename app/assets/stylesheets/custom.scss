@@ -93,6 +93,7 @@ input, select, [type="text"], [type="password"], [type="date"], [type="datetime"
 	}
 	&.success {
 		background: $cor-sucesso;
+    color: $button-color;
 	}
 }
 
@@ -178,6 +179,12 @@ header {
   }
 .top-bar-title {
     padding: 0 1rem 0.5rem 0;
+    .admin & {
+      padding: 1rem;
+      h1 {
+        line-height: 0.25;
+      }
+    }
 }
 
 .menu-button {
@@ -634,7 +641,7 @@ header {
           color: $texto;
         }
       }
-    &.active a {
+    &.is-active a {
       background: transparent;
       border-left: 0;
       color: $destaque;
