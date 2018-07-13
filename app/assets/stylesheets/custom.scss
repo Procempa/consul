@@ -611,9 +611,14 @@ header {
   background-color: $destaque;
 }
 
-.more-info-content h3 {
-  color: $texto;
-}
+.more-info-content {
+  h3 {
+    color: $texto;
+  }
+  .features {
+    list-style-type: disc;
+  }
+} 
 
 //Admin
 .admin-sidebar {

@@ -1,0 +1,15 @@
+pt-BR:
+  admin:
+    menu:
+      polls: Votações
+      title_polls: Consultas públicas
+    questions:
+      new:
+        poll_label: "Votação"
+    stats:
+      show:
+        polls: Votações
+      polls:
+        all: Votações
+        table:
+          poll_name: Votação
