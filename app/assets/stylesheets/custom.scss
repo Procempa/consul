@@ -34,6 +34,10 @@
 //-------OVERRIDES -------
 
 //Layout
+html, body {
+  height: 100%;
+}
+
 p {
   line-height: $global-lineheight;
 }
@@ -95,6 +99,9 @@ input, select, [type="text"], [type="password"], [type="date"], [type="datetime"
 header {
   background: #fff;
   border: 0 none;
+  @include breakpoint(small only) {
+    margin-bottom: 0;
+  }
   > .row {
   	background-color: $cinza-base;
   	@include breakpoint(medium) {
@@ -111,8 +118,11 @@ header {
 .top-bar {
   background: #fff !important;
   color: $link;
-  height: 4rem;
+  height: 4.5rem;
   line-height: 0;
+  @include breakpoint(medium) {
+        height: auto;
+      }
 
   .top-bar-title a {
   	color: $texto;
@@ -122,7 +132,7 @@ header {
       height: 40px;
       width: auto;
       vertical-align: top;
-      @include breakpoint (medium) {
+      @include breakpoint(medium) {
         height: auto;
       }
       .admin & {
@@ -136,12 +146,15 @@ header {
 
   .menu > li {
 
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
+      display: table-cell;
+      height: 5rem;
+      vertical-align: middle;
     }
     a {
       color: #fff;
       @include breakpoint(small only) {
-      	&:hover, &:focus, &.active {
+      	&:hover, &:focus, &.is-active {
 			color: $destaque;
 	      }
       }
@@ -163,10 +176,14 @@ header {
       }
     }
   }
+.top-bar-title {
+    padding: 0 1rem 0.5rem 0;
+}
+
 .menu-button {
   margin-bottom: 0;
   padding: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
  /* .menu-icon.dark {
     &::after,
@@ -187,6 +204,12 @@ header {
       }
     }
   } */
+  .has-submenu.is-active a {
+    color: $link;
+  }
+  .menu.is-dropdown-submenu {
+    margin-top: -0.25rem;
+  }
 }
 
 .subnavigation {
@@ -196,13 +219,13 @@ header {
   }
   a {
   	color: #fff;
-  	&:hover, &:focus, &.active {
+  	&:hover, &:focus, &.is-active {
   		color: $destaque;
   	}
   	&:focus {
   		outline: 2px solid $destaque; 
   	}
-  	&.active {
+  	&.is-active {
   		border-bottom: 4px solid $destaque;
   	}
   }
@@ -238,7 +261,7 @@ header {
         color: $link-hover;
       }
     }
-    &.active {
+    &.is-active {
       border-bottom: 4px solid $text;
       color: $texto;
       a {
@@ -246,6 +269,19 @@ header {
       }
     }
   }
+}
+
+.tabs .tabs-title {
+  > a[aria-selected="true"], > a.is-active {
+    border-bottom: 4px solid $text;
+    color: $texto;
+  }
+}
+.tabs-title > a {
+    padding: 0.5rem 0;
+    h2, h3, h4, h5, h6 {
+      margin-bottom: 0;
+    }
 }
 
 .breadcrumbs {
@@ -508,6 +544,9 @@ header {
       background: rgba($destaque, 0.15);
     }
   }
+}
+.new_comment {
+  margin-bottom: 1.5rem;
 }
 
 //Usuário 

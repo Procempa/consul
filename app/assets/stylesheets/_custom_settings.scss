@@ -85,7 +85,8 @@ $color-alert:       $cor-erro;
 
 
 //Foundation overrides
-
+$xy-grid: false;
+$global-flexbox: false;
 //$primary: $cor-info;
 $body-font-family: 'Lato', 'Helvetica', 'Arial', sans-serif !important;
 $body-font-color: $texto;
