@@ -3,6 +3,11 @@ pt-BR:
     menu:
       polls: Votações
       title_polls: Consultas públicas
+      booths: Urnas
+      title_booths: Urnas
+      hidden_proposal_notifications: Notificações de propostas ocultas
+      settings: Configurações
+      title_settings: Configurações
     questions:
       new:
         poll_label: "Votação"
