@@ -1,3 +1,5 @@
+require_dependency Rails.root.join('app', 'controllers', 'users', 'sessions_controller').to_s
+
 class Users::SessionsController < Devise::SessionsController
 
   private
@@ -11,7 +13,12 @@ class Users::SessionsController < Devise::SessionsController
     end
 
     def after_sign_out_path_for(resource)
-      request.referer.present? ? request.referer : super
+      url = request.referer
+      if !url.nil? &&  !url.match(/\/admin\//).nil?
+         return url[0,url.index("/admin/")]
+      else
+         return url.present? ? url : super
+      end
     end
 
     def verifying_via_email?

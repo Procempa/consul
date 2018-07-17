@@ -1,0 +1,5 @@
+pt-BR:
+  devise:
+    omniauth_callbacks:
+      failure: "Não foi possível autorizá-lo como %{kind} porque \"%{reason}\"."
+      success: "Identificado com sucesso com %{kind}."
