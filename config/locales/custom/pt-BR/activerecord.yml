@@ -1,5 +1,9 @@
 pt-BR:
   activerecord:
+    models:
+      poll:
+        one: "Consulta pública"
+        other: "Consultas públicas"
     attributes:
       budget/investment:
         heading_id: "Tema"

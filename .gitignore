@@ -33,3 +33,6 @@
 
 public/sitemap.xml
 public/system/
+
+# material de login
+/config/_secrets(original).yml

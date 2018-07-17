@@ -1,0 +1,35 @@
+pt-BR:
+  pages:
+    help:
+      title: "%{org} é uma plataforma de participação cidadã"
+      subtitle: "No %{org} você pode fazer propostas, votar em consultas de cidadãos, propor projetos de orçamento participativo, decidir sobre regulamentos municipais e debates abertos para trocar opiniões com outras pessoas."
+      guide: "Este guia explica para que servem e como funcionam cada uma das seções de %{org}."
+      menu:
+        polls: "Consultas públicas"
+        other: "Outras informações de interesse"
+      polls:
+        title: "Consultas públicas"
+        description: "Na seção %{link} são trazidas propostas para votação direta dos cidadãos porto-alegrenses. Vote nos assuntos de seu interesse e ajude a construir a Porto Alegre que você quer."
+        link: "consultas públicas"
+        feature_1: "Para participar da votação, você precisa %{link} e verificar sua conta."
+        feature_1_link: "registrar-se no %{org_name}"
+        feature_2: "Todos os eleitores registrados com mais de 16 anos podem votar."
+        feature_3: "Os resultados de todos os votos são vinculativos para o governo municipal."
+      faq:
+        page:
+          title: "Perguntas frequentes"
+          description: "Utilize essa página para resolver Perguntas Frequentes dos usuários do site."
+          faq_1_title: "Pergunta 1"
+          faq_1_description: "Este é um exemplo para a descrição da pergunta um."
+      other:
+        how_to_use: "Use o CONSUL em sua cidade"
+      how_to_use:
+        text: |-
+          
+          O OP Digital é construído com o [aplicativo CONSUL] (https://github.com/consul/consul 'consul github'). Este é um software livre, com [licença AGPLv3] (http://www.gnu.org/licenses/ agpl-3.0.html 'AGPLv3 gnu'), que significa em palavras simples que qualquer um pode usar o código livremente, copiá-lo, vê-lo em detalhes, modificá-lo e redistribuí-lo ao mundo com as modificações que quiser (permitindo que outros façam o mesmo). Porque pensamos que a cultura é melhor e mais rica quando é liberada.
+          
+          Use o aplicativo CONSUL em seu governo local ou nos ajude a melhorá-lo, é software livre.
+
+          Se você é um programador, pode ver o código e nos ajudar a melhorá-lo na [página do Github do projeto CONSUL](https://github.com/consul/consul 'consul github').
+      titles:
+        how_to_use: Use o CONSUL em seu governo local
