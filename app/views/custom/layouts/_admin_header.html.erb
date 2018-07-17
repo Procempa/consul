@@ -3,11 +3,12 @@
   <div class="expanded row">
     <div class="top-bar">
 
-      <span data-responsive-toggle="responsive_menu" data-hide-for="medium" class="float-right button menu-button">
-        <span class="menu-icon" data-toggle></span>
-        <%= t("application.menu")%>
-      </span>
-
+      <div class="title-bar" data-responsive-toggle="responsive_menu" data-hide-for="medium">
+        <button class="float-right button menu-button" data-toggle="responsive_menu">
+          <span class="menu-icon dark" ></span>
+          <%= t("application.menu")%>
+        </button>
+      </div>
 
         <div class="top-bar-title">
           <h1>
@@ -22,7 +23,6 @@
 
         <div class="top-bar-right">
           <ul class="menu" data-responsive-menu="medium-dropdown">
-            <%= render "admin/shared/admin_shortcuts" %>
             <%= render "shared/admin_login_items" %>
             <%= render "layouts/notification_item" %>
             <%= render "devise/menu/login_items" %>
