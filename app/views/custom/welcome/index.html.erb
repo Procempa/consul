@@ -18,11 +18,7 @@
         <%= render "feeds" %>
       </div>
     </div>
-    <div class="row margin-bottom">
-      <div class="small-12 medium-4 column">
-        <%= render "processes" %>
-      </div>
-    </div>
+    <%= render "processes" %>
     
 
     <% if feature?("user.recommendations") && (@recommended_debates.present? || @recommended_proposals.present?) %>
