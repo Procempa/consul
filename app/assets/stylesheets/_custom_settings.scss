@@ -18,7 +18,7 @@ $destaque2: #09AFA7; // verde para checkboxes, radios e outros elementos colorid
 $cta: #566AD2;  //Cor de elementos call to action: botões, links, etc.
 
 //Cores de status
-$cor-info: #31708f; // Rever!
+$cor-info: #176ab5;//#31708f; // Rever!
 $cor-sucesso: #6AB649;
 $cor-aviso: #F2B90D;
 $cor-erro: #D93855;
@@ -59,7 +59,7 @@ $button-background-hover: $link-hover;
 $budget:            $link;
 $budget-hover:      $link-hover;
 
-//$highlight:         #e7f2fc;
+$highlight:         mix($destaque, #fff, 15%);
 //$highlight-soft:    #f3f8fd;
 //$light:             #f5f7fa;
 $featured:          $destaque;
@@ -81,6 +81,7 @@ $color-warning:     $cor-aviso;
 $alert-bg:          lighten($cor-erro, 35%);
 $alert-border:      lighten($cor-erro, 25%);
 $color-alert:       $cor-erro;
+$alert-color: 		$color-alert;
 
 
 
@@ -91,3 +92,12 @@ $global-flexbox: false;
 $body-font-family: 'Lato', 'Helvetica', 'Arial', sans-serif !important;
 $body-font-color: $texto;
 $lead-font-size: $global-font-size * 1.25;
+$foundation-palette: (
+  primary: $cor-info,
+  secondary: $texto-secundario,
+  success: $cor-sucesso,
+  warning: $cor-aviso,
+  alert: $cor-erro,
+);
+@include add-foundation-colors;
+$button-palette: $foundation-palette;

@@ -53,8 +53,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $body-font-family;
+  font-weight: bold;
   small {
     color: $text-medium;
   }
@@ -69,6 +71,9 @@ label {
   .wide-order-selector & {
     margin-top: 0.5rem;
   }
+}
+.help-text {
+  margin-top: -0.25rem;
 }
 
 table {
@@ -90,10 +95,15 @@ input, select, [type="text"], [type="password"], [type="date"], [type="datetime"
   border-radius: 0;
 	&.hollow {
 	  border: 2px solid $link;
+    border-width: 2px!important;
 	}
 	&.success {
-		background: $cor-sucesso;
+		//background: $cor-sucesso;
     color: $button-color;
+    &:hover, &:focus {
+      background: darken($cor-sucesso, 15%);
+      color: $button-color;
+    }
 	}
 }
 
@@ -129,6 +139,11 @@ header {
   	color: $texto;
     line-height: 0; //?
     padding-top: 1rem;
+    .admin & {
+      small {
+        font-size: 1.5rem;
+      }
+    }
     img {
       height: 40px;
       width: auto;
@@ -271,7 +286,11 @@ header {
     &.is-active {
       border-bottom: 4px solid $text;
       color: $texto;
-      a {
+      .admin & {
+        border-bottom: 4px solid $text;
+        color: $texto;
+      }
+      a, h2 a, h3 a {
         color: $texto;
       }
     }
@@ -279,9 +298,12 @@ header {
 }
 
 .tabs .tabs-title {
-  > a[aria-selected="true"], > a.is-active {
-    border-bottom: 4px solid $text;
-    color: $texto;
+  > a {
+    color: $link;
+    &[aria-selected="true"], &.is-active {
+      border-bottom: 4px solid $text;
+      color: $texto;
+    }
   }
 }
 .tabs-title > a {
@@ -390,6 +412,18 @@ header {
     position: relative;
     @include breakpoint (large) {
       min-height: 18rem;
+    }
+  }
+}
+
+.home-page {
+  h2, h3 {
+    &.title {
+      display: inline-block;
+      border-top: 4px solid $destaque;
+      margin-bottom: 0;
+      min-width: 15rem;
+      padding: 0.75rem 0;
     }
   }
 }
@@ -670,6 +704,22 @@ header {
   .menu.simple .active {
     color: $texto;
     border-color: $texto;
+  }
+
+  thead, tbody, tfoot {
+    border-width: 0;
+  }
+  tbody tr:nth-child(2n) {
+    border-bottom: 1px solid $bordas;
+  }
+  tr {
+    border-width: 0;
+    border-bottom: 1px solid $bordas;
+    //background-color: transparent;
+    position: static;
+    &:hover {
+      background-color: lighten($fundo-claro, 5%);
+    }
   }
 }
 
