@@ -246,7 +246,8 @@ Devise.setup do |config|
   config.omniauth :twitter, Rails.application.secrets.twitter_key, Rails.application.secrets.twitter_secret
   config.omniauth :facebook, Rails.application.secrets.facebook_key, Rails.application.secrets.facebook_secret, scope: 'email', info_fields: 'email,name,verified'
   config.omniauth :google_oauth2, Rails.application.secrets.google_oauth2_key, Rails.application.secrets.google_oauth2_secret
-  config.omniauth :saml, idp_sso_target_url: 'target_url', idp_cert: Rails.application.secrets.acessopoa_saml_cert
+  config.omniauth :saml, idp_sso_target_url: 'target_url', idp_cert: ENV['CONSUL_AP_SAML_CERT']
+#, idp_slo_target_url: "https://acessopoa-hom.procempa.com.br/auth/realms/acessopoa/protocol/openid-connect/logout"
 
 
   # ==> Warden configuration
