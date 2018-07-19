@@ -5,8 +5,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   invisible_captcha only: [:create], honeypot: :family_name, scope: :user
 
   def new
-    super do |user|
-      user.use_redeemable_code = true if params[:use_redeemable_code].present?
+    if (request.method == 'GET')
+      redirect_to root_path
+    else
+      super do |user|
+        user.use_redeemable_code = true if params[:use_redeemable_code].present?
+      end 
     end
   end
 

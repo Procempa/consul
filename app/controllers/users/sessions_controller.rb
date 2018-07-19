@@ -1,6 +1,25 @@
 require_dependency Rails.root.join('app', 'controllers', 'users', 'sessions_controller').to_s
+require 'net/http'
 
 class Users::SessionsController < Devise::SessionsController
+
+
+
+  def destroy
+    # Preserve the saml_uid in the session
+    saml_uid = session["saml_uid"]
+    super do
+      session["saml_uid"] = saml_uid
+    end
+  end
+
+  def new
+    if (request.method == 'GET')
+      redirect_to root_path
+    else
+      super
+    end
+  end
 
   private
 
@@ -12,12 +31,11 @@ class Users::SessionsController < Devise::SessionsController
       end
     end
 
-    def after_sign_out_path_for(resource)
-      url = request.referer
-      if !url.nil? &&  !url.match(/\/admin\//).nil?
-         return url[0,url.index("/admin/")]
+    def after_sign_out_path_for(_)
+      if session['saml_uid'] # && SAML_SETTINGS.idp_slo_target_url
+        user_omniauth_authorize_path(:saml) + "/spslo"
       else
-         return url.present? ? url : super
+        super
       end
     end
 
@@ -26,5 +44,4 @@ class Users::SessionsController < Devise::SessionsController
       stored_path = session[stored_location_key_for(resource)] || ""
       stored_path[0..5] == "/email"
     end
-
 end
