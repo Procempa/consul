@@ -45,4 +45,17 @@ pt-BR:
         title: Demandas
   form:
     accept_terms: Eu concordo com a %{policy} e os %{conditions}
+  welcome:
+    feed:
+      most_active:
+        debates: "Debates mais ativos"
+        proposals: "Propostas mais ativas"
+        processes: "Processos abertos"
+      see_all_debates: Veja todos os debates
+      see_all_proposals: Veja todas as propostas
+      see_all_processes: Veja todos os processos
+      process_label: Processo
+      see_process: Ver processo
+    cards:
+      title: Saiba mais sobre o Orçamento Participativo 
 

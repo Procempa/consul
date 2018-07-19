@@ -234,6 +234,16 @@ header {
   }
 }
 
+.top-bar-right {
+  @include breakpoint(medium only) {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    top: 70px;
+    z-index: 2;
+  }
+}
+
 .subnavigation {
   @include breakpoint(medium) {
   	background-color: $cinza-base;
@@ -253,6 +263,11 @@ header {
   }
 }
 
+main {
+  > .row:last-child {
+    margin-bottom: 2rem;
+  }
+}
 .footer {
     background-color: $fundo-claro;
     border-top: 0 none;
@@ -411,7 +426,7 @@ header {
     text-shadow: 1px 1px 3px rgba(#000, .8);
     position: relative;
     @include breakpoint (large) {
-      min-height: 18rem;
+      min-height: 21rem;
     }
   }
 }
@@ -426,6 +441,55 @@ header {
       padding: 0.75rem 0;
     }
   }
+}
+
+.card {
+  height: 100%;
+  padding: 1rem 1rem 0 1rem;
+  background-color: $fundo-claro;
+  > a {
+    display: block;
+  }
+  &, .home-page & {
+    //border: 2px solid $bordas;
+    p {
+      padding: 0;
+    }
+  } 
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.home-page .figure-card .gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to rgba(0,0,0,0.5));
+  background: -webkit-linear-gradient(top, transparent 0%, rgba(0,0,0,0.5) 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 100%);
+}
+
+/*.figure-card {
+  border-bottom: 6px solid $destaque;
+} */
+.home-page .card {
+  &:hover {
+    box-shadow:  1px 1px 4px rgba(0,0,0,0.4);
+  }
+  a {
+    &:hover {
+      box-shadow: unset;
+    }
+    h3, span {
+      color: $texto;
+    }
+    &:hover h3 {
+      color: $texto;
+    }
+  }
+}
+.card-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 //Polls
@@ -1084,4 +1148,12 @@ $texto-secundario: $text-medium;
   @include breakpoint (medium) {
     text-align: right;
   }
+}
+
+//Utilizar display flex (apenas em exceções, como os cards da home)
+.flex-row {
+  display: flex;
+}
+.flex-item {
+  flex: 1;
 }
