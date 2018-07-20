@@ -787,6 +787,9 @@ main {
       background-color: lighten($fundo-claro, 5%);
     }
   }
+  .row .row {
+    @include grid-row-nest;
+  }
 }
 
 .auth-image {
