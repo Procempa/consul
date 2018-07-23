@@ -446,10 +446,31 @@ main {
 .card {
   height: 100%;
   padding: 1rem 1rem 0 1rem;
-  background-color: $fundo-claro;
+  background-color: mix($fundo-claro, #fff, 60%);
+  transition: all 0.2s ease;
+    &:hover {
+      background-color: $fundo-claro;
+    }
   > a {
     display: block;
   }
+  .home-page & {
+    &:hover {
+      box-shadow:  1px 1px 4px rgba(0,0,0,0.4);
+    }
+    a {
+      &:hover {
+        box-shadow: unset;
+        h3 {
+          color: $texto;
+        }
+      }
+      h3, span {
+        color: $texto;
+      }
+    }
+  }
+
   &, .home-page & {
     //border: 2px solid $bordas;
     p {
@@ -461,31 +482,12 @@ main {
   }
 }
 
-.home-page .figure-card .gradient {
+/*.home-page .figure-card .gradient {
   background: -webkit-gradient(linear, left top, left bottom, from(transparent), to rgba(0,0,0,0.5));
   background: -webkit-linear-gradient(top, transparent 0%, rgba(0,0,0,0.5) 100%);
   background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 100%);
-}
-
-/*.figure-card {
-  border-bottom: 6px solid $destaque;
 } */
-.home-page .card {
-  &:hover {
-    box-shadow:  1px 1px 4px rgba(0,0,0,0.4);
-  }
-  a {
-    &:hover {
-      box-shadow: unset;
-    }
-    h3, span {
-      color: $texto;
-    }
-    &:hover h3 {
-      color: $texto;
-    }
-  }
-}
+
 .card-label {
   font-size: 0.75rem;
   font-weight: bold;
@@ -784,6 +786,9 @@ main {
     &:hover {
       background-color: lighten($fundo-claro, 5%);
     }
+  }
+  .row .row {
+    @include grid-row-nest;
   }
 }
 

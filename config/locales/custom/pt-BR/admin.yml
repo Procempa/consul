@@ -1,20 +1,242 @@
 pt-BR:
   admin:
+    actions:
+      delete: Excluir
+    banners:
+      index:
+        filters:
+          with_active: Ativos
+          with_inactive: Inativos
+        preview: Pré-visualização
+    budgets:
+      index:
+        table_edit_groups: Temas
+        edit_groups: Editar temas
+      destroy:
+        unable_notice: Você não pode excluir um orçamento que tem investimentos associados
+      show:
+        groups:
+          one: 1 Grupo de temas orçamentais
+          other: "%{count} Grupos de temas orçamentais"
+      form:
+        no_groups: Nenhum grupo criado ainda. Cada usuário poderá votar em apenas um tema por grupo.
+        heading: Tema
+        add_heading: Adicionar tema
+        save_heading: Salvar tema
+        no_heading: Este grupo não tem temas atribuídos
+        table_heading: Tema
+        population_info: "Utilize o campo \"população\" se Tema do Orçamento for referente a uma região da cidade. Este número é usado para calcular a porcentagem da população votante da região ao final do processo. Caso este campo não se aplique ao tema, deixe-o em branco."
+        max_votable_headings: "Número máximo de temas em que um usuário pode votar"
+      winners:
+        recalculate: Recalcular investimentos vencedores
+    budget_investments:
+      index:
+        heading_filter_all: Todos os temas
+        filters:
+          max_per_heading: Máx. apoios por tema
+        buttons:
+          filter: Filtrar
+        no_valuation_groups: Não há grupos avaliadores designados
+        table_valuation_group: "Grupo Avaliador"
+        table_evaluation: "Mostrar a avaliadores"
+        cannot_calculate_winners: O orçamento deve estar nas fases "Votação final", "Votação encerrada" ou "Resultados" para poder calcular as propostas vencedoras
+        see_results: "Ver resultados"
+      show:
+        heading: Tema
+      edit:
+        select_heading: Selecionar tema
+        submit_button: Atualizar
+        user_groups: Grupos
+    statuses:
+      index:
+        title: Status dos projetos
+        empty_statuses: Nenhum status de projeto criado ainda
+        new_status: Criar novo status de projeto
+        table_name: Nome
+        table_description: Descrição
+        table_actions: Ações
+        delete: Excluir
+        edit: Editar
+      edit:
+        title: Editar status de projeto
+      update:
+        notice: Status de projeto editado com sucesso
+      new:
+        title: Criar status de projeto
+      create:
+        notice: Status de projeto criado com sucesso
+      delete:
+        notice: Status de projeto excluído com sucesso
+    comments:
+      index:
+        filter: Filtrar
+        filters:
+          with_confirmed_hide: Confirmados
+          without_confirmed_hide: Pendentes
+    debates:
+      index:
+        filter: Filtrar
+        filters:
+          with_confirmed_hide: Confirmados
+          without_confirmed_hide: Pendentes
+    legislation:
+      processes:
+        form:
+          use_markdown: Use a linguagem Markdown para formatar o texto
+        process:
+          status_planned: Em breve
+      proposals:
+        form:
+          custom_categories_description: Categorias que os usuários podem selecionar ao criar a proposta.
+      draft_versions:
+        create:
+          notice: 'Rascunho atualizado com sucesso. <a href="%{link}">Clique para vê-lo</a>'
+        form:
+          use_markdown: Use a linguagem Markdown para formatar o texto
+      questions:
+        form:
+          title: Perguntas
+          title_placeholder: Adicionar título da pergunta
+          question_options: "Respostas possíveis (opcional, respostas abertas por padrão)"
     menu:
       polls: Votações
       title_polls: Consultas públicas
       booths: Urnas
       title_booths: Urnas
       hidden_proposal_notifications: Notificações de propostas ocultas
+      newsletters: Newsletters
       settings: Configurações
       title_settings: Configurações
+      site_customization:
+        homepage: Página inicial
     questions:
       new:
         poll_label: "Votação"
+    newsletters:
+      create_success: Newsletter criada com sucesso
+      update_success: Newsletter atualizada com sucesso
+      send_success: Newsletter enviada com sucesso
+      delete_success: Newsletter excluída com sucesso
+      index:
+        title: Newsletters
+        new_newsletter: Nova newsletter
+        delete: Excluir
+        preview: Pré-visualização
+        empty_newsletters: Não há newsletters para exibir
+      new:
+        title: Nova newsletter
+        from: Endereço de email que aparecerá como remetente da newsletter
+      edit:
+        title: Editar newsletter
+      show:
+        title: Pré-visualização da newsletter
+        send_alert: Você tem certeza que quer enviar esta newsletter para %{n} usuários?
+    valuators:
+      index:
+        valuator_groups: "Grupos avaliadores"
+        group: "Grupo"
+        no_group: "Sem grupo"
+      summary:
+        finished_and_feasible_count: Finalizados e viáveis
+        finished_and_unfeasible_count: Finalizados e inviáveis
+      form:
+        edit_title: "Avaliadores: Editar avaliador"
+        update: "Atualizar avaliador"
+        edit: "Salvar grupo avaliador"
+    poll_officers:
+      officer:
+        entry_name: presidente(s)
+    polls:
+      index:
+        title: "Lista de votações ativas"
+        no_polls: "Não há votações programadas."
+    questions:
+      show:
+        edit_question: Editar pergunta
+        answers:
+          title: Respostas
+    results:
+      result:
+        table_whites: "Cédulas em branco"
+        table_total: "Total de cédulas"
+        table_answer: Resposta
+    booths:
+      index:
+        title: "Lista de urnas ativas"
+        no_booths: "Não há urnas ativas para as próximas votações"
+    organizations:
+      index:
+        filter: Filtrar
+        filters:
+          pending: Pendentes
+          rejected: Rejeitadas
+          verified: Verificadas
+    proposals:
+      index:
+        filter: Filtrar
+        filters:
+          with_confirmed_hide: Confirmadas
+          without_confirmed_hide: Pendentes
+    settings:
+      index:
+        banners: Estilos de banner
+        banner_imgs: Imagens de banner
+        no_banners_images: não há imagens de banner
+        no_banners_styles: Não há estilos de banner
+    shared:
+      search_results: Resultados da busca
+      image: Imagem
+      show_image: Exibir imagem
+      moderated_content: "Revise o conteúdo moderado pelos moderadores e confirme se a moderação foi feita corretamente."
+    signature_sheets:
+      no_signature_sheets: "Não há folhas de assinatura"
+      show:
+        unverified:
+          other: "Há %{count} assinaturas inválidas"
+    homepage:
+      title: Página inicial
+      description: Customize a página inicial do OP Digital. Os módulos ativados aparecerão na página inicial na ordem em que são exibidos aqui.
+      header_title: Cabeçalho
+      no_header: Nenhum cabeçalho criado.
+      create_header: Criar cabeçalho
+      cards_title: Cards
+      create_card: Criar card
+      no_cards: Nenhum card criado.
+      cards:
+        title: Título
+        description: Descrição
+        link_text: Texto do link
+        link_url: URL do link
+      feeds:
+        proposals: Propostas
+        debates: Debates
+        processes: Processos
+      new:
+        header_title: Novo cabeçalho
+        submit_header: Criar cabeçalho
+        card_title: Novo card
+        submit_card: Criar card
+      edit:
+        header_title: Editar cabeçalho
+        submit_header: Salvar cabeçalho
+        card_title: Editar card
+        submit_card: Salvar card            
     stats:
       show:
+        summary:
+          comment_votes: Votos em comentários
+          debate_votes: Votos em debates
         polls: Votações
       polls:
         all: Votações
         table:
           poll_name: Votação
+    tags:
+      index:
+        help: "Quando um usuário cria uma proposta, os seguintes tópicos são sugeridos como tags padrão."
+    site_customization:
+      content_blocks:
+        information: Informações sobre blocos de conteúdo
+        about: Você pode criar blocos de conteúdo HTML para serem inseridos no cabeçalho ou no rodapé do OP Digital.
+        top_links_html: "<strong>Blocos de cabeçalho (top_links)</strong> são blocos de links que devem ter este formato:"
+        footer_html: "<strong> Blocos de rodapé</strong> podem ter qualquer formato e podem ser usados para inserir Javascript, CSS ou HTML personalizado."

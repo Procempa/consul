@@ -1,3 +1,4 @@
+<% if @cards.present? %>
 <h2><%= t("welcome.cards.title") %></h2>
 
 <div class="row margin-top" data-equalizer data-equalizer-on="medium">
@@ -5,3 +6,4 @@
     <%= render "card", card: card %>
   <% end %>
 </div>
+<% end %>
