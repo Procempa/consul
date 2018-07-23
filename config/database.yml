@@ -13,7 +13,7 @@ development: &development
 # The staging, preproduction and production dbs are only needed
 # for running rake assets:precompile locally before deploying
 
-staging:
+staging: &servidor
   adapter: postgresql
   encoding: unicode
   host: <%= ENV['PROC_CONSUL_DB_HOST'] %>
@@ -27,7 +27,7 @@ preproduction:
   <<: *default
 
 production:
-  <<: *staging
+  <<: *servidor
 
 test:
   <<: *default
