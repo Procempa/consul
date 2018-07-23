@@ -188,6 +188,11 @@ pt-BR:
       image: Imagem
       show_image: Exibir imagem
       moderated_content: "Revise o conteúdo moderado pelos moderadores e confirme se a moderação foi feita corretamente."
+    signature_sheets:
+      no_signature_sheets: "Não há folhas de assinatura"
+      show:
+        unverified:
+          other: "Há %{count} assinaturas inválidas"
     homepage:
       title: Página inicial
       description: Customize a página inicial do OP Digital. Os módulos ativados aparecerão na página inicial na ordem em que são exibidos aqui.
@@ -218,8 +223,20 @@ pt-BR:
         submit_card: Salvar card            
     stats:
       show:
+        summary:
+          comment_votes: Votos em comentários
+          debate_votes: Votos em debates
         polls: Votações
       polls:
         all: Votações
         table:
           poll_name: Votação
+    tags:
+      index:
+        help: "Quando um usuário cria uma proposta, os seguintes tópicos são sugeridos como tags padrão."
+    site_customization:
+      content_blocks:
+        information: Informações sobre blocos de conteúdo
+        about: Você pode criar blocos de conteúdo HTML para serem inseridos no cabeçalho ou no rodapé do OP Digital.
+        top_links_html: "<strong>Blocos de cabeçalho (top_links)</strong> são blocos de links que devem ter este formato:"
+        footer_html: "<strong> Blocos de rodapé</strong> podem ter qualquer formato e podem ser usados para inserir Javascript, CSS ou HTML personalizado."
