@@ -1,0 +1,34 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  username: postgres
+  password: postgres
+
+development: &development
+  <<: *default
+  database: consul_development
+
+# The staging, preproduction and production dbs are only needed
+# for running rake assets:precompile locally before deploying
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['PROC_CONSUL_DB_HOST'] %>
+  port: <%= ENV['PROC_CONSUL_DB_PORT'] %>
+  pool: <%= ENV['PROC_CONSUL_DB_POOL_SIZE'] %>
+  username: <%= ENV['PROC_CONSUL_DB_USER'] %>
+  password: <%= ENV['PROC_CONSUL_DB_PASS'] %>
+  database: <%= ENV['PROC_CONSUL_DB_NAME'] %>
+
+preproduction:
+  <<: *default
+
+production:
+  <<: *staging
+
+test:
+  <<: *default
+  database: consul_test
