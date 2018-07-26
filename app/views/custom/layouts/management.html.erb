@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%= content_for?(:title) ? yield(:title) : "Gestão" %></title>
+    <%= stylesheet_link_tag  "application", media: "all" %>
+    <%= stylesheet_link_tag  "print", media: "print" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= content_for :head %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag "favicon.ico" %>
+  </head>
+
+  <body class="admin">
+    <header class="header">
+      <div class="expanded row">
+        <div class="top-bar">
+          <div class="top-bar-title">
+            <h1>
+              <%= link_to management_root_path do %>
+                <%= image_tag(image_path_for('marca-opdigital.svg'), alt: "Marca OP Digital", onerror: "this.src='/assets/marca-opdigital.png'; this.onerror=null;") %>
+                <span class="show-for-sr"><%= setting['org_name'] %></span>
+                <br><small><%= t("management.dashboard.index.title") %></small>
+              <% end %>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="no-margin-top row expanded collapse">
+      <div class="small-12 medium-3 column">
+        <%= render "/management/menu" %>
+      </div>
+
+      <%= render "management/account_info" %>
+
+      <div class="admin-content small-12 medium-9 column">
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+    </main>
+
+  </body>
+</html>

@@ -2,3 +2,14 @@ pt-BR:
   settings:
     feature:
       polls: Consultas públicas
+      allow_attached_documents: Permitir upload e exibição de documentos anexados
+      public_stats: Estatísticas públicas
+      guides: Guias para criar propostas ou projetos de investimento
+      homepage:
+        widgets:
+          feeds:
+            proposals: Feed de propostas
+            debates: Feed de debates
+            processes: Feed de processos
+      user:
+        skip_verification: Pular verificação de usuário

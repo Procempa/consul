@@ -97,14 +97,19 @@ input, select, [type="text"], [type="password"], [type="date"], [type="datetime"
 	  border: 2px solid $link;
     border-width: 2px!important;
 	}
-	&.success {
+	&.success, &.warning {
 		//background: $cor-sucesso;
     color: $button-color;
     &:hover, &:focus {
-      background: darken($cor-sucesso, 15%);
+      //background: darken($cor-sucesso, 15%);
       color: $button-color;
     }
 	}
+  &.success {
+    &:hover, &:focus {
+      background: darken($cor-sucesso, 15%);
+    }
+  }
 }
 
 header {
@@ -261,7 +266,7 @@ header {
   		border-bottom: 4px solid $destaque;
   	}
   }
-}
+} 
 
 main {
   > .row:last-child {
@@ -326,6 +331,9 @@ main {
     h2, h3, h4, h5, h6 {
       margin-bottom: 0;
     }
+}
+.tabs-content {
+  color: $texto;
 }
 
 .breadcrumbs {
@@ -445,7 +453,7 @@ main {
 
 .card {
   height: 100%;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem;
   background-color: mix($fundo-claro, #fff, 60%);
   transition: all 0.2s ease;
     &:hover {
@@ -453,6 +461,10 @@ main {
     }
   > a {
     display: block;
+    &:focus {
+      outline: 0;
+      text-decoration: underline;
+    }
   }
   .home-page & {
     &:hover {
@@ -520,6 +532,9 @@ main {
   }
   .date + p {
     margin-top: 1rem;
+  }
+  h4 {
+    margin-bottom: 0;
   }
 }
 

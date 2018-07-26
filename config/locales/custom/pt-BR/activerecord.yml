@@ -7,3 +7,8 @@ pt-BR:
     attributes:
       budget/investment:
         heading_id: "Tema"
+      widget/card:
+        title: Título
+        description: Descrição
+        link_text: Texto do link
+        link_url: URL do link

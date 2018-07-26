@@ -1,8 +1,6 @@
 <header class="header">
-
   <div class="expanded row">
     <div class="top-bar">
-
       <div class="title-bar" data-responsive-toggle="responsive_menu" data-hide-for="medium">
         <button class="float-right button menu-button" data-toggle="responsive_menu">
           <span class="menu-icon dark" ></span>
@@ -10,17 +8,17 @@
         </button>
       </div>
 
-        <div class="top-bar-title">
-          <h1>
-            <%= link_to namespaced_root_path do %>
-              <%= image_tag(image_path_for('marca-opdigital.svg'), alt: "Marca OP Digital", onerror: "this.src='/assets/marca-opdigital.png'; this.onerror=null;") %>
-              <span class="show-for-sr"><%= setting['org_name'] %></span>
-              <br><small><%= namespaced_header_title %></small>
-            <% end %>
-          </h1>
-        </div>
-        <div id="responsive_menu">
+      <div class="top-bar-title">
+        <h1>
+          <%= link_to namespaced_root_path do %>
+            <%= image_tag(image_path_for('marca-opdigital.svg'), alt: "Marca OP Digital", onerror: "this.src='/assets/marca-opdigital.png'; this.onerror=null;") %>
+            <span class="show-for-sr"><%= setting['org_name'] %></span>
+            <br><small><%= namespaced_header_title %></small>
+          <% end %>
+        </h1>
+      </div>
 
+      <div id="responsive_menu">
         <div class="top-bar-right">
           <ul class="menu" data-responsive-menu="medium-dropdown">
             <%= render "shared/admin_login_items" %>
@@ -28,7 +26,6 @@
             <%= render "devise/menu/login_items" %>
           </ul>
         </div>
-
       </div>
     </div>
   </div>
