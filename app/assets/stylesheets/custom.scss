@@ -261,7 +261,7 @@ header {
   		border-bottom: 4px solid $destaque;
   	}
   }
-}
+} 
 
 main {
   > .row:last-child {
@@ -445,7 +445,7 @@ main {
 
 .card {
   height: 100%;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem;
   background-color: mix($fundo-claro, #fff, 60%);
   transition: all 0.2s ease;
     &:hover {
@@ -520,6 +520,9 @@ main {
   }
   .date + p {
     margin-top: 1rem;
+  }
+  h4 {
+    margin-bottom: 0;
   }
 }
 

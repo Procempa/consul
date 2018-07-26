@@ -1,5 +1,9 @@
 ---
 pt-BR:
+  account:
+    show:
+      public_activity_label: Mostrar publicamente minha lista de atividades
+      public_interests_label: Mostrar publicamente os rótulos dos elementos que sigo
   admin:
     site_customization:
       images:
@@ -33,6 +37,9 @@ pt-BR:
         current: Votações abertas
         incoming: Em breve
         expired: Terminadas
+      section_footer:
+        help_text_2: "Para participar da próxima votação, você precisa criar uma conta no %{org}. Todas as pessoas registradas na cidade com mais de 16 anos podem votar. Os resultados de todos os votos serão vinculativos para o governo."
+      no_polls: "Não existem votações abertas no momento."  
       title: Consultas Públicas
       participate_button: "Votar"
       already_answer: "Você já participou desta votação"

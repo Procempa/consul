@@ -37,3 +37,7 @@ public/system/
 /config/_secrets(original).yml
 
 *.swp
+
+#Versões antigas de database.yml
+/config/database-repo.yml
+/config/_database.yml

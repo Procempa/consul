@@ -11,8 +11,8 @@ pt-BR:
         title: "Consultas públicas"
         description: "Na seção %{link} são trazidas propostas para votação direta dos cidadãos porto-alegrenses. Vote nos assuntos de seu interesse e ajude a construir a Porto Alegre que você quer."
         link: "consultas públicas"
-        feature_1: "Para participar da votação, você precisa %{link} e verificar sua conta."
-        feature_1_link: "registrar-se no %{org_name}"
+        feature_1: "Para participar da votação, você precisa"
+        feature_1_link: "criar uma conta no %{org_name} via AcessoPOA."
         feature_2: "Todos os eleitores registrados com mais de 16 anos podem votar."
         feature_3: "Os resultados de todos os votos são vinculativos para o governo municipal."
       faq:
