@@ -15,7 +15,8 @@ class Users::SessionsController < Devise::SessionsController
 
   def new
     if (request.method == 'GET')
-      redirect_to root_path
+      #redirect_to root_path
+      redirect_to user_omniauth_authorize_path(:saml)
     else
       super
     end
