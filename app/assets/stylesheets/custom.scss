@@ -327,6 +327,9 @@ main {
       margin-bottom: 0;
     }
 }
+.tabs-content {
+  color: $texto;
+}
 
 .breadcrumbs {
   margin: 1rem 0;
@@ -453,6 +456,10 @@ main {
     }
   > a {
     display: block;
+    &:focus {
+      outline: 0;
+      text-decoration: underline;
+    }
   }
   .home-page & {
     &:hover {
