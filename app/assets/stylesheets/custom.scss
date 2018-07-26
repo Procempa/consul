@@ -97,14 +97,19 @@ input, select, [type="text"], [type="password"], [type="date"], [type="datetime"
 	  border: 2px solid $link;
     border-width: 2px!important;
 	}
-	&.success {
+	&.success, &.warning {
 		//background: $cor-sucesso;
     color: $button-color;
     &:hover, &:focus {
-      background: darken($cor-sucesso, 15%);
+      //background: darken($cor-sucesso, 15%);
       color: $button-color;
     }
 	}
+  &.success {
+    &:hover, &:focus {
+      background: darken($cor-sucesso, 15%);
+    }
+  }
 }
 
 header {

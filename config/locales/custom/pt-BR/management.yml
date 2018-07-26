@@ -1,0 +1,21 @@
+pt-BR:
+  management:
+    account:
+      menu:
+        reset_password_email: Redefinir senha por email
+        reset_password_manually: Redefinir senha manualmente
+      edit:
+        title: 'Editar conta de usuário: Redefinir senha'
+        back: Voltar
+        password:
+          password: Senha
+          send_email: Enviar email de redefinição de senha
+          reset_email_send: Email enviado com sucesso.
+          reseted: Senha redefinida com sucesso
+          random: Gerar senha aleatória
+          save: Salvar
+          print: Imprimir senha
+          print_help: Você poderá imprimir a senha após salvá-la.
+    document_verifications:
+      has_no_account_html: A fim de criar uma conta, vá para %{link} e clique em <b>'Registrar'</b> na parte superior esquerda da tela.
+      link: OP Digital

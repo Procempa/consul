@@ -91,6 +91,8 @@ pt-BR:
       create_proposal: Criar proposta
       print:
         print_button: Imprimir
+      index:
+        title: Apoiar propostas  
     budgets:
       create_new_investment: Criar novo investimento
       print_investments: Imprimir investimentos orçamentários
