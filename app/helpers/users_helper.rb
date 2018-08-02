@@ -8,7 +8,10 @@ module UsersHelper
       t "verification.residence.new.document_type.passport"
     when "3"
       t "verification.residence.new.document_type.residence_card"
+    when "4"
+      t "verification.residence.new.document_type.cpf"          
     end
+
   end
 
   def comment_commentable_title(comment)

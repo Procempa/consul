@@ -7,7 +7,7 @@ class AccountController < ApplicationController
   end
 
   def update
-    if @account.update(account_params)
+    if @account.update_total(account_params)
       redirect_to account_path, notice: t("flash.actions.save_changes.notice")
     else
       @account.errors.messages.delete(:organization)
@@ -28,7 +28,7 @@ class AccountController < ApplicationController
                    else
                      [:username, :public_activity, :public_interests, :email_on_comment,
                       :email_on_comment_reply, :email_on_direct_message, :email_digest, :newsletter,
-                      :official_position_badge]
+                      :official_position_badge, :document_type, :document_number]
                    end
       params.require(:account).permit(*attributes)
     end

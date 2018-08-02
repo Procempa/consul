@@ -1,0 +1,24 @@
+<h2><%= t("management.document_verifications.title") %></h2>
+
+<div class="small-12 medium-8">
+  <%= form_for(@document_verification,
+               as: :document_verification,
+               url: check_management_document_verifications_path) do |f| %>
+
+    <div class="small-12 medium-5">
+      <%= f.select(:document_type,
+                   [[humanize_document_type("1"), 1],
+                    [humanize_document_type("2"), 2],
+                    [humanize_document_type("3"), 3],
+                    [humanize_document_type("4"), 4]]
+                   label: t("management.document_type_label")) %>
+    </div>
+    <div class="small-12 medium-5">
+      <%= f.text_field :document_number,
+                       placeholder: t('management.document_number'),
+                       label: t("management.document_number")
+      %>
+    </div>
+    <%= f.submit t("management.check"), class: "button" %>
+  <% end %>
+</div>

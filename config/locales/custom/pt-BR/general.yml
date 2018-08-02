@@ -45,6 +45,10 @@ pt-BR:
       already_answer: "Você já participou desta votação"
       section_header:
         title: Consultas Públicas
+  polls:    
+    show:
+      cant_answer_incomplete_account_html: "Você deve %{account_link} para poder responder."
+      account_link: "preencher os dados de sua conta"
   debates:
     index:
       title: Demandas
@@ -65,4 +69,8 @@ pt-BR:
       see_process: Ver processo
     cards:
       title: Saiba mais sobre o Orçamento Participativo 
-
+  errors:
+    messages:
+      user_not_found: Usuário não encontrado
+      invalid_date_range: "Intervalo de datas inválido"
+      invalid_cpf: CPF não é valido

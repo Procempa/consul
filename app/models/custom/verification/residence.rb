@@ -3,14 +3,14 @@ require_dependency Rails.root.join('app', 'models', 'verification', 'residence')
 
 class Verification::Residence
 
-  validate :postal_code_in_madrid
-  validate :residence_in_madrid
+  validate :postal_code_in_poa
+  validate :residence_in_poa
 
-  def postal_code_in_madrid
+  def postal_code_in_poa
     errors.add(:postal_code, I18n.t('verification.residence.new.error_not_allowed_postal_code')) unless valid_postal_code?
   end
 
-  def residence_in_madrid
+  def residence_in_poa
     return if errors.any?
 
     unless residency_valid?
@@ -23,7 +23,8 @@ class Verification::Residence
   private
 
     def valid_postal_code?
-      postal_code =~ /^280/
+      # faixa de Porto Alegre segundo o site https://thiagorodrigo.com.br/artigo/cep-brasil-lista-de-cep-por-estados-capitais-e-interior/ no dia 31/07/2018
+      postal_code > '90000000' && postal_code < '91999999'
     end
 
 end

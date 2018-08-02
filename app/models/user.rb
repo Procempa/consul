@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   include Verification
-
+  
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable, :async, :password_expirable, :secure_validatable,
          authentication_keys: [:login]
@@ -38,6 +38,9 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
+  validates :document_type, presence: true, allow_nil: false, if: :validate_document?
+  validates :document_number, presence: true, allow_nil: false, if: :validate_document?
+
   validate :validate_username_length
 
   validates :official_level, inclusion: {in: 0..5}
@@ -45,8 +48,12 @@ class User < ActiveRecord::Base
 
   validates_associated :organization, message: false
 
+  validate :validate_document_number_cpf
+
   accepts_nested_attributes_for :organization, update_only: true
 
+  # atributo para decidir se o documento será ou não validado ao salvar
+  attr_accessor :validate_document
   attr_accessor :skip_password_validation
   attr_accessor :use_redeemable_code
   attr_accessor :login
@@ -72,6 +79,20 @@ class User < ActiveRecord::Base
   end
 
   before_validation :clean_document_number
+
+  def update_total(params)
+    @validate_document = true
+    update(params)
+    @validate_document = false
+  end
+
+  def validate_document?
+    @validate_document
+  end
+
+  def account_complete?
+    return self.document_type == "4" && ::Validator::CpfValidator::check_cpf(self.document_number)
+  end  
 
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
@@ -343,6 +364,12 @@ class User < ActiveRecord::Base
         attributes: :username,
         maximum: User.username_max_length)
       validator.validate(self)
+    end
+
+    def validate_document_number_cpf      
+      if document_type == "4" && !::Validator::CpfValidator::check_cpf(document_number)
+        errors.add(:document_number, I18n.t('errors.messages.invalid_cpf')) 
+      end
     end
 
 end
