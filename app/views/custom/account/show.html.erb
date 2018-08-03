@@ -19,38 +19,69 @@
                 <%= fo.text_field :responsible_name, autofocus: true, maxlength: Organization.responsible_name_max_length, placeholder: t("account.show.organization_responsible_name_placeholder") %>
               <% end %>
               <%= f.text_field :phone_number, placeholder: t("account.show.phone_number_label") %>
-
             <% else %>
               <%= f.text_field :username, maxlength: User.username_max_length, placeholder: t("account.show.username_label") %>
             <% end %>
-          </div>
+          </div>          
 
           <div class="row">
-          <div class="small-12 medium-8">
-            <div class="small-12 medium-3 column">
-            <%= f.label t("verification.residence.new.document_type_label") %>
-            <%= f.select :document_type, document_types, prompt: "", label: false %>
+          <div class="small-12 medium-10">
+            <div class="small-12 medium-5 column">
+              <%= f.label t("verification.residence.new.document_type_label") %>
+              <%= f.select :document_type, document_types, prompt: "", label: false %>
             </div>
             <div class="small-12 medium-5 column end">
-  
-            <div class="inline-block">
-              <%= f.label t("verification.residence.new.document_number") %>
-            </div>
-  
-            <div class="inline-block" data-toggle="info-document-number">
-              <span class="icon-help"></span>
-              <span class="show-for-sr"><%= t("verification.residence.new.document_number_help_title") %></span>
-            </div>
-  
-            <div class="dropdown-pane" id="info-document-number" data-dropdown
-                 data-hover="true" data-hover-pane="true">
-              <%= t("verification.residence.new.document_number_help_text_html") %>
-            </div>
-  
-            <%= f.text_field :document_number, label: false, :data => {:mask=> '999.999.999-99'}  %>
+    
+              <div class="inline-block">
+                <%= f.label t("verification.residence.new.document_number") %>
+              </div>
+    
+              <div class="inline-block" data-toggle="info-document-number">
+                <span class="icon-help"></span>
+                <span class="show-for-sr"><%= t("verification.residence.new.document_number_help_title") %></span>
+              </div>
+    
+              <div class="dropdown-pane" id="info-document-number" data-dropdown
+                  data-hover="true" data-hover-pane="true">
+                <%= t("verification.residence.new.document_number_help_text_html") %>
+              </div>
+    
+              <%= f.text_field :document_number, label: false  %>
             </div>
           </div>
         </div>  
+
+            <%= f.fields_for :address do |fa| %>            
+              <h3><%= t("account.show.address.label")%></h3>
+            
+              <div class="small-12 medium-10">                      
+              <%= fa.text_field :street, label:  t("account.show.address.street_label"), placeholder: t("account.show.address.street_label") %>
+              </div>
+
+              
+              <div class="small-12 medium-10">                            
+                  <div class="inline-block">
+                    <%= f.label t("account.show.address.cep_label") %>
+                  </div>
+        
+                  <div class="inline-block" data-toggle="info-postal-code">
+                    <span class="icon-help"></span>
+                    <span class="show-for-sr"><%= t("account.show.address.postal_code_help_text_title") %></span>
+                  </div>
+        
+                  <div class="dropdown-pane" id="info-postal-code" data-dropdown
+                      data-hover="true" data-hover-pane="true">
+                    <%= t("account.show.address.postal_code_help_text_html") %>
+                  </div>
+        
+                  <%= fa.text_field :postal_code, label: false, placeholder: t("account.show.address.cep_label")  %>
+                  </div>
+              <div class="small-12 medium-10">        
+                                          
+                  <%= fa.text_field :number, label:  t("account.show.address.number_label"), placeholder: t("account.show.address.number_label") %>
+                  <%= fa.text_field :complement, label:  t("account.show.address.complement_label"), placeholder: t("account.show.address.complement_label") %>
+              </div>              
+            <% end %>                          
 
           <div>
             <%= f.label :public_activity do %>

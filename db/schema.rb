@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529204912) do
+ActiveRecord::Schema.define(version: 20180802201734) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_trgm"
   enable_extension "plpgsql"
   enable_extension "unaccent"
+  enable_extension "pg_trgm"
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 20180529204912) do
 
   add_index "activities", ["actionable_id", "actionable_type"], name: "index_activities_on_actionable_id_and_actionable_type", using: :btree
   add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "street"
+    t.string   "street_type"
+    t.string   "number"
+    t.string   "letter"
+    t.string   "neighbourhood"
+    t.string   "district"
+    t.string   "postal_code"
+    t.string   "toponymy"
+    t.string   "complement"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.datetime "hidden_at"
+  end
+
+  add_index "addresses", ["hidden_at"], name: "index_addresses_on_hidden_at", using: :btree
 
   create_table "administrators", force: :cascade do |t|
     t.integer "user_id"

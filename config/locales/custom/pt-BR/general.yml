@@ -4,6 +4,14 @@ pt-BR:
     show:
       public_activity_label: Mostrar publicamente minha lista de atividades
       public_interests_label: Mostrar publicamente os rótulos dos elementos que sigo
+      address: 
+        label: Endereço
+        street_label: Logradouro
+        cep_label: CEP
+        number_label: Número
+        complement_label: Complemento
+        postal_code_help_text_html: '<strong>CEP</strong>: 54321012'
+        postal_code_help_text_title: 'CEP'
   admin:
     site_customization:
       images:
