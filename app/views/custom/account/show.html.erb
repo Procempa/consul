@@ -50,16 +50,27 @@
             </div>
           </div>
         </div>  
+        <div>
+        <%= f.label :public_activity do %>
+          <%= f.check_box :public_activity, title: t('account.show.public_activity_label'), label: false %>
+          <span class="checkbox">
+            <%= t("account.show.public_activity_label") %>
+          </span>
+        <% end %>
+      </div>
 
+      <div>
+        <%= f.label :public_interests do %>
+          <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
+          <span class="checkbox">
+            <%= t("account.show.public_interests_label") %>
+          </span>
+        <% end %>
+      </div>
             <%= f.fields_for :address do |fa| %>            
-              <h3><%= t("account.show.address.label")%></h3>
-            
-              <div class="small-12 medium-10">                      
-              <%= fa.text_field :street, label:  t("account.show.address.street_label"), placeholder: t("account.show.address.street_label") %>
-              </div>
-
+              <h2><%= t("account.show.address.label")%></h2>
               
-              <div class="small-12 medium-10">                            
+              <div class="small-12 medium-5">                            
                   <div class="inline-block">
                     <%= f.label t("account.show.address.cep_label") %>
                   </div>
@@ -76,30 +87,19 @@
         
                   <%= fa.text_field :postal_code, label: false, placeholder: t("account.show.address.cep_label")  %>
                   </div>
-              <div class="small-12 medium-10">        
-                                          
+            
+                  <div class="small-12 medium-10">                      
+                  <%= fa.text_field :street, label:  t("account.show.address.street_label"), placeholder: t("account.show.address.street_label") %>
+                  </div>                  
+                <div class="small-12 medium-5 inline-block">                                                  
                   <%= fa.text_field :number, label:  t("account.show.address.number_label"), placeholder: t("account.show.address.number_label") %>
+                </div>
+                <div class="small-12 medium-5 inline-block">                        
                   <%= fa.text_field :complement, label:  t("account.show.address.complement_label"), placeholder: t("account.show.address.complement_label") %>
               </div>              
             <% end %>                          
 
-          <div>
-            <%= f.label :public_activity do %>
-              <%= f.check_box :public_activity, title: t('account.show.public_activity_label'), label: false %>
-              <span class="checkbox">
-                <%= t("account.show.public_activity_label") %>
-              </span>
-            <% end %>
-          </div>
 
-          <div>
-            <%= f.label :public_interests do %>
-              <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
-              <span class="checkbox">
-                <%= t("account.show.public_interests_label") %>
-              </span>
-            <% end %>
-          </div>
 
 
           <% if @account.email.present? %>
