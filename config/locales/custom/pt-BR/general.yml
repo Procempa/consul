@@ -10,8 +10,10 @@ pt-BR:
         cep_label: CEP
         number_label: Número
         complement_label: Complemento
-        postal_code_help_text_html: '<strong>CEP</strong>: 54321012'
+        postal_code_help_text_html: 'Preencha somente com números'
+        street_placeholder: 'Ex.: Av. Vicente da Fontoura'
         postal_code_help_text_title: 'CEP'
+        neighbourhood_label: 'Bairro'
   admin:
     site_customization:
       images:

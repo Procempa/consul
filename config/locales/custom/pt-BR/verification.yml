@@ -4,6 +4,6 @@ pt-BR:
       new:
         error_not_allowed_postal_code: Para ser verificado, você deve residir em Porto Alegre.
         postal_code_note: Para verificar sua conta, você deve residir em Porto Alegre.
-        document_number_help_text_html: '<strong>CPF</strong>: 111222333999'
+        document_number_help_text_html: 'Preencha somente com números'
         document_type:
           cpf: CPF        

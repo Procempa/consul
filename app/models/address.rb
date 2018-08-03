@@ -7,7 +7,7 @@ class Address < ActiveRecord::Base
 
     #validates :district, presence: true
     validates :complement, presence: false, on: :update
-    #validates :neighbourhood, presence: true
+    #validates :neighbourhood, presence: true, length: { minimum: 2 }, on: :update
     validates :user, presence: true
   
     validate :postal_code_in_poa, on: :update

@@ -86,11 +86,28 @@
                   </div>
         
                   <%= fa.text_field :postal_code, label: false, placeholder: t("account.show.address.cep_label")  %>
-                  </div>
-            
-                  <div class="small-12 medium-10">                      
-                  <%= fa.text_field :street, label:  t("account.show.address.street_label"), placeholder: t("account.show.address.street_label") %>
-                  </div>                  
+              </div>                  
+                  <!-- div class="small-12 medium-10">                      
+                    <%= fa.text_field :neighbourhood, label:  t("account.show.address.neighbourhood_label"), placeholder: t("account.show.address.neighbourhood_label") %>
+                  </div -->                         
+                  <div class="small-12 medium-10">                            
+                    <div class="inline-block">
+                      <%= f.label t("account.show.address.street_label") %>
+                    </div>
+          
+                    <div class="inline-block" data-toggle="info-street">
+                      <span class="icon-help"></span>
+                      <span class="show-for-sr"><%= t("account.show.address.street_label") %></span>
+                    </div>
+          
+                    <div class="dropdown-pane" id="info-street" data-dropdown
+                        data-hover="true" data-hover-pane="true">
+                      <%= t("account.show.address.street_placeholder") %>
+                    </div>
+          
+                    <%= fa.text_field :street, label: false, placeholder: t("account.show.address.street_label")  %>
+                  </div>                       
+                                          
                 <div class="small-12 medium-5 inline-block">                                                  
                   <%= fa.text_field :number, label:  t("account.show.address.number_label"), placeholder: t("account.show.address.number_label") %>
                 </div>
