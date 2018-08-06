@@ -1,0 +1,141 @@
+<% provide :title do %><%= t('pages.titles.accessibility') %><% end %>
+<% content_for :canonical do %>
+  <%= render "shared/canonical", href: page_url("accessibility") %>
+<% end %>
+
+<div class="row">
+<div class="small-12 column">
+  <h1>Acessibilidade</h1>
+  <p>A acessibilidade virtual se refere à possibilidade de acesso da web e seus conteúdos por todas as pessoas, independente das necessidades especiais (físicas, intelectuais ou técnicas) que possam apresentar ou das que derivem do seu contexto de utilização (tecnológico ou ambiental). </p>
+
+  <p>Quando os sites são projetados pensando na acessibilidade, todos os usuários podem acessá-lo em condições de igualdade de conteúdo. Por exemplo: </p>
+
+  <ul>
+    <li>Proporcionando um texto alternativo às imagens, os usuários cegos ou com problemas de visão podem utilizar leitores especiais para acessar a informação;</li>
+    <li>Quando os vídeos têm legendas, os usuários com dificuldades auditivas podem entendê-los plenamente;</li>
+    <li>Se os conteúdos estão escritos em linguagem simples e ilustrada, os usuários com problemas de aprendizagem estão melhor condicionados a entendê-los;</li>
+    <li>Se o usuário tem problemas de moblidade e encontra dificuldades para usar o mouse, as alternativas com teclado auxiliam a navegação. </li>
+  </ul>
+
+  <h2>Atalhos de teclado</h2>
+
+  <p>Para poder navegar por esse site de forma acessível, programamos um grupo de teclas de rápido acesso que correspondem às principais seções de interesse geral que estão organizadas nas nossas páginas.</p>
+
+  <div class="small-12 medium-6">
+    <table>
+      <caption class="show-for-sr">Atalhos de teclado para o menu de navegação</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Tecla</th>
+          <th scope="col">Página</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">0</td>
+          <td>Início</td>
+        </tr>
+        <tr>
+          <td class="text-center">1</td>
+          <td>Debates</td>
+        </tr>
+        <tr>
+          <td class="text-center">2</td>
+          <td>Propostas</td>
+        </tr>
+        <tr>
+          <td class="text-center">3</td>
+          <td>Consultas Públicas</td>
+        </tr>
+        <tr>
+          <td class="text-center">4</td>
+          <td>Orçamentos Participativos</td>
+        </tr>
+        <tr>
+          <td class="text-center">5</td>
+          <td>Processos legislativos</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Dependendo do sistema operacional e do navegados que esteja sendo utilizado, a combinação de teclas será a seguinte:</p>
+
+  <div class="small-12 medium-6">
+    <table>
+      <caption class="show-for-sr">Combinação de teclas dependendo do sistema operacional e navegador</caption>
+      <thead>
+        <tr>
+          <th scope="col">Navegador</th>
+          <th scope="col">Combinação de teclas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Explorer</td>
+          <td>ALT + atalho e depois ENTER</td>
+        </tr>
+        <tr>
+          <td>Firefox</td>
+          <td>ALT + SHIFT + atalho</td>
+        </tr>
+        <tr>
+          <td>Chrome</td>
+          <td>ALT + atalho (se for um MAC, CTRL + ALT + atalho)</td>
+        </tr>
+        <tr>
+          <td>Safari</td>
+          <td>ALT + atalho (se for um MAC, CMD + atalho)</td>
+        </tr>
+        <tr>
+          <td>Opera</td>
+          <td>SHIFT + ESC + atalho</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Tamanho do texto</h2>
+  <p>O design acessível desse site permite que o usuário possa escolher o tamanho do texto que melhor lhe convém. Essa ação pode ser realizada de diferentes maneiras dependendo do navegador que está sendo utilizado. </p>
+
+  <div class="small-12 medium-6">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Navegador</th>
+          <th scope="col">Ação a realizar </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Explorer</td>
+          <td>Ver > Tamanho do texto</td>
+        </tr>
+        <tr>
+          <td>Firefox</td>
+          <td>Ver > Tamanho</td>
+        </tr>
+        <tr>
+          <td>Chrome</td>
+          <td>Ajustes (ícones) > Opções > Avançadas > Conteúdo web > Tamanho fonte</td>
+        </tr>
+        <tr>
+          <td>Safari</td>
+          <td>Visualização > ampliar/reduzir</td>
+        </tr>
+        <tr>
+          <td>Opera</td>
+          <td>Ver > escala</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Outra forma de modificar o tamanho do texto é usar atalhos de teclado definidos pelos navegadores, em particular as seguintes combinações de teclas:</p>
+
+  <ul>
+    <li><code>CTRL e + (CMD e + no MAC)</code> para aumentar o tamanho do texto</li>
+    <li><code> CTRL e - (CMD e - no MAC)</code> para reduzir o tamanho do texto</li>
+  </ul>
+  </div>
+</div>
