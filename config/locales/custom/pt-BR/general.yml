@@ -49,13 +49,14 @@ pt-BR:
         expired: Terminadas
       section_footer:
         help_text_2: "Para participar da próxima votação, você precisa criar uma conta no %{org}. Todas as pessoas registradas na cidade com mais de 16 anos podem votar. Os resultados de todos os votos serão vinculativos para o governo."
+        help_text_1: "A votação inclui questões que a Prefeitura submete à decisão direta do cidadão."
+        description: Inscreva-se para poder votar nas perguntas. Tome decisões municipais diretamente.
       no_polls: "Não existem votações no momento."  
       title: Consultas Públicas
       participate_button: "Votar"
       already_answer: "Você já participou desta votação"
       section_header:
         title: Consultas Públicas
-  polls:    
     show:
       cant_answer_incomplete_account_html: "Você deve %{account_link} para poder responder."
       account_link: "preencher os dados de sua conta"
