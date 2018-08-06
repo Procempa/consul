@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   include Verification
-
+  
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable, :async, :password_expirable, :secure_validatable,
          authentication_keys: [:login]
@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_one :poll_officer, class_name: "Poll::Officer"
   has_one :organization
   has_one :lock
+  has_one :address, validate: :validate_document?
   has_many :flags
   has_many :identities, dependent: :destroy
   has_many :debates, -> { with_hidden }, foreign_key: :author_id
@@ -38,6 +39,9 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
+  validates :document_type, presence: true, allow_nil: false, if: :validate_document?
+  validates :document_number, uniqueness: { scope: :document_type }, presence: true, allow_nil: false, if: :validate_document?
+
   validate :validate_username_length
 
   validates :official_level, inclusion: {in: 0..5}
@@ -45,8 +49,14 @@ class User < ActiveRecord::Base
 
   validates_associated :organization, message: false
 
-  accepts_nested_attributes_for :organization, update_only: true
+  validate :validate_document_number_cpf
 
+  accepts_nested_attributes_for :organization, update_only: true
+  accepts_nested_attributes_for :address, allow_destroy: true
+
+
+  # atributo para decidir se o documento será ou não validado ao salvar
+  attr_accessor :validate_document
   attr_accessor :skip_password_validation
   attr_accessor :use_redeemable_code
   attr_accessor :login
@@ -54,6 +64,7 @@ class User < ActiveRecord::Base
   scope :administrators, -> { joins(:administrator) }
   scope :moderators,     -> { joins(:moderator) }
   scope :organizations,  -> { joins(:organization) }
+  scope :addresses,  -> { joins(:address) }
   scope :officials,      -> { where("official_level > 0") }
   scope :newsletter,     -> { where(newsletter: true) }
   scope :for_render,     -> { includes(:organization) }
@@ -73,6 +84,21 @@ class User < ActiveRecord::Base
 
   before_validation :clean_document_number
 
+  def update_total(params)
+    @validate_document = true    
+    r= update(params)
+    @validate_document = false
+    r
+  end
+
+  def validate_document?
+    @validate_document
+  end
+
+  def account_complete?
+    return self.document_type == "4" && ::Validator::CpfValidator::check_cpf(self.document_number) && !address.nil? && address.valid?
+  end  
+
   # Get the existing user by email if the provider gives us a verified email.
   def self.first_or_initialize_for_oauth(auth)
     oauth_email           = auth.info.email
@@ -85,7 +111,7 @@ class User < ActiveRecord::Base
       oauth_email: oauth_email,
       password: Devise.friendly_token[0, 20],
       terms_of_service: '1',
-      confirmed_at: DateTime.current #oauth_email_confirmed ? DateTime.current : nil
+      confirmed_at: DateTime.current
     )
   end
 
@@ -141,6 +167,10 @@ class User < ActiveRecord::Base
 
   def manager?
     manager.present?
+  end
+
+  def address?
+    address.present?
   end
 
   def poll_officer?
@@ -292,10 +322,10 @@ class User < ActiveRecord::Base
 
   def save_requiring_finish_signup
     begin
-      self.registering_with_oauth = true
+      self.registering_with_oauth = true      
       save(validate: false)
     # Devise puts unique constraints for the email the db, so we must detect & handle that
-    rescue ActiveRecord::RecordNotUnique
+    rescue ActiveRecord::RecordNotUnique      
       self.email = nil
       save(validate: false)
     end
@@ -343,6 +373,12 @@ class User < ActiveRecord::Base
         attributes: :username,
         maximum: User.username_max_length)
       validator.validate(self)
+    end
+
+    def validate_document_number_cpf      
+      if document_type == "4" && !::Validator::CpfValidator::check_cpf(document_number)
+        errors.add(:document_number, I18n.t('errors.messages.invalid_cpf')) 
+      end
     end
 
 end

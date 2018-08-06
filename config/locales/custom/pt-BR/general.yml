@@ -4,6 +4,16 @@ pt-BR:
     show:
       public_activity_label: Mostrar publicamente minha lista de atividades
       public_interests_label: Mostrar publicamente os rótulos dos elementos que sigo
+      address: 
+        label: Endereço
+        street_label: Logradouro
+        cep_label: CEP
+        number_label: Número
+        complement_label: Complemento
+        postal_code_help_text_html: 'Preencha somente com números'
+        street_placeholder: 'Ex.: Av. Vicente da Fontoura'
+        postal_code_help_text_title: 'CEP'
+        neighbourhood_label: 'Bairro'
   admin:
     site_customization:
       images:
@@ -45,6 +55,10 @@ pt-BR:
       already_answer: "Você já participou desta votação"
       section_header:
         title: Consultas Públicas
+  polls:    
+    show:
+      cant_answer_incomplete_account_html: "Você deve %{account_link} para poder responder."
+      account_link: "preencher os dados de sua conta"
   debates:
     index:
       title: Demandas
@@ -65,4 +79,8 @@ pt-BR:
       see_process: Ver processo
     cards:
       title: Saiba mais sobre o Orçamento Participativo 
-
+  errors:
+    messages:
+      user_not_found: Usuário não encontrado
+      invalid_date_range: "Intervalo de datas inválido"
+      invalid_cpf: CPF não é valido

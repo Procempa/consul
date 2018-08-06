@@ -61,11 +61,12 @@ class Poll < ActiveRecord::Base
     user.present? &&
       user.level_two_or_three_verified? &&
       current? &&
+      user.account_complete? &&
       (!geozone_restricted || geozone_ids.include?(user.geozone_id))
   end
 
   def self.answerable_by(user)
-    return none if user.nil? || user.unverified?
+    return none if user.nil? || user.unverified? || !user.account_complete?
     current.joins('LEFT JOIN "geozones_polls" ON "geozones_polls"."poll_id" = "polls"."id"')
            .where('geozone_restricted = ? OR geozones_polls.geozone_id = ?', false, user.geozone_id)
   end

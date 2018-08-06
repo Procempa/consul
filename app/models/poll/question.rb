@@ -51,7 +51,7 @@ class Poll::Question < ActiveRecord::Base
   delegate :answerable_by?, to: :poll
 
   def self.answerable_by(user)
-    return none if user.nil? || user.unverified?
+    return none if user.nil? || user.unverified? || !user.account_complete?
     where(poll_id: Poll.answerable_by(user).pluck(:id))
   end
 

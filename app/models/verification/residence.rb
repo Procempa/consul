@@ -12,7 +12,7 @@ class Verification::Residence
   validates :date_of_birth, presence: true
   validates :postal_code, presence: true
   validates :terms_of_service, acceptance: { allow_nil: false }
-  validates :postal_code, length: { is: 5 }
+  validates :postal_code, length: { is: 8 }
 
   validate :allowed_age
   validate :document_number_uniqueness

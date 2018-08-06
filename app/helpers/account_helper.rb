@@ -1,4 +1,4 @@
-module VerificationHelper
+module AccountHelper
 
   def document_types
     [
