@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
-  validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
+  validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true, unless: :validate_document?
 
   validates :document_type, presence: true, allow_nil: false, if: :validate_document?
   validates :document_number, uniqueness: { scope: :document_type }, presence: true, allow_nil: false, if: :validate_document?
@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
   end
 
   def validate_document?
-    @validate_document
+    !!@validate_document
   end
 
   def account_complete?
