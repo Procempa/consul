@@ -1,6 +1,6 @@
 <% unless can?(:answer, @poll) %>
   <% if current_user.nil? %>
-    <div class="callout primary">
+    <div class="callout primary lead">
       <%= t("polls.show.cant_answer_not_logged_in",
             signin: link_to(t("polls.show.signin"), new_user_session_path, class: "probe-message"),
             signup: link_to(t("polls.show.signup"), new_user_registration_path, class: "probe-message")).html_safe %>
