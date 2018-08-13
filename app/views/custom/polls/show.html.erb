@@ -45,7 +45,7 @@
       <% end %>
 
 
-      <% if !current_user.unverified? && current_user.account_complete? %>
+      <% if !!current_user && !current_user.unverified? && current_user.account_complete? %>
         <%= form_for answer_question_url, remote: true do |f| %>
           <% @questions.each do |question| %>
             <%= render 'polls/questions/question', fq: f, question: question , token: @token %>
