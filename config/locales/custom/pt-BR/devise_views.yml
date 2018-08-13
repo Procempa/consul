@@ -1,0 +1,23 @@
+pt-BR:
+  devise_views:
+    menu:
+      login_items:
+        login: Entrar
+        logout: Sair
+        signup: Cadastrar-se
+    sessions:
+      new:
+        submit: Entrar
+        title: Entrar
+    shared:
+      links:
+        login: Entrar
+        signup_link: Cadastrar-se
+    users:
+      registrations:
+        new:
+          cancel: Cancelar o login
+          organization_signup_link: Cadastre-se aqui
+          submit: Cadastre-se
+          terms: Ao cadastrar-se você aceita os%{terms}
+          title: Cadastre-se
