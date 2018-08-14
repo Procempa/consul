@@ -1,0 +1,12 @@
+<% if can?(:answer, question) && !question.poll.voted_in_booth?(current_user) %>
+
+<div id="<%= dom_id(question) %>" class="poll-question">
+  <h3>
+    <%= question.title %>
+  </h3>
+
+  <div id="<%= dom_id(question) %>_answers" class="padding">
+    <%= render 'polls/questions/answers', fqa: fq, question: question, token: token %>
+  </div>
+</div>
+<% end %>

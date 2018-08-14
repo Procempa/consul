@@ -9,6 +9,7 @@
           <%= answer.title %>
         </span>
       <% else %>
+
         <%= link_to answer.title,
           answer_question_path(question, answer: answer.title, token: token),
           method: :post,
