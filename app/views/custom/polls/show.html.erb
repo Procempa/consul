@@ -20,7 +20,8 @@
         share_title: t("shared.share"),
         title: @poll.name,
         url: poll_url(@poll),
-        description: @poll.name
+        description: @poll.name,
+        image_url:  @poll.image ? request.protocol + request.host_with_port + @poll.image_url(:large) : nil
       } %>
     </aside>
   </div>
