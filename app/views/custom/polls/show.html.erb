@@ -21,7 +21,7 @@
         title: @poll.name,
         url: poll_url(@poll),
         description: @poll.name,
-        image_url:  @poll.image ? request.protocol + request.host_with_port + @poll.image_url(:large) : nil
+        image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil
       } %>
     </aside>
   </div>
