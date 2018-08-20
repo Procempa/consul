@@ -1,5 +1,13 @@
 <% provide :title do %><%= @poll.name %><% end %>
 
+<% provide :social_media_meta_tags do %>
+  <%= render "shared/social_media_meta_tags",
+              social_url: proposal_url(@poll),
+              social_title: @poll.name,
+              social_description: @poll.name,
+              twitter_image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil,
+              og_image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil %>
+<% end %>
 <div class="polls-show">
   <%= render "poll_header" %>
 
