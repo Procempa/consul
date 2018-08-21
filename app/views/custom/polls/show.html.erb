@@ -5,8 +5,8 @@
               social_url: proposal_url(@poll),
               social_title: @poll.name,
               social_description: @poll.name,
-              twitter_image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil,
-              og_image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil %>
+              twitter_image_url: @poll.image_url(:poll) ? @poll.image_url(:poll) : nil,
+              og_image_url: @poll.image_url(:poll) ? @poll.image_url(:poll) : nil %>
 <% end %>
 <div class="polls-show">
   <%= render "poll_header" %>
@@ -29,7 +29,7 @@
         title: @poll.name,
         url: poll_url(@poll),
         description: @poll.name,
-        image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil
+        image_url: @poll.image_url(:poll) ? @poll.image_url(:poll) : nil
       } %>
     </aside>
   </div>
