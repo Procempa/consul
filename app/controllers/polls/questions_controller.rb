@@ -5,6 +5,10 @@ class Polls::QuestionsController < ApplicationController
 
   has_orders %w{most_voted newest oldest}, only: :show
 
+  def answers
+
+  end
+
   def answer
     answer = @question.answers.find_or_initialize_by(author: current_user)
     token = params[:token]

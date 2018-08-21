@@ -1,5 +1,13 @@
 <% provide :title do %><%= @poll.name %><% end %>
 
+<% provide :social_media_meta_tags do %>
+  <%= render "shared/social_media_meta_tags",
+              social_url: proposal_url(@poll),
+              social_title: @poll.name,
+              social_description: @poll.name,
+              twitter_image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil,
+              og_image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil %>
+<% end %>
 <div class="polls-show">
   <%= render "poll_header" %>
 
@@ -20,7 +28,8 @@
         share_title: t("shared.share"),
         title: @poll.name,
         url: poll_url(@poll),
-        description: @poll.name
+        description: @poll.name,
+        image_url: @poll.image_url(:medium) ? request.protocol + request.host_with_port + @poll.image_url(:medium) : nil
       } %>
     </aside>
   </div>
@@ -44,16 +53,20 @@
         <% end %>
       <% end %>
 
-      <% @questions.each do |question| %>
-        <%= render 'polls/questions/question', question: question, token: @token %>
-      <% end %>
 
-      <% if poll_voter_token(@poll, current_user).empty? %>
-        <div class="callout token-message js-token-message" style="display: none">
-          <%= t('poll_questions.show.voted_token') %>
-        </div>
+      <% if !!current_user && !current_user.unverified? && current_user.account_complete? %>
+        <%= form_for answer_question_url, remote: true do |f| %>
+          <% @questions.each do |question| %>
+            <%= render 'polls/questions/question', fq: f, question: question , token: @token %>
+          <% end %>
+    
+          <% if poll_voter_token(@poll, current_user).empty? %>
+            <div class="callout token-message js-token-message" style="display: none">
+              <%= t('poll_questions.show.voted_token') %>
+            </div>
+          <% end %>        
+        <% end %>
       <% end %>
-
     </div>
   </div>
 

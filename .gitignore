@@ -13,11 +13,11 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-!/log/.keep
+/log/.keep
 /tmp
 
 /spec/examples.txt
-/config/secrets.yml
+#/config/secrets.yml
 /config/deploy-secrets.yml
 /config/maintenance.yml
 

@@ -21,7 +21,9 @@
                      sizes: "200x200",
                      type: "image/png" %>
 
-
+    <% unless Rails.env.production? %>
+        <meta name="robots" content="noindex,nofollow">
+    <% end %>
                      
     <%= content_for :social_media_meta_tags %>
 
