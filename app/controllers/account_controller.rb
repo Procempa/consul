@@ -8,7 +8,7 @@ class AccountController < ApplicationController
         @account.address ||= Address.new({user_id: @account.id})
         @account.save(validate: false)        
       end
-      if (request.referrer && request.referrer.match("account"))
+      if (request.referrer && !request.referrer.match("account"))
         session[:referrer_poll] = nil        
         if (!current_user.account_complete? && request.referrer.match(request.domain) && request.referrer.match("polls"))
           session[:referrer_poll] = request.referrer                
