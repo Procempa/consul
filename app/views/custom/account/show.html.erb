@@ -3,7 +3,11 @@
     <%= avatar_image(@account, seed: @account.id, size: 80, class: "margin-bottom") %>
 
     <h1 class="inline-block"><%= t("account.show.title") %></h1>
-
+    <% if session[:referrer_poll]  %>
+      <div class="callout success">
+        <%=raw t('account.show.link_back_to_the_poll', poll_link: link_to(t('account.show.here'), session[:referrer_poll])) %>
+      </div> 
+    <% end %>
     <%= form_for @account, as: :account, url: account_path do |f| %>
       <%= render "shared/errors", resource: @account %>
 

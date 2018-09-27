@@ -4,6 +4,8 @@ pt-BR:
     show:
       public_activity_label: Mostrar publicamente minha lista de atividades
       public_interests_label: Mostrar publicamente os rótulos dos elementos que sigo
+      link_back_to_the_poll: "Clique %{poll_link} para voltar a consulta pública"
+      here: aqui      
       address: 
         label: Endereço
         street_label: Logradouro
