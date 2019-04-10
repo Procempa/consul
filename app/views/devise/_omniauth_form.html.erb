@@ -33,7 +33,7 @@
       <% end %>
 
         <div class="small-12 medium-6 large-4 column end">
-          <%= link_to t("omniauth.google_oauth2.name"), user_omniauth_authorize_path(:saml),
+          <%= link_to t("omniauth.google_oauth2.name"), user_omniauth_authorize_path(:saml) + '?kc_locale=pt-BR',
                       title: t("omniauth.google_oauth2.sign_in"),
                       class: "button-google button expanded" %>
         </div>

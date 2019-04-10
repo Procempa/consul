@@ -250,7 +250,8 @@ Devise.setup do |config|
     idp_sso_target_url: 'target_url', 
     idp_cert: ENV['CONSUL_AP_SAML_CERT'], 
     idp_slo_target_url: ENV['CONSUL_AP_IDP_SLO_TARGET_URL'],
-    allowed_clock_drift: 59.seconds
+    allowed_clock_drift: 59.seconds,
+    idp_sso_target_url_runtime_params: {:kc_locale => :kc_locale, :kcLocale => :kc_locale}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
