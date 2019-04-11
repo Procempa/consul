@@ -1,4 +1,4 @@
-FROM ruby:2.3.6
+FROM ruby:2.3.6-stretch
 
 
 ENV HTTP_PROXY="http://lproxy1.procempa.com.br:3128/"
