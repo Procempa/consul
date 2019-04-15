@@ -1146,6 +1146,100 @@ $texto-secundario: $text-medium;
   }
 
 */
+//Radios  (mesma estrutura do checkbox)
+$input-border: $bordas;
+$input-action: $destaque2;
+$input-disabled-border: lighten($bordas, 5%);
+$input-disabled-bg: $fundo-claro;
+$cursor-disabled: not-allowed;
+
+.radio {
+  > [type="radio"]:not(:checked),
+  > [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+    + label {
+      position: relative;
+      padding-left: 32px;
+      cursor: pointer;
+
+      &:before {
+        position: absolute;
+        left: 0; 
+        top: 2px;
+        width: 24px; 
+        height: 24px;
+        content: '';
+        border: 2px solid $input-border;
+        background: #fff;
+        border-radius: 50%;
+      }
+      &:hover:before {
+        border-color: $input-action;
+      }
+
+      &:after {
+        position: absolute;
+        //@include fa;
+        //content: '\f111';
+        //font-size: 8px;
+        //line-height: 0.8;
+        //color: #fff;
+        //padding: 6px 5px;
+        background-color: $input-action;
+        content: "";
+        width: 12px;
+        height: 12px;
+        top: 8px;
+        left: 6px;
+        transition: all .2s;
+        border-radius: 50%;
+      }
+    }
+  }
+  [type="radio"]:checked {
+  + label {
+      &:before {
+        border: 2px solid $input-action;
+      }
+    }
+  }
+
+  /* checked mark aspect changes */
+  [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* disabled radio */
+  [type="radio"]:disabled:not(:checked) + label:before,
+  [type="radio"]:disabled:checked + label:before {
+    border-color: $input-disabled-border;
+    background-color: $input-disabled-bg;
+    &:hover {
+      border-color: $input-disabled-border;
+    }
+  }
+  [type="radio"]:disabled:checked + label:after {
+    //color: $input-disabled-bg;
+    background-color: $input-disabled-border; 
+  }
+  [type="radio"]:disabled + label {
+    color: $texto-secundario;
+    cursor: $cursor-disabled;
+  }
+  /* accessibility */
+  [type="radio"]:checked:focus + label:before,
+  [type="radio"]:not(:checked):focus + label:before {
+      border-color: $input-action;
+      box-shadow: 0 0 5px $input-action;
+      outline: 0 none;
+  }
+}
+
 
 //Utilidades
 .medium-float-right {
