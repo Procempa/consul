@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180802201734) do
+ActiveRecord::Schema.define(version: 20190416211911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -711,9 +711,11 @@ ActiveRecord::Schema.define(version: 20180802201734) do
     t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "poll_question_answers_id"
   end
 
   add_index "poll_answers", ["author_id"], name: "index_poll_answers_on_author_id", using: :btree
+  add_index "poll_answers", ["poll_question_answers_id"], name: "index_poll_answers_on_poll_question_answers_id", using: :btree
   add_index "poll_answers", ["question_id", "answer"], name: "index_poll_answers_on_question_id_and_answer", using: :btree
   add_index "poll_answers", ["question_id"], name: "index_poll_answers_on_question_id", using: :btree
 
@@ -802,6 +804,9 @@ ActiveRecord::Schema.define(version: 20180802201734) do
     t.datetime "updated_at"
     t.tsvector "tsv"
     t.string   "video_url"
+    t.boolean  "allow_many_answers"
+    t.integer  "qtd_max_answers"
+    t.integer  "qtd_min_answers"
   end
 
   add_index "poll_questions", ["author_id"], name: "index_poll_questions_on_author_id", using: :btree

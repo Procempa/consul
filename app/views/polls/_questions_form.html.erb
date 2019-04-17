@@ -1,0 +1,61 @@
+<%= form_tag("/polls/" + @poll.id.to_s + "", method: "post") do %>
+	<% @questions.each do |question| %>
+		<div id="<%= dom_id(question) %>" class="poll-question">
+		  <h3>
+				<%= question.title %> 
+				<% if question.allow_many_answers %>
+				  (<% if question.qtd_min_answers != nil && question.qtd_min_answers > 0 %> <%= t("polls.show.qtd_min_answers") %>: <%= question.qtd_min_answers %> <% end %>)				
+					(<% if question.qtd_max_answers != nil && question.qtd_max_answers > 0 %> <%= t("polls.show.qtd_max_answers") %>: <%= question.qtd_max_answers %> <% end %>)
+				<% end %>
+		  </h3>
+			<div id="<%= dom_id(question) %>_answers" class="padding">
+			<div class="poll-question-answers require-answer button-group-poll round toggle">
+			  <% if can?(:answer, question) && !question.poll.voted_in_booth?(current_user) %>
+					<% question.question_answers.each do |answer| %>
+					
+						<% if question.allow_many_answers %>
+							<div class="checkbox">					
+							<%= check_box_tag("answer_question_" + question.id.to_s + "[]", answer.title, 
+							(@answers_by_question_id[question.id].include?(answer.title)), 
+							class: 'js-question-answer', 
+							:id => "answer_question_" + question.id.to_s + "__" + answer.id.to_s) %>
+							<%= label_tag("answer_question_" + question.id.to_s + "__" + answer.id.to_s, 
+								answer.title, 
+								:class =>  (@answers_by_question_id[question.id].include?(answer.title) ? '' : 'js-question-answer'), :for => "answer_question_" + question.id.to_s + "__" + answer.id.to_s) %>
+							</div>										
+						<% else %>							
+							<div class="radio">	
+							<%= radio_button_tag("answer_question_" + question.id.to_s + "[]", answer.title, 
+								(@answers_by_question_id[question.id].include?(answer.title)), 
+								class: 'js-question-answer', 
+								:id => "answer_question_" + question.id.to_s + "__" + answer.id.to_s) %>
+							<%= label_tag("answer_question_" + question.id.to_s + "__" + answer.id.to_s, 
+								answer.title, 
+								:class =>  (@answers_by_question_id[question.id].include?(answer.title) ? '' : 'js-question-answer'), :for => "answer_question_" + question.id.to_s + "__" + answer.id.to_s) %>								
+							</div>			
+						<% end %>
+						
+					<% end %>			    					
+					<% if (@found_error) %>
+						<br>					
+						<% if (@answers_by_question_id[question.id].nil? || @answers_by_question_id[question.id].empty?) %>
+							<font color='red'><%= t("polls.show.choose_answer") %></font>
+						<% elsif !question.qtd_min_answers.nil? && @answers_by_question_id[question.id].size() < question.qtd_min_answers %>
+							<font color='red'><%= t("polls.show.choose_more_answers") %></font>						
+						<% elsif !question.qtd_max_answers.nil? && @answers_by_question_id[question.id].size() > question.qtd_max_answers %>
+							<font color='red'><%= t("polls.show.choose_less_answers") %></font>													
+						<% end %>			    							
+		      <% end %>			    
+			  <% else %>
+			    <% question.question_answers.each do |answer| %>
+			      <span class="button secondary hollow disabled"><%= answer.title %></span>
+			    <% end %>
+			  <% end %>
+			</div>    
+		  </div>
+		</div>
+	<% end %>
+	<% if !@poll.expired? && !@poll.voted_in_booth?(current_user) && @poll.answerable_by?(current_user) %>
+    <%= submit_tag(t("polls.show.send"), class: "button success") %>	
+    <% end %>
+<% end %>

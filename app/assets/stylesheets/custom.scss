@@ -1050,20 +1050,28 @@ a.back {
 
 
 //Checkboxes - desativado
-/*$input-border: $bordas;
+$input-border: $bordas;
 $input-action: $destaque2;
 $cta: $destaque2;
 $input-disabled-border: $bordas;
 $input-disabled-bg: lighten($bordas, 20%);
 $cursor-disabled: not-allowed;
 $texto-secundario: $text-medium;
-
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-    + span.checkbox {
+.checkbox {
+  form & {
+    display:block;
+  }
+  margin-bottom: 0.75rem;
+  > [type="checkbox"]:not(:checked),
+  > [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+    display: block;
+    + label {
       position: relative;
       padding-left: 2rem;
-      margin-left: -1.5rem;
+      margin-left: 0;
+     // margin-left: -1.5rem;
       cursor: pointer;
       
       //Nestes pseudoelementos serão desenhados os estados do checkbox
@@ -1101,7 +1109,7 @@ $texto-secundario: $text-medium;
   }
   //Mudar cor da borda quando o checkbox está marcado
   [type="checkbox"]:checked {
-    + span.checkbox {
+    + label {
       &:before {
         border: 2px solid $input-action;
         //border-radius: $border-radius;
@@ -1110,17 +1118,17 @@ $texto-secundario: $text-medium;
   }
 
   // checked mark aspect changes 
-  [type="checkbox"]:not(:checked) + span.checkbox:after {
+  [type="checkbox"]:not(:checked) + label:after {
     opacity: 0;
     transform: scale(0);
   }
-  [type="checkbox"]:checked + span.checkbox:after {
+  [type="checkbox"]:checked + label:after {
     opacity: 1;
     transform: scale(1);
   }
   // disabled checkbox
-  [type="checkbox"]:disabled:not(:checked) + span.checkbox:before,
-  [type="checkbox"]:disabled:checked + span.checkbox:before {
+  [type="checkbox"]:disabled:not(:checked) + label:before,
+  [type="checkbox"]:disabled:checked + label:before {
     border-color: $input-disabled-border;
     background-color: $input-disabled-bg;
     //border-radius: $border-radius;
@@ -1128,24 +1136,24 @@ $texto-secundario: $text-medium;
       border-color: $input-disabled-border;
     }
   }
-  [type="checkbox"]:disabled:checked + span.checkbox:after {
+  [type="checkbox"]:disabled:checked + label:after {
     color: $input-disabled-border;
     //background-color: $input-disabled-border;
     //border-radius: $border-radius; 
   }
-  [type="checkbox"]:disabled + span.checkbox {
+  [type="checkbox"]:disabled + label {
     color: $texto-secundario;
     cursor: $cursor-disabled;
   }
   // accessibility 
-  [type="checkbox"]:checked:focus + span.checkbox:before,
-  [type="checkbox"]:not(:checked):focus + span.checkbox:before {
+  [type="checkbox"]:checked:focus + label:before,
+  [type="checkbox"]:not(:checked):focus + label:before {
     border-color: $cta;
     box-shadow: 0 0 4px $cta;
     outline: 0 none;
   }
+}
 
-*/
 //Radios  (mesma estrutura do checkbox)
 $input-border: $bordas;
 $input-action: $destaque2;
@@ -1154,6 +1162,10 @@ $input-disabled-bg: $fundo-claro;
 $cursor-disabled: not-allowed;
 
 .radio {
+  form & {
+    display:block;
+  }
+  margin-bottom: 0.5rem;
   > [type="radio"]:not(:checked),
   > [type="radio"]:checked {
     position: absolute;
@@ -1270,4 +1282,8 @@ $cursor-disabled: not-allowed;
 }
 .flex-item {
   flex: 1;
+}
+
+.button-group-poll input{
+  display: none;
 }

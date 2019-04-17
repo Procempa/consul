@@ -30,6 +30,11 @@ pt-BR:
             update: Atualizar
           form:
             submit: Salvar
+    questions:
+      new:
+        allow_many_answers: Permite várias respostas
+        qtd_max_answers: Quantidade máxima de respostas
+        qtd_min_answers: Quantidade mínima de respostas
   layouts:
     footer:
       copyright: Prefeitura de Porto Alegre, %{year}
@@ -74,12 +79,18 @@ pt-BR:
       section_header:
         title: Consultas Públicas
     show:
+      send: Enviar
       cant_answer_incomplete_account_html: "Você deve %{account_link} para poder responder."
       cant_answer_not_logged_in: "Para acessar esta votação, você precisa %{signin} no OP Digital."
       login_to_comment: Para deixar um comentário, você precisa %{signin} no OP Digital.
       account_link: "preencher os dados de sua conta"
       signin: entrar      
       signup: criar uma conta
+      choose_answer: "Escolha a resposta para a questão."      
+      choose_more_answers: "Escolha o minimo de respostas exigido."      
+      choose_less_answers: "Escolha um número de respostas menor que o máximo permitido."      
+      qtd_max_answers: "Máximo"
+      qtd_min_answers: "Mínimo"
   debates:
     index:
       title: Demandas
