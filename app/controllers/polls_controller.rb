@@ -45,7 +45,9 @@ class PollsController < ApplicationController
         @answers_by_question_id[question.id] = []
       end      
       if (answers_title.empty?)
-        @found_error = true     
+        if (!question.allow_many_answers)
+          @found_error = true     
+        end
       else 
         answers_title.each do | answer_title |
           @answers_by_question_id[question.id].push(answer_title)

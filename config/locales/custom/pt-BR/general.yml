@@ -87,7 +87,7 @@ pt-BR:
       signin: entrar      
       signup: criar uma conta
       choose_answer: "Escolha a resposta para a questão."      
-      choose_more_answers: "Escolha o minimo de respostas exigido."      
+      choose_more_answers: "Escolha o mínimo de respostas exigido."      
       choose_less_answers: "Escolha um número de respostas menor que o máximo permitido."      
       qtd_max_answers: "Máximo"
       qtd_min_answers: "Mínimo"

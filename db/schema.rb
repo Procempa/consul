@@ -711,11 +711,9 @@ ActiveRecord::Schema.define(version: 20190416211911) do
     t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "poll_question_answers_id"
   end
 
   add_index "poll_answers", ["author_id"], name: "index_poll_answers_on_author_id", using: :btree
-  add_index "poll_answers", ["poll_question_answers_id"], name: "index_poll_answers_on_poll_question_answers_id", using: :btree
   add_index "poll_answers", ["question_id", "answer"], name: "index_poll_answers_on_question_id_and_answer", using: :btree
   add_index "poll_answers", ["question_id"], name: "index_poll_answers_on_question_id", using: :btree
 
