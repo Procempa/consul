@@ -3,11 +3,23 @@
 		<div id="<%= dom_id(question) %>" class="poll-question">
 		  <h3>
 				<%= question.title %> 
-				<% if question.allow_many_answers %>
-				  <% if question.qtd_min_answers != nil && question.qtd_min_answers > 0 %>( <%= t("polls.show.qtd_min_answers") %>: <%= question.qtd_min_answers %> )<% end %>				
-					<% if question.qtd_max_answers != nil && question.qtd_max_answers > 0 %>( <%= t("polls.show.qtd_max_answers") %>: <%= question.qtd_max_answers %> )<% end %>
+			</h3>
+			<% if question.allow_many_answers %>
+			<p class="help-text">
+			<% if !question.qtd_min_answers.nil?  && !question.qtd_max_answers.nil? && question.qtd_min_answers != 0 %>Escolha entre <%= question.qtd_min_answers %> e  <%= question.qtd_max_answers %> alternativas.
+				  <% elsif !question.qtd_min_answers.nil? && question.qtd_min_answers != 0 %>Escolha pelo menos <%= question.qtd_min_answers %> alternativas.				
+					<% elsif !question.qtd_max_answers.nil? %>Escolha no máximo <%= question.qtd_max_answers %> alternativas.<% end %>
 				<% end %>
-		  </h3>
+				</p>
+				<% if (@found_error) %>
+						<% if !question.allow_many_answers && (@answers_by_question_id[question.id].nil? || @answers_by_question_id[question.id].empty?) %>
+							<p class="text-error"><%= t("polls.show.choose_answer") %></p>
+						<% elsif !question.qtd_min_answers.nil? && @answers_by_question_id[question.id].size() < question.qtd_min_answers %>
+						 <p class="text-error"><%= t("polls.show.choose_more_answers") %></p>						
+						<% elsif !question.qtd_max_answers.nil? && @answers_by_question_id[question.id].size() > question.qtd_max_answers %>
+						<p class="text-error"><%= t("polls.show.choose_less_answers") %></p>													
+						<% end %>			    							
+		      <% end %>			
 			<div id="<%= dom_id(question) %>_answers" class="padding">
 			<div class="poll-question-answers require-answer button-group-poll round toggle">
 			  <% if can?(:answer, question) && !question.poll.voted_in_booth?(current_user) %>
@@ -35,17 +47,7 @@
 							</div>			
 						<% end %>
 						
-					<% end %>			    					
-					<% if (@found_error) %>
-						<br>					
-						<% if !question.allow_many_answers && (@answers_by_question_id[question.id].nil? || @answers_by_question_id[question.id].empty?) %>
-							<font color='red'><%= t("polls.show.choose_answer") %></font>
-						<% elsif !question.qtd_min_answers.nil? && @answers_by_question_id[question.id].size() < question.qtd_min_answers %>
-							<font color='red'><%= t("polls.show.choose_more_answers") %></font>						
-						<% elsif !question.qtd_max_answers.nil? && @answers_by_question_id[question.id].size() > question.qtd_max_answers %>
-							<font color='red'><%= t("polls.show.choose_less_answers") %></font>													
-						<% end %>			    							
-		      <% end %>			    
+					<% end %>			    					    
 			  <% else %>
 			    <% question.question_answers.each do |answer| %>
 			      <span class="button secondary hollow disabled"><%= answer.title %></span>

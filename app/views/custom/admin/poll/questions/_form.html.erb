@@ -7,7 +7,7 @@
   <div class="small-12">
     <div class="small-12 medium-6 large-4">
       <%= f.select :poll_id,
-                    options_for_select(Poll.pluck(:name, :id)),
+                    options_for_select(Poll.pluck(:name, :id), {:selected => @question.poll_id}),
                     prompt: t("admin.questions.index.select_poll"),
                     label: t("admin.questions.new.poll_label") %>
     </div>

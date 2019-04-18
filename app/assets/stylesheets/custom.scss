@@ -906,6 +906,24 @@ a.back {
   }
 }
 
+//Mensagens de erro
+.text-error {
+  color: $cor-erro;
+  margin-bottom: 0;
+  &::before {
+    font-family: 'icons';
+    content:  '\76';    
+    padding-right: rem-calc(4);
+    line-height: 1;
+    position: relative;
+    bottom: rem-calc(-2);
+  } 
+}
+
+.help-text + .text-error {
+  margin-top: rem-calc(-6);
+} 
+
 //Polls
 .pseudo-checkbox {
   display: block;
@@ -1049,7 +1067,7 @@ a.back {
 }
 
 
-//Checkboxes - desativado
+//Checkboxes
 $input-border: $bordas;
 $input-action: $destaque2;
 $cta: $destaque2;
