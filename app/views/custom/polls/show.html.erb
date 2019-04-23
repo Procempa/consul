@@ -1,6 +1,39 @@
 <% provide :title do %><%= @poll.name %><% end %>
+
+<% provide :social_media_meta_tags do %>
+  <%= render "shared/social_media_meta_tags",
+              social_url: proposal_url(@poll),
+              social_title: @poll.name,
+              social_description: @poll.name,
+              twitter_image_url: @poll.image_url(:poll) ? @poll.image_url(:poll) : nil,
+              og_image_url: @poll.image_url(:poll) ? @poll.image_url(:poll) : nil %>
+<% end %>  
+
 <div class="polls-show">
   <%= render "poll_header" %>
+
+  <div class="row margin">
+    <div class="small-12 medium-9 column">
+      <%= safe_html_with_links simple_format(@poll.summary) %>
+      <% if @poll.geozones.any? %>
+        <ul class="no-bullet margin-top tags">
+          <% @poll.geozones.each do |g| %>
+            <li class="inline-block"><span><%= g.name %></span></li>
+          <% end %>
+        </ul>
+      <% end %>
+    
+    </div>
+    <aside class="small-12 medium-3 column">
+      <%= render partial: 'shared/social_share', locals: {
+        share_title: t("shared.share"),
+        title: @poll.name,
+        url: poll_url(@poll),
+        description: @poll.name,
+        image_url: @poll.image_url(:poll) ? @poll.image_url(:poll) : nil
+      } %>
+    </aside>
+  </div>
 
   <%= render "poll_subnav" %>
       
@@ -19,20 +52,24 @@
           </div>
         <% end %>
       <% end %>
+      <% if !!current_user && !current_user.unverified? && current_user.account_complete? %>
 
-      <% if Setting["feature.user.require_all_answers"] %>
-          <%= render 'polls/questions_form', questions: @questions, token: @token, poll: @poll %>
-      <% else %>
-        <% @questions.each do |question| %>
-          <%= render 'polls/questions/question', question: question, token: @token %>        
-        <% end %>      
+        <% if Setting["feature.user.require_all_answers"] %>
+            <%= render 'polls/questions_form', questions: @questions, token: @token, poll: @poll %>
+        <% else %>
+          <%= form_for answer_question_url, remote: true do |f| %>        
+            <% @questions.each do |question| %>
+              <%= render 'polls/questions/question', question: question, token: @token %>        
+            <% end %>      
+            <% if poll_voter_token(@poll, current_user).empty? %>
+            <div class="callout token-message js-token-message" style="display: none">
+              <%= t('poll_questions.show.voted_token') %>
+            </div>
+          <% end %>            
+          <% end %>
+        <% end %>
       <% end %>
-
-      <% if poll_voter_token(@poll, current_user).empty? %>
-        <div class="callout token-message js-token-message" style="display: none">
-          <%= t('poll_questions.show.voted_token') %>
-        </div>
-      <% end %>
+      
     </div>
   </div>
 
