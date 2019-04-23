@@ -17,6 +17,8 @@ class Poll::Question < ActiveRecord::Base
   validates :title, presence: true
   validates :author, presence: true
   validates :poll_id, presence: true
+  validates :qtd_max_answers, presence: false, numericality: {allow_nil: true}, if: :allow_many_answers?
+  validates :qtd_min_answers, presence: false, numericality: {allow_nil: true}, if: :allow_many_answers?
 
   validates :title, length: { minimum: 4 }
 
@@ -46,6 +48,10 @@ class Poll::Question < ActiveRecord::Base
       self.proposal_id = proposal.id
       self.title = proposal.title
     end
+  end
+
+  def allow_many_answers?
+    allow_many_answers
   end
 
   delegate :answerable_by?, to: :poll

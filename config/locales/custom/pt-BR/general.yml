@@ -16,6 +16,10 @@ pt-BR:
         street_placeholder: 'Ex.: Av. Vicente da Fontoura'
         postal_code_help_text_title: 'CEP'
         neighbourhood_label: 'Bairro'
+  settings:
+    feature:
+      user:
+        require_all_answers: Exigir todas as respostas nas Consultas Públicas   
   admin:
     site_customization:
       images:
