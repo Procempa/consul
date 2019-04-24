@@ -3,7 +3,7 @@ pt-BR:
     models:
       poll:
         one: "Consulta pública"
-        other: "Consultas públicas"
+        other: "Consultas públicas"     
     attributes:
       budget/investment:
         heading_id: "Tema"
@@ -12,3 +12,5 @@ pt-BR:
         description: Descrição
         link_text: Texto do link
         link_url: URL do link
+      poll:
+        allow_change_answers: "Permitir alteração de respostas"

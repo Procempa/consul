@@ -17,6 +17,7 @@ class PollsController < ApplicationController
   def show
     @questions = @poll.questions.for_render.sort_for_list
     @answers_by_question_id = {}         
+    
     @questions.each do |question|
       @answers_by_question_id[question.id] = []      
     end
@@ -41,6 +42,7 @@ class PollsController < ApplicationController
         next
       end            
       answers_title = params['answer_question_' + question.id.to_s]  || []
+      
       if (@answers_by_question_id[question.id].nil?)
         @answers_by_question_id[question.id] = []
       end      
@@ -60,12 +62,14 @@ class PollsController < ApplicationController
       end
     end
     @token = params[:token]
-
+    
     unless @found_error
+      
       @questions.each do |question|       
-        current_answers_title = params['answer_question_' + question.id.to_s]
+        current_answers_title = params['answer_question_' + question.id.to_s] || []
+        
         # remove unmarked items
-        question.answers.each do |answer|          
+        question.answers.where(:author => current_user).each do |answer|          
           found = false
           current_answers_title.each do |title|
             if answer.answer == title
@@ -79,22 +83,14 @@ class PollsController < ApplicationController
 
         # add new marked itens
         if current_answers_title
-          current_answers_title.each do |title|  
-            found = false      
-            question.answers.each do |answer|
-              if answer.answer == title
-                found = true              
-              end
-            end
-            if !found
-              answer = question.answers.find_or_initialize_by(:author => current_user, :answer => title)
-              answer.touch if answer.persisted?        
-              answer.save!        
-              answer.record_voter_participation(@token)            
-              question.question_answers.where(question_id: question).each do |question_answer|
-                question_answer.set_most_voted
-              end            
-            end
+          current_answers_title.each do |title|
+            answer = question.answers.find_or_initialize_by(:author => current_user, :answer => title)
+            answer.touch if answer.persisted?        
+            answer.save!        
+            answer.record_voter_participation(@token)            
+            question.question_answers.where(question_id: question).each do |question_answer|
+              question_answer.set_most_voted
+            end            
           end        
         end
       end

@@ -79,7 +79,7 @@ pt-BR:
       no_polls: "Não existem votações no momento."  
       title: Consultas Públicas
       participate_button: "Votar"
-      already_answer: "Você já participou desta votação"
+      already_answer: "Você já participou desta votação!"
       section_header:
         title: Consultas Públicas
     show:

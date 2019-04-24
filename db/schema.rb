@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190416211911) do
+ActiveRecord::Schema.define(version: 20190424162612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -875,17 +875,20 @@ ActiveRecord::Schema.define(version: 20190416211911) do
     t.string   "name"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.boolean  "published",          default: false
-    t.boolean  "geozone_restricted", default: false
+    t.boolean  "published",              default: false
+    t.boolean  "geozone_restricted",     default: false
     t.text     "summary"
     t.text     "description"
-    t.integer  "comments_count",     default: 0
+    t.integer  "comments_count",         default: 0
     t.integer  "author_id"
     t.datetime "hidden_at"
-    t.boolean  "results_enabled",    default: false
-    t.boolean  "stats_enabled",      default: false
+    t.boolean  "results_enabled",        default: false
+    t.boolean  "stats_enabled",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "answers_editable",       default: false
+    t.boolean  "allow_answers_editable", default: false
+    t.boolean  "allow_change_answers",   default: false
   end
 
   add_index "polls", ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at", using: :btree

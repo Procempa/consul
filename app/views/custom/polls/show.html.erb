@@ -40,32 +40,41 @@
   <div class="row margin">
     <div class="small-12 medium-9 column">
       <%= render "callout" %>      
-      <% if @poll.voted_in_booth?(current_user) %>
-        <div class="callout warning">
-          <%= t("polls.show.already_voted_in_booth") %>
-        </div>
-      <% else %>
-
-        <% if current_user && @poll.voted_in_web?(current_user) && !@poll.expired? %>
+      <% if @poll.allow_change_answers %>
+        <% if @poll.voted_in_booth?(current_user) %>
           <div class="callout warning">
-            <%= t("polls.show.already_voted_in_web") %>
+            <%= t("polls.show.already_voted_in_booth") %>
+          </div>
+        <% else %>
+          <% if current_user && @poll.voted_in_web?(current_user) && !@poll.expired? %>
+            <div class="callout warning">
+              <%= t("polls.show.already_voted_in_web") %>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% if @poll.voted_in_web?(current_user) && !@poll.voted_in_booth?(current_user) %>
+          <div class="callout warning">      
+            <%= t("polls.index.already_answer") %>
           </div>
         <% end %>
-      <% end %>
-      <% if !!current_user && !current_user.unverified? && current_user.account_complete? %>
+      <% end %>      
+      <% if @poll.allow_change_answers || (!@poll.voted_in_web?(current_user) && !@poll.voted_in_booth?(current_user)) %>
+        <% if !!current_user && !current_user.unverified? && current_user.account_complete? %>
 
-        <% if Setting["feature.user.require_all_answers"] %>
-            <%= render 'polls/questions_form', questions: @questions, token: @token, poll: @poll %>
-        <% else %>
-          <%= form_for answer_question_url, remote: true do |f| %>        
-            <% @questions.each do |question| %>
-              <%= render 'polls/questions/question', question: question, token: @token %>        
-            <% end %>      
-            <% if poll_voter_token(@poll, current_user).empty? %>
-            <div class="callout token-message js-token-message" style="display: none">
-              <%= t('poll_questions.show.voted_token') %>
-            </div>
-          <% end %>            
+          <% if Setting["feature.user.require_all_answers"] %>
+              <%= render 'polls/questions_form', questions: @questions, token: @token, poll: @poll %>
+          <% else %>
+            <%= form_for answer_question_url, remote: true do |f| %>        
+              <% @questions.each do |question| %>
+                <%= render 'polls/questions/question', question: question, token: @token %>        
+              <% end %>      
+              <% if poll_voter_token(@poll, current_user).empty? %>
+              <div class="callout token-message js-token-message" style="display: none">
+                <%= t('poll_questions.show.voted_token') %>
+              </div>
+            <% end %>            
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -80,7 +89,7 @@
         <%= safe_html_with_links simple_format(@poll.description) %>
       </div>
 
-      <% if false %>
+      <% if @poll.allow_change_answers %>
         <aside class="small-12 medium-3 column">
           <div class="sidebar-divider"></div>
           <h2><%= t("polls.show.documents") %></h2>

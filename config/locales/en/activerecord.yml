@@ -182,6 +182,7 @@ en:
         geozone_restricted: "Restricted by geozone"
         summary: "Summary"
         description: "Description"
+        allow_change_answers: "Allow change of answers"
       poll/question:
         title: "Question"
         summary: "Summary"

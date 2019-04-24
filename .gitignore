@@ -29,7 +29,7 @@
 # Mac finder artifacts
 .DS_Store
 .ruby-gemset
-
+.ruby-version
 public/sitemap.xml
 public/system/
 

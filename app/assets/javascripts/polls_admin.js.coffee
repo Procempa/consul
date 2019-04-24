@@ -11,7 +11,7 @@ App.PollsAdmin =
             $("select[class='js-shift-vote-collection-dates']").hide();
     $("input#poll_question_allow_many_answers").on
       click: ->
-        App.PollsAdmin.updateTextFields($(this).prop("checked"))
+        updateTextFields($(this).prop("checked"));
     updateTextFields($(this).prop("checked"));
   updateTextFields: (checkboxVal) -> 
     if checkboxVal
