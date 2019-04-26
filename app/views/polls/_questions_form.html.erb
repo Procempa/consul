@@ -22,6 +22,8 @@
 		      <% end %>			
 			<div id="<%= dom_id(question) %>_answers" class="padding">
 			<div class="poll-question-answers require-answer button-group-poll round toggle">
+				<%= hidden_field_tag("question_limit_max_" + question.id.to_s, question.qtd_max_answers, { :class => :question_answers_limit }) %>
+				<%= hidden_field_tag("question_limit_min_" + question.id.to_s, question.qtd_min_answers, { :class => :question_answers_limit }) %>
 			  <% if can?(:answer, question) && !question.poll.voted_in_booth?(current_user) %>
 					<% question.question_answers.each do |answer| %>
 					

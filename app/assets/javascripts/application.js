@@ -70,6 +70,7 @@
 //= require custom
 //= require tag_autocomplete
 //= require polls_admin
+//= require polls_question_admin
 //= require leaflet
 //= require map
 //= require polls
@@ -116,6 +117,7 @@ var initialize_modules = function() {
   App.Imageable.initialize();
   App.TagAutocomplete.initialize();
   App.PollsAdmin.initialize();
+  App.PollsQuestionsAdmin.initialize();
   App.Map.initialize();
   App.Polls.initialize();
   App.Sortable.initialize();

@@ -19,6 +19,11 @@ App.Polls =
   initialize: ->
     @token = App.Polls.generateToken()
     App.Polls.replaceToken()
+    App.Polls.updateMaxAndMinimum()
+
+    $("input[name^='answer_question_'][type='checkbox']").on
+      click: ->
+        App.Polls.updateMaxAndMinimum()
 
     $(".polls-show label.button").on "click", () ->
       if !$(this).hasClass('answered')
@@ -47,4 +52,15 @@ App.Polls =
         $(answer).removeClass("answer-divider");
         unless $(answer).hasClass('first')
           $(answer).insertAfter($(answer).next('div.answer'));
-
+  
+  updateMaxAndMinimum: ->
+    $("input[name^='question_limit_max_']").each ->
+      questionId = $(this).attr("id").split("question_limit_max_")[1]
+      maxValue = parseInt($(this).val())
+      if maxValue && maxValue == $("input[name='answer_question_" + questionId + "[]']").filter(':checked').size()
+        $("input[name='answer_question_" + questionId + "[]']").each ->
+          if !$(this).prop('checked')
+            $(this).prop('disabled', 'disabled')
+      else
+        $("input[name='answer_question_" + questionId + "[]']").each ->
+          $(this).removeProp('disabled')
