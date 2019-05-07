@@ -27,6 +27,8 @@ class Poll < ActiveRecord::Base
 
   validate :date_range
 
+  scope :op,  -> { where op: 'true' }
+  scope :not_op,  -> { where op: 'false' }
   scope :current,  -> { where('starts_at <= ? and ? <= ends_at', Date.current.beginning_of_day, Date.current.beginning_of_day) }
   scope :incoming, -> { where('? < starts_at', Date.current.beginning_of_day) }
   scope :expired,  -> { where('ends_at < ?', Date.current.beginning_of_day) }
@@ -44,6 +46,10 @@ class Poll < ActiveRecord::Base
 
   def title
     name
+  end
+
+  def op?
+    op
   end
 
   def current?(timestamp = Date.current.beginning_of_day)

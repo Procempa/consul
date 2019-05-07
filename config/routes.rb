@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   draw :notification
   draw :officing
   draw :poll
+  #draw :poll_op
   draw :proposal
   draw :related_content
   draw :tag
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/welcome', to: 'welcome#welcome'
+  get '/poll_ops', to: 'polls#op'
   get '/consul.json', to: "installation#details"
 
   resources :stats, only: [:index]

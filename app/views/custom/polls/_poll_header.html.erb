@@ -1,7 +1,7 @@
 <div class="row no-margin-top">
   <div class="small-12 column">
     <ul class="breadcrumbs">
-      <li><%= link_to t("polls.index.section_header.title"), polls_path  %></li>
+      <li><%= link_to t("polls.index.section_header.title"), polls_path(:params=> {:op => @poll.op?})  %></li>
       <li><%= @poll.name %></li>
     </ul>
   </div>

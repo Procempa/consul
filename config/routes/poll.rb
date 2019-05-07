@@ -1,4 +1,4 @@
-resources :polls, only: [:show, :index] do
+resources :polls, only: [:show, :index, :op] do
   member do
     get :stats
     get :results

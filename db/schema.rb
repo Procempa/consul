@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190424162612) do
+ActiveRecord::Schema.define(version: 20190506195743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -889,6 +889,7 @@ ActiveRecord::Schema.define(version: 20190424162612) do
     t.boolean  "answers_editable",       default: false
     t.boolean  "allow_answers_editable", default: false
     t.boolean  "allow_change_answers",   default: false
+    t.boolean  "op",                     default: false
   end
 
   add_index "polls", ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at", using: :btree

@@ -16,6 +16,11 @@
         <%= link_to t("pages.help.menu.budgets"), "#budgets", class: "button expanded" %>
       </li>
       <% end %>
+      <% if feature?(:poll_ops) %>
+      <li>
+        <%= link_to t("pages.help.menu.poll_ops"), "#poll_ops", class: "button expanded" %>
+      </li>
+      <% end %>
       <% if feature?(:polls) %>
       <li>
         <%= link_to t("pages.help.menu.polls"), "#polls", class: "button expanded" %>

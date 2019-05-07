@@ -2,6 +2,7 @@ pt-BR:
   settings:
     feature:
       polls: Consultas públicas
+      poll_ops: Orçamento Participativo
       allow_attached_documents: Permitir upload e exibição de documentos anexados
       public_stats: Estatísticas públicas
       guides: Guias para criar propostas ou projetos de investimento

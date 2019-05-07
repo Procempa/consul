@@ -49,6 +49,7 @@ pt-BR:
       external_link_opendata_url: http://datapoa.com.br/
       open_city_title: Porto Alegre PARTICIPA
       poll_questions: Consultas Públicas
+      poll_op_questions: Orçamento Participativo
       budgets: Orçamento Participativo
       debates: Demandas
   votes: 
@@ -65,6 +66,15 @@ pt-BR:
     budget_investments:
       not_logged_in: Você precisa %{signin} ou %{signup} para continuar.
       not_verified: Somente usuários verificados podem votar em projetos de investimento; %{verify_account}.
+  poll_ops:
+    index:    
+      title: Orçamento Participativo    
+      section_footer:
+        help_text_2: "Para participar da próxima votação, você precisa criar uma conta no %{org}. Todas as pessoas registradas na cidade com mais de 16 anos podem votar. Os resultados de todos os votos serão vinculativos para o governo."
+        help_text_1: "A votação inclui questões que a Prefeitura submete à decisão direta do cidadão."
+        description: Inscreva-se para poder votar nas perguntas. Tome decisões municipais diretamente.    
+      section_header:
+        title: Orçamento Participativo    
   polls:
     dates: "De %{open_at} a %{closed_at}"
     index:

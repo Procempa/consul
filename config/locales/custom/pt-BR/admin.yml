@@ -101,6 +101,8 @@ pt-BR:
     menu:
       polls: Votações
       title_polls: Consultas públicas
+      poll_ops: Orçamento participativo
+      title_poll_ops: Orçamento participativo      
       booths: Urnas
       title_booths: Urnas
       hidden_proposal_notifications: Notificações de propostas ocultas

@@ -4,6 +4,8 @@ class PollsController < ApplicationController
   include PollsHelper
 
   load_and_authorize_resource
+  
+  #skip_authorize_resource :only => :op
 
   has_filters %w{current expired incoming}
   has_orders %w{most_voted newest oldest}, only: [:show, :answer]
@@ -11,8 +13,19 @@ class PollsController < ApplicationController
   ::Poll::Answer # trigger autoload
 
   def index
-    @polls = @polls.send(@current_filter).includes(:geozones).sort_for_list.page(params[:page])
+    if (params[:op])
+      @polls = @polls.send(@current_filter).op.includes(:geozones).sort_for_list.page(params[:page])
+      return render :template => "polls/op"
+    else
+      @polls = @polls.send(@current_filter).not_op.includes(:geozones).sort_for_list.page(params[:page])
+      return  render :template => "polls/index"
+    end
+    
   end
+
+  def op
+    @polls = @polls.send(@current_filter).op.includes(:geozones).sort_for_list.page(params[:page])
+  end  
 
   def show
     @questions = @poll.questions.for_render.sort_for_list
