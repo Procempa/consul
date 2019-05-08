@@ -61,7 +61,6 @@
       <% end %>      
       <% if @poll.allow_change_answers || (!@poll.voted_in_web?(current_user) && !@poll.voted_in_booth?(current_user)) %>
         <% if !!current_user && !current_user.unverified? && current_user.account_complete? %>
-
           <% if Setting["feature.user.require_all_answers"] %>
               <%= render 'polls/questions_form', questions: @questions, token: @token, poll: @poll %>
           <% else %>

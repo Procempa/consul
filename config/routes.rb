@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/welcome', to: 'welcome#welcome'
   get '/poll_ops', to: 'polls#op'
+  get '/poll_ops/finish', to: 'polls#finish_op'
   get '/consul.json', to: "installation#details"
 
   resources :stats, only: [:index]

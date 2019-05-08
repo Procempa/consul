@@ -1,0 +1,5 @@
+pt-BR:
+  flash:
+    actions:
+      finish_op_votes:
+        notice: "Votação no Orçamento Participativo realizada com sucesso"

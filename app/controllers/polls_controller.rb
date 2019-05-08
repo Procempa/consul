@@ -19,13 +19,17 @@ class PollsController < ApplicationController
     else
       @polls = @polls.send(@current_filter).not_op.includes(:geozones).sort_for_list.page(params[:page])
       return  render :template => "polls/index"
-    end
-    
+    end    
   end
 
   def op
     @polls = @polls.send(@current_filter).op.includes(:geozones).sort_for_list.page(params[:page])
   end  
+
+  def finish_op
+    return  render :template => "polls/finish_op"
+  end
+  
 
   def show
     @questions = @poll.questions.for_render.sort_for_list
@@ -75,7 +79,6 @@ class PollsController < ApplicationController
       end
     end
     @token = params[:token]
-    
     unless @found_error
       
       @questions.each do |question|       
@@ -107,12 +110,21 @@ class PollsController < ApplicationController
           end        
         end
       end
-      return redirect_to poll_path(@poll), notice: t("flash.actions.save_changes.notice")      
-    else      
+      if @poll.op        
+        Poll.where(op: true).current.each do |poll|    
+          if poll_voter_token(poll, current_user) == '' && poll.id != @poll.id
+            return redirect_to poll_path(poll), notice: t("flash.actions.save_changes.notice")            
+          end            
+        end
+        return redirect_to poll_ops_finish_path(), notice: t("flash.actions.save_changes.notice")        
+      else
+        return redirect_to polls_path(), notice: t("flash.actions.save_changes.notice")
+      end
+    else
       @poll_questions_answers = Poll::Question::Answer.where(question: @poll.questions).where.not(description: "").order(:given_order)
       @commentable = @poll
       @comment_tree = CommentTree.new(@commentable, params[:page], @current_order)
-      render :action => 'show'      
+      render :action => 'show'
       return true
     end  
   end

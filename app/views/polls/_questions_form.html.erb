@@ -1,4 +1,5 @@
-<%= form_tag("/polls/" + @poll.id.to_s + "", method: "post") do %>
+<%= form_tag("/polls/" + @poll.id.to_s + "", method: "post") do %>	
+	<%= hidden_field_tag("token", token) %>	
 	<% @questions.each do |question| %>
 		<div id="<%= dom_id(question) %>" class="poll-question">
 		  <h3>

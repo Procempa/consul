@@ -15,7 +15,7 @@ module Abilities
       end
       can :read, Poll::Question
       can [:read, :welcome], Budget
-      can [:op], Poll
+      can [:op, :finish_op], Poll
       can :read, SpendingProposal
       can :read, LegacyLegislation
       can :read, User

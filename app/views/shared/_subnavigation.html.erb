@@ -22,7 +22,7 @@
       <li>
         <%= layout_menu_link_to t("layouts.header.poll_op_questions"),
                                   polls_path(:params => {:op => :true}),
-                                  ((@poll && @poll.op?) || params[:op]) && (controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls)),
+                                  ((@poll && @poll.op?) || params[:op] || controller.action_name == "finish_op") && (controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls)),
                                   accesskey: "4",
                                   title: t("shared.go_to_page") + t("layouts.header.poll_op_questions") %>
       </li>
@@ -31,7 +31,7 @@
       <li>
         <%= layout_menu_link_to t("layouts.header.poll_questions"),
                                   polls_path,
-                                  (!params[:op] && !(@poll && @poll.op?)) && (controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls)),
+                                  (!params[:op] && !(@poll && @poll.op?) && controller.action_name != "finish_op") && (controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls)),
                                   accesskey: "3",
                                   title: t("shared.go_to_page") + t("layouts.header.poll_questions") %>
       </li>

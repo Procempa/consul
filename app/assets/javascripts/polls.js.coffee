@@ -15,11 +15,16 @@ App.Polls =
         token_param = link.search.slice(-6)
         if token_param == "token="
           link.href = link.href + @token
+    if $("input[name='token']").size() > 0
+      $("input[name='token']").val(@token);          
 
   initialize: ->
     @token = App.Polls.generateToken()
     App.Polls.replaceToken()
     App.Polls.updateMaxAndMinimum()
+
+    if $("input[name='token']").size() > 0
+      $("input[name='token']").val(@token);          
 
     $("input[name^='answer_question_'][type='checkbox']").on
       click: ->
