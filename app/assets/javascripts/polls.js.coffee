@@ -21,7 +21,7 @@ App.Polls =
   initialize: ->
     @token = App.Polls.generateToken()
     App.Polls.replaceToken()
-    App.Polls.updateMaxAndMinimum()
+    #App.Polls.updateMaxAndMinimum()
 
     if $("input[name='token']").size() > 0
       $("input[name='token']").val(@token);          

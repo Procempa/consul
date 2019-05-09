@@ -51,10 +51,20 @@
 						<% end %>
 						
 					<% end %>			    					    
-			  <% else %>
-			    <% question.question_answers.each do |answer| %>
-			      <span class="button secondary hollow disabled"><%= answer.title %></span>
-			    <% end %>
+				<% else %>	
+					<% question.question_answers.each do |answer| %>								
+						<% if question.allow_many_answers %>
+							<div class="checkbox">					
+							<%= check_box_tag("answer_question_" + question.id.to_s + "[]", answer.title, false, class: 'js-question-answer', disabled: "true") %>
+							<%= label_tag("answer_question_x", answer.title, :class =>  'js-question-answer') %>
+							</div>										
+						<% else %>							
+							<div class="radio">	
+							<%= radio_button_tag("answer_question_" + question.id.to_s + "[]", answer.title, false,	class: 'js-question-answer', disabled: "true") %>
+							<%= label_tag("answer_question_x", answer.title, :class =>  'js-question-answer') %>
+							</div>			
+						<% end %>
+					<% end %>
 			  <% end %>
 			</div>    
 		  </div>
