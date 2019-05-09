@@ -1,4 +1,20 @@
-<% provide :title do %>Votações do Orçamento Participativo realizadas<% end %>
-    <center>Parabéns! <br>
-    Você participou de todas as temáticas do Orçamento Participativo desse ano.
-    </center>
+<% provide :title do %><%= t("polls.custom.op.finish.title") %><% end %>    
+<% content_for :canonical do %>
+<%= render "shared/canonical", href: poll_ops_url %>
+<% end %>
+
+<%= render "shared/section_header", i18n_namespace: "polls.custom.op.finish.section_header", image: "polls" %>
+
+<div class="row">
+    <div id="section_help" class="small-12 column margin" data-magellan-target="section_help">
+        <p><%= t("polls.custom.op.finish.section_footer.description") %></p>
+        <p><%= t("polls.custom.op.finish.section_footer.help_text_1") %></p>
+        <p><%= t("polls.custom.op.finish.section_footer.help_text_2",
+                    org: (setting['org_name'])) %></p>
+        <br />
+        <div class="callout success">                
+            <p><%=raw t('polls.custom.op.finish.link_back_to_the_poll', 
+            poll_link: link_to(t("polls.custom.op.finish.here"), polls_path(:params=> {:op => :true})) ) %></p>
+        </div>
+    </dliv>
+</div>

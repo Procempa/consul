@@ -105,6 +105,18 @@ pt-BR:
       choose_less_answers: "Escolha um número de respostas menor que o máximo permitido."      
       qtd_max_answers: "Máximo"
       qtd_min_answers: "Mínimo"
+    custom:
+      op:
+        finish:
+          title: "Votações do Orçamento Participativo realizadas"
+          section_footer:
+            help_text_1: "Parabéns!"
+            help_text_2: "Você participou de todas as temáticas do Orçamento Participativo desse ano."
+            description: ""    
+          section_header:
+            title: Orçamento Participativo
+          link_back_to_the_poll: "Clique %{poll_link} para voltar a lista de votações"            
+          here: aqui
   debates:
     index:
       title: Demandas

@@ -23,13 +23,14 @@ class PollsController < ApplicationController
   end
 
   def op
+    @custom_poll_group = true    
     @polls = @polls.send(@current_filter).op.includes(:geozones).sort_for_list.page(params[:page])
   end  
 
   def finish_op
+    @custom_poll_group = true
     return  render :template => "polls/finish_op"
-  end
-  
+  end  
 
   def show
     @questions = @poll.questions.for_render.sort_for_list

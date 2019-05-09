@@ -2,8 +2,8 @@
   <div class="small-12 column">
     <ul class="breadcrumbs">
       <li>
-      <% if @poll.op? %>
-        <%= link_to t("poll_ops.index.section_header.title"), polls_path(:params=> {:op => @poll.op?})  %>
+      <% if @custom_poll_group  || @poll.op? %>
+        <%= link_to t("poll_ops.index.section_header.title"), polls_path(:params=> {:op => true})  %>
       <% else %>
         <%= link_to t("polls.index.section_header.title"), polls_path()  %>
       <% end %>
