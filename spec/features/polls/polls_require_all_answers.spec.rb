@@ -12,11 +12,11 @@ feature 'Polls' do
     let(:poll) { create(:poll, summary: "Summary", description: "Description") }
 
     before do
-      Setting['feature.user.require_all_answers'] = false              
+      Setting['poll_require_all_answers'] = false              
     end
 
     after do
-      Setting['feature.user.require_all_answers'] = true        
+      Setting['poll_require_all_answers'] = true        
     end
 
     scenario 'Show answers with videos' do
@@ -292,11 +292,11 @@ feature 'Polls' do
       allow(Date).to receive(:current).and_return Date.new(2018,1,1)
       allow(Date).to receive(:today).and_return Date.new(2018,1,1)
       allow(Time).to receive(:current).and_return Time.zone.parse("2018-01-01 12:00:00")
-      Setting['feature.user.require_all_answers'] = true              
+      Setting['poll_require_all_answers'] = true              
     end
 
     after do
-      Setting['feature.user.require_all_answers'] = false        
+      Setting['poll_require_all_answers'] = false        
     end
 
     scenario 'Already voted on booth cannot vote on website', :js do
@@ -340,11 +340,11 @@ context 'Show with require all answers' do
     let(:poll) { create(:poll, summary: "Summary", description: "Description") }
 
     before do
-      Setting['feature.user.require_all_answers'] = true              
+      Setting['poll_require_all_answers'] = true              
     end
 
     after do
-      Setting['feature.user.require_all_answers'] = false        
+      Setting['poll_require_all_answers'] = false        
     end
 
     scenario 'Show answers with videos' do
@@ -620,11 +620,11 @@ context 'Show with require all answers' do
       allow(Date).to receive(:current).and_return Date.new(2018,1,1)
       allow(Date).to receive(:today).and_return Date.new(2018,1,1)
       allow(Time).to receive(:current).and_return Time.zone.parse("2018-01-01 12:00:00")
-      Setting['feature.user.require_all_answers'] = true              
+      Setting['poll_require_all_answers'] = true              
     end
 
     after do
-      Setting['feature.user.require_all_answers'] = false        
+      Setting['poll_require_all_answers'] = false        
     end
 
     scenario 'Already voted on booth cannot vote on website', :js do
@@ -673,11 +673,11 @@ context 'Booth & Website with require all answers not set' do
       allow(Date).to receive(:current).and_return Date.new(2018,1,1)
       allow(Date).to receive(:today).and_return Date.new(2018,1,1)
       allow(Time).to receive(:current).and_return Time.zone.parse("2018-01-01 12:00:00")
-      Setting['feature.user.require_all_answers'] = false              
+      Setting['poll_require_all_answers'] = false              
     end
 
     after do
-      Setting['feature.user.require_all_answers'] = true        
+      Setting['poll_require_all_answers'] = true        
     end
 
     scenario 'Already voted on booth cannot vote on website', :js do

@@ -17,9 +17,7 @@ pt-BR:
         postal_code_help_text_title: 'CEP'
         neighbourhood_label: 'Bairro'
   settings:
-    feature:
-      user:
-        require_all_answers: Exigir todas as respostas nas Consultas Públicas   
+    poll_require_all_answers: Exigir todas as respostas nas Consultas Públicas   
   admin:
     site_customization:
       images:
@@ -67,7 +65,7 @@ pt-BR:
       not_logged_in: Você precisa %{signin} ou %{signup} para continuar.
       not_verified: Somente usuários verificados podem votar em projetos de investimento; %{verify_account}.
   poll_ops:
-    index:    
+    index:
       title: Orçamento Participativo    
       section_footer:
         help_text_2: "Para participar da próxima votação, você precisa criar uma conta no %{org}. Todas as pessoas registradas na cidade com mais de 16 anos podem votar. Os resultados de todos os votos serão vinculativos para o governo."

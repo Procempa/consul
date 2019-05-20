@@ -129,7 +129,8 @@ Setting["feature.user.skip_verification"] = 'true'
 Setting['feature.homepage.widgets.feeds.proposals'] = true
 Setting['feature.homepage.widgets.feeds.debates'] = true
 Setting['feature.homepage.widgets.feeds.processes'] = true
-Setting['feature.user.require_all_answers'] = true
-Setting['feature.user.require_all_answers'] = true
+
+# Poll settings
+Setting['poll_require_all_answers'] = true
 
 Setting['feature.poll_ops'] = true

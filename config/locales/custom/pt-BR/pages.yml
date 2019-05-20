@@ -6,6 +6,7 @@ pt-BR:
       guide: "Este guia explica para que servem e como funcionam cada uma das seções de %{org}."
       menu:
         polls: "Consultas públicas"
+        poll_ops : "Orçamento Participativo"
         other: "Outras informações de interesse"
       poll_ops:               
         title: "Orçamento Participativo"
