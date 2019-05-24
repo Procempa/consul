@@ -3,7 +3,7 @@
     <h3 id="poll_ops" data-magellan-target="poll_ops"><%= t("pages.help.poll_ops.title") %></h3>
     <p>
       <%= t("pages.help.poll_ops.description",
-            link: link_to(t("pages.help.poll_ops.link"), poll_ops_path)).html_safe %>
+            link: link_to(t("pages.help.poll_ops.link"), polls_path(:params => {:op => :true}))).html_safe %>
     </p>
     <ul class="features">
       <li>

@@ -131,6 +131,6 @@ Setting['feature.homepage.widgets.feeds.debates'] = true
 Setting['feature.homepage.widgets.feeds.processes'] = true
 
 # Poll settings
-Setting['poll_require_all_answers'] = true
+Setting['feature.poll.require_all_answers'] = true
 
 Setting['feature.poll_ops'] = true
