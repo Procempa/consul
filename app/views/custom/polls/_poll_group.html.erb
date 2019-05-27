@@ -17,13 +17,7 @@
         <% if poll.questions.count == 1 %>
           <% poll.questions.each do |question| %>
             <h4>
-              <% if poll.results_enabled? %>
-                <%= link_to question.title, results_poll_path(poll) %>
-              <% elsif poll.stats_enabled? %>
-                <%= link_to question.title, stats_poll_path(poll) %>
-              <% else %>
                 <%= link_to question.title, poll %>
-              <% end %>
             </h4>
             <small class="date"><%= poll_dates(poll) %></small>
             <% if poll.summary %> 
@@ -32,13 +26,7 @@
           <% end %>
         <% else %>
           <h4>
-            <% if poll.results_enabled? %>
-              <%= link_to poll.name, results_poll_path(poll) %>
-            <% elsif poll.stats_enabled? %>
-                <%= link_to poll.name, stats_poll_path(poll) %>
-            <% else %>
-              <%= link_to poll.name, poll %>
-            <% end %>
+            <%= link_to poll.name, poll %>
           </h4>
           <small class="date"><%= poll_dates(poll) %></small>
           
