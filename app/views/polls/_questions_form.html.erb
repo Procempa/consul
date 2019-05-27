@@ -13,7 +13,7 @@
 				<% end %>
 				</p>
 				<% if (@found_error) %>
-						<% if !question.allow_many_answers && (@answers_by_question_id[question.id].nil? || @answers_by_question_id[question.id].empty?) %>
+						<% if question.question_answers.count() != 0 && !question.allow_many_answers && (@answers_by_question_id[question.id].nil? || @answers_by_question_id[question.id].empty?) %>
 							<p class="text-error"><%= t("polls.show.choose_answer") %></p>
 						<% elsif !question.qtd_min_answers.nil? && @answers_by_question_id[question.id].size() < question.qtd_min_answers %>
 						 <p class="text-error"><%= t("polls.show.choose_more_answers") %></p>						
