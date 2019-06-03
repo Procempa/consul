@@ -18,8 +18,14 @@ class AccountController < ApplicationController
   end
 
   def update
-    if @account.update_total(account_params)
-      redirect_to account_path, notice: t("flash.actions.save_changes.notice")
+    if @account.update_total(account_params)      
+      if (current_user.account_complete?)      
+        referrer_poll = session[:referrer_poll]
+        session.delete(:referrer_poll)
+        redirect_to referrer_poll, notice: t("flash.actions.save_changes.notice")
+      else
+        redirect_to account_path, notice: t("flash.actions.save_changes.notice")
+      end
     else
       @account.errors.messages.delete(:organization)
       render :show

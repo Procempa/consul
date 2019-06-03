@@ -92,6 +92,7 @@ pt-BR:
         title: Consultas Públicas
     show:
       send: Enviar
+      vote: Votar
       cant_answer_incomplete_account_html: "Você deve %{account_link} para poder responder."
       cant_answer_not_logged_in: "Para acessar esta votação, você precisa %{signin} no OP Digital."
       login_to_comment: Para deixar um comentário, você precisa %{signin} no OP Digital.
