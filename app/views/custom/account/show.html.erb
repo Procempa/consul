@@ -3,10 +3,20 @@
     <%= avatar_image(@account, seed: @account.id, size: 80, class: "margin-bottom") %>
 
     <h1 class="inline-block"><%= t("account.show.title") %></h1>
-    <% if session[:referrer_poll]  %>
-      <div class="callout success">
+    <% if session[:referrer_poll] && session[:referrer_poll].match("polls")   %>
+      <div class="callout primary">
         <%=raw t('account.show.link_back_to_the_poll', poll_link: link_to(t('account.show.here'), session[:referrer_poll])) %>
       </div> 
+    <% end %>
+    <% if session[:referrer_poll] && session[:referrer_poll].match("proposals")   %>
+      <div class="callout primary">
+        <%=raw t('account.show.link_back_to_the_proposals', proposal_link: link_to(t('account.show.here'), session[:referrer_poll])) %>
+      </div> 
+    <% end %>    
+    <% if !current_user.level_three_verified? || !current_user.account_complete? %>    
+      <div id="error_explanation" data-alert class="callout alert" data-closable>      
+        <%= t("account.show.incomplete_account") %>    
+      </div>
     <% end %>
     <%= form_for @account, as: :account, url: account_path do |f| %>
       <%= render "shared/errors", resource: @account %>
@@ -195,9 +205,16 @@
 
           <ul>
             <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_debates") %></li>
-            <li><span class="icon-check"></span>&nbsp;<%= t("account.show.user_permission_proposal") %></li>
             <li>
-              <% if current_user.level_two_or_three_verified? %>
+              <% if current_user.level_two_or_three_verified? && current_user.account_complete? %>            
+                <span class="icon-check"></span>
+              <% else %>
+                <span class="icon-x"></span>
+              <% end %>              
+              <%= t("account.show.user_permission_proposal") %>              
+            </li>
+            <li>
+              <% if current_user.level_two_or_three_verified? && current_user.account_complete? %>
                 <span class="icon-check"></span>
               <% else %>
                 <span class="icon-x"></span>
@@ -205,23 +222,24 @@
               <%= t("account.show.user_permission_support_proposal") %>
             </li>
             <li>
-              <% if current_user.level_three_verified? %>
+              <% if current_user.level_three_verified? && current_user.account_complete? %>
                 <span class="icon-check"></span>
               <% else %>
                 <span class="icon-x"></span>
               <% end %>
               <%= t("account.show.user_permission_votes") %>
-            </li>
+            </li>        
           </ul>
 
           <% unless @account.organization? %>
             <div>
               <span class="verify-account">
-                <% if current_user.level_three_verified? %>
+              <% if current_user.level_three_verified? && current_user.account_complete? %>
                   <p class="already-verified">
                     <span class="icon-check"></span>
                     <%= t("account.show.verified_account") %>
-                  </p>
+                  </p>              
+                <% elsif current_user.level_three_verified? %>
                 <% elsif current_user.level_two_verified? %>
                   <%= link_to t("account.show.finish_verification"), verification_path, class: "button success" %>
                 <% else %>

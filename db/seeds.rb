@@ -29,7 +29,7 @@ Setting['comments_body_max_length'] = 1000
 Setting["proposal_code_prefix"] = 'MAD'
 
 # Number of votes needed for proposal success
-Setting["votes_for_proposal_success"] = 53726
+Setting["votes_for_proposal_success"] = 100
 
 # Months to archive proposals
 Setting["months_to_archive_proposals"] = 12

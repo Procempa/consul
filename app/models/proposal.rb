@@ -148,7 +148,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def votable_by?(user)
-    user && user.level_two_or_three_verified?
+    user && user.level_two_or_three_verified? && user.account_complete?
   end
 
   def retired?

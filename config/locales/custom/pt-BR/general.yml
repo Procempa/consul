@@ -5,6 +5,9 @@ pt-BR:
       public_activity_label: Mostrar publicamente minha lista de atividades
       public_interests_label: Mostrar publicamente os rótulos dos elementos que sigo
       link_back_to_the_poll: "Clique %{poll_link} para voltar a consulta pública"
+      link_back_to_the_proposals: "Clique %{proposal_link} para voltar para a proposta"
+      incomplete_account: "Complete os dados pessoais para ter acesso a tudo que o sistema oferece"      
+      user_permission_poll: Participar em consultas públicas*
       here: aqui      
       address: 
         label: Endereço
@@ -58,6 +61,8 @@ pt-BR:
     unauthenticated: Você precisa %{signin} ou %{signup} para continuar
     verified_only: Somente usuários verificados podem votar em propostas;  %{verify_account}.
     verify_account: verificar sua conta
+    account_complete_only: Somente usuários com os dados pessoais completos podem votar em propostas;  %{account_link}.    
+    complete_account: completar seus dados pessoais
     spending_proposals:
       not_logged_in: Você precisa %{signin} ou %{signup} para continuar.
       not_verified: Somente usuários verificados podem votar em propostas; %{verify_account}.
@@ -73,6 +78,10 @@ pt-BR:
         description: Inscreva-se para poder votar nas perguntas. Tome decisões municipais diretamente.    
       section_header:
         title: Orçamento Participativo    
+  proposals:
+    new:
+      cant_answer_incomplete_account_html: "Você deve %{account_link} para poder criar."      
+      account_link: "preencher os dados de sua conta"
   polls:
     dates: "De %{open_at} a %{closed_at}"
     index:

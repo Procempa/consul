@@ -32,7 +32,6 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = Proposal.new(proposal_params.merge(author: current_user))
-
     if @proposal.save
       redirect_to share_proposal_path(@proposal), notice: I18n.t('flash.actions.create.proposal')
     else

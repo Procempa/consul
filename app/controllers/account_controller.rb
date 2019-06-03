@@ -10,7 +10,7 @@ class AccountController < ApplicationController
       end
       if (request.referrer && !request.referrer.match("account"))
         session[:referrer_poll] = nil        
-        if (!current_user.account_complete? && request.referrer.match(request.domain) && request.referrer.match("polls"))
+        if !current_user.account_complete? && request.referrer.match(request.domain) && (request.referrer.match("polls") || request.referrer.match("proposals"))
           session[:referrer_poll] = request.referrer                
         end
       end      

@@ -7,3 +7,4 @@ pt-BR:
         document_number_help_text_html: 'Preencha somente com números'
         document_type:
           cpf: CPF        
+    user_permission_poll: Participar em consultas públicas*
