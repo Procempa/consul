@@ -14,24 +14,14 @@
         </div>
       </div>
       <div class="small-12 medium-6 large-7 column" data-equalizer-watch>
-        <% if poll.questions.count == 1 %>
-          <% poll.questions.each do |question| %>
-            <h4>
-                <%= link_to question.title, poll %>
-            </h4>
-            <small class="date"><%= poll_dates(poll) %></small>
-            <% if poll.summary %> 
-             <%= safe_html_with_links simple_format(poll.summary) %>
-            <% end %>
-          <% end %>
-        <% else %>
-          <h4>
-            <%= link_to poll.name, poll %>
-          </h4>
-          <small class="date"><%= poll_dates(poll) %></small>
-          
-          <p class="margin-top"><%= poll.summary %> </p>
-        <% end %>
+
+        <h4>
+          <%= link_to poll.name, poll %>
+        </h4>
+        <small class="date"><%= poll_dates(poll) %></small>
+        
+        <p class="margin-top"><%= poll.summary %> </p>
+
         <% if poll.geozones.any? %>
           <p>
             <small><%= t("polls.index.geozone_info") %></small>

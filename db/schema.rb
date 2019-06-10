@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190506195743) do
+ActiveRecord::Schema.define(version: 20190610215222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1082,7 +1082,7 @@ ActiveRecord::Schema.define(version: 20190506195743) do
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.string  "name",                        limit: 40
+    t.string  "name",                        limit: 70
     t.integer "taggings_count",                         default: 0
     t.integer "debates_count",                          default: 0
     t.integer "proposals_count",                        default: 0

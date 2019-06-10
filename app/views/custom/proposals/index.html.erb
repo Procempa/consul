@@ -111,8 +111,6 @@
                         new_proposal_guide,
                         class: 'button expanded' %>
             <% if params[:retired].blank? %>
-              <%= render 'categories' %>
-              <%= render "shared/tag_cloud", taggable: 'proposal' %>
               <%= render 'geozones' %>
               <%= render 'popular' %>
             <% end %>

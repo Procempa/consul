@@ -16,6 +16,7 @@ module ModerateActions
 
   def moderate
     set_resource_params
+
     @resources = @resources.where(id: params[:resource_ids])
 
     if params[:hide_resources].present?

@@ -433,8 +433,8 @@ pt-BR:
       supports_necessary: "%{number} apoios necessários"
       total_percent: 100%
       archived: "Esta proposta foi arquivada e não é possível angariar suporte."
-      successful: "Esta proposta alcançou o apoio necessário e será votada na %{voting}."
-      voting: "próxima votação"
+      successful: ""
+      voting: "votações"
     show:
       author_deleted: Usuário apagado
       code: 'Código da proposta:'

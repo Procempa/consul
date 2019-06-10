@@ -25,6 +25,13 @@ pt-BR:
         feature_1_link: "criar uma conta no %{org_name} via AcessoPOA."
         feature_2: "Todos os eleitores registrados com mais de 16 anos podem votar."
         feature_3: "Os resultados de todos os votos são vinculativos para o governo municipal."
+      proposals:
+        title: "Propostas"
+        description: "Na seção %{link} você pode fazer sugestões para o Orçamento Participativo. Estas propostas podem receber apoio de outros cidadãos, e serão levadas para análise da Prefeitura, dos Conselheiros e dos Delegados do OP."
+        link: "propostas dos cidadãos"
+        feature_html: ""
+        image_alt: ""
+        figcaption_html: ''
       faq:
         page:
           title: "Perguntas frequentes"

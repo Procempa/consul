@@ -358,7 +358,7 @@ class User < ActiveRecord::Base
   end
 
   def interests
-    follows.map{|follow| follow.followable.tags.map(&:name)}.flatten.compact.uniq
+    follows.map{|follow| if follow.followable then follow.followable.tags.map(&:name) else [] end }.flatten.compact.uniq 
   end
 
   private

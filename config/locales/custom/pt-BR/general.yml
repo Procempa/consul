@@ -21,6 +21,9 @@ pt-BR:
         neighbourhood_label: 'Bairro'
   settings:
     poll_require_all_answers: Exigir todas as respostas nas Consultas Públicas   
+  map:
+    title: "Regiões"    
+    proposal_for_district: "Inicie uma proposta para sua região"    
   admin:
     site_customization:
       images:
@@ -82,9 +85,19 @@ pt-BR:
     new:
       cant_answer_incomplete_account_html: "Você deve %{account_link} para poder criar."      
       account_link: "preencher os dados de sua conta"
+    proposal:
+      created_guide: "Agora você deve aguardar a validação da sua proposta. Se o conteúdo não for ofensivo e tiver a intenção de propor um projeto para a cidade, sua proposta será liberada para receber apoios. Quando a proposta for validada, você receberá um email informando. Após enviar a proposta, não será possivel modifica-la."      
+    index:
+      section_footer:
+        title: Ajuda sobre propostas
+        description: Faça uma proposta cidadã. Quanto mais apoios a proposta receber mais chance tem de ser apreciada pela Prefeitura, Conselheros e Delegados do OP.
+        help_text_1: "As propostas cidadãs são uma oportunidade para que os vizinhos e coletivos opinem diretamente como eles querem que seja a sua cidade. Qualquer pessoa pode fazer uma proposta sobre um tema que seja do seu interesse."
+        help_text_2: "Para criar uma proposta, você deve se inscrever em %{org}. Para apoiar propostas é necessário ter uma conta verificada."
+        help_text_3: ""    
   polls:
     dates: "De %{open_at} a %{closed_at}"
     index:
+      geozone_restricted: "Regiões"    
       filters:
         current: Votações abertas
         incoming: Em breve
@@ -144,6 +157,11 @@ pt-BR:
       see_process: Ver processo
     cards:
       title: Saiba mais sobre o Orçamento Participativo 
+  shared:
+    tags_cloud:
+      districts: "Regiões"
+      districts_list: "Lista de regiões"          
+  
   errors:
     messages:
       user_not_found: Usuário não encontrado
