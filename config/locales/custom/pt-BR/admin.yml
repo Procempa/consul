@@ -185,8 +185,8 @@ pt-BR:
         filter: Filtrar
         filters:
           all: Todas
-          with_confirmed_hide: Confirmada
-          without_confirmed_hide: Pendente
+          with_confirmed_hide: Confirmadas
+          without_confirmed_hide: Pendentes
         title: Notificações ocultas
         no_hidden_proposals: Não existem notificações ocultas
     settings:
