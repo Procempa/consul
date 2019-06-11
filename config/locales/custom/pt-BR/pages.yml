@@ -10,12 +10,26 @@ pt-BR:
         other: "Outras informações de interesse"
       poll_ops:               
         title: "Orçamento Participativo"
-        description: "Na seção %{link} são trazidas propostas para votação direta dos cidadãos porto-alegrenses. Vote nos assuntos de seu interesse e ajude a construir a Porto Alegre que você quer."
-        link: "orçamento participativo"
-        feature_1: "Para participar da votação, você precisa"
-        feature_1_link: "criar uma conta no %{org_name} via AcessoPOA."
-        feature_2: "Todos os eleitores registrados com mais de 16 anos podem votar."
-        feature_3: "Os resultados de todos os votos são vinculativos para o governo municipal."
+        description: |
+          
+
+          Inscreva-se para participar das votações. 
+          
+          Você precisa ter mais de 16 anos e fazer um cadastro rápido e fácil no OP Digital, via AcessoPOA.
+
+
+          Ao votar nas prioridades destes 6 temas, vocês está diretamente participando na elaboração das demandas que serão executadas pela Prefeitura durante este ciclo do OP. 
+
+          As 10 prioridades mais votadas em cada temática, serão debatidas e priorizadas presencialmente nas Assembleias do OP, que ocorrem entre 15/07 e 20/08/2019.  
+
+          Neste ano de 2019, temos as votações das prioridades dentro das 6 temáticas do Orçamento Participativo. São elas:
+
+          - Circulação, Transporte e Mobilidade Urbana
+          - Saúde e Assistência Social
+          - Educação, Esporte e Lazer
+          - Cultura e Juventude
+          - Desenvolvimento Econômico, Tributação, Turismo e Trabalho
+          - Habitação, Organização da Cidade, Desenvolvimento Urbano e Ambiental
       
       polls:
         title: "Consultas públicas"
