@@ -19,7 +19,7 @@ class AccountController < ApplicationController
 
   def update
     if @account.update_total(account_params)      
-      if (current_user.account_complete?)      
+      if (current_user.account_complete? && session[:referrer_poll]) 
         referrer_poll = session[:referrer_poll]
         session.delete(:referrer_poll)
         redirect_to referrer_poll, notice: t("flash.actions.save_changes.notice")
