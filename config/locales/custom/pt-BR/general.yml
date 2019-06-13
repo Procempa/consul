@@ -8,6 +8,7 @@ pt-BR:
       link_back_to_the_proposals: "Clique %{proposal_link} para voltar para a proposta"
       incomplete_account: "Complete os dados pessoais para ter acesso a tudo que o sistema oferece"      
       user_permission_poll: Participar em consultas públicas*
+      email_on_proposal_moderation_label: Notificar-me por email quando alguém realizar moderação sobre minhas propostas
       here: aqui      
       address: 
         label: Endereço
@@ -97,7 +98,7 @@ pt-BR:
       cant_answer_incomplete_account_html: "Você deve %{account_link} para poder criar."      
       account_link: "preencher os dados de sua conta"
     proposal:
-      created_guide: "Agora você deve aguardar a validação da sua proposta. Se o conteúdo não for ofensivo e tiver a intenção de propor um projeto para a cidade, sua proposta será liberada para receber apoios. Quando a proposta for validada, você receberá um email informando. Após enviar a proposta, não será possivel modifica-la."      
+      created_guide: "Agora você deve aguardar a validação da sua proposta. Se o conteúdo não for ofensivo e tiver a intenção de propor um projeto para a cidade, sua proposta será liberada para receber apoios. Quando a proposta for validada, você receberá um email informando. Após enviar a proposta, não será possível modifica-la."      
     index:
       section_footer:
         title: Ajuda sobre propostas
@@ -172,6 +173,10 @@ pt-BR:
     tags_cloud:
       districts: "Regiões"
       districts_list: "Lista de regiões"          
+    view_mode:
+      title: Modo de visualização
+      cards: Cartões
+      list: Lista      
   
   errors:
     messages:

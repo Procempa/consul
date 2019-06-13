@@ -10,7 +10,7 @@ module ModerateActions
     set_resources_instance
   end
 
-  def hide
+  def hide    
     hide_resource resource
   end
 
@@ -20,7 +20,9 @@ module ModerateActions
     @resources = @resources.where(id: params[:resource_ids])
 
     if params[:hide_resources].present?
-      @resources.accessible_by(current_ability, :hide).each {|resource| hide_resource resource}
+      @resources.accessible_by(current_ability, :hide).each {|resource| 
+      hide_resource resource
+    }
 
     elsif params[:ignore_flags].present?
       @resources.accessible_by(current_ability, :ignore_flag).each(&:ignore_flag)

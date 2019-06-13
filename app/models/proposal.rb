@@ -214,6 +214,18 @@ class Proposal < ActiveRecord::Base
     orders
   end
 
+  def send_restore_proposal_email
+    Mailer.restore_proposal(self).deliver_later
+  end  
+
+  def send_hide_proposal_email
+    Mailer.hide_proposal(self).deliver_later
+  end
+
+  def send_confirm_hide_proposal_email
+    Mailer.confirm_hide_proposal(self).deliver_later    
+  end
+
   protected
 
     def set_responsible_name

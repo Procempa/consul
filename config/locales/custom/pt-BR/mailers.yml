@@ -1,0 +1,18 @@
+pt-BR:
+  mailers:
+    no_reply: "Esta mensagem foi enviada de um endereço de e-mail que não aceita respostas."
+    hide_proposal:
+      hi: Oi
+      hide_proposal_by_html: Sua proposta %{proposal_link} foi ocultada para ser avalida pela moderação
+      subject: Sua %{entity} "%{proposal_title}" foi ocultada para ser avalida pela moderação
+      title: Proposta ocultada
+    restore_proposal:
+      hi: Oi
+      restore_proposal_by_html: Sua proposta %{proposal_link} foi habilitada para receber apoios
+      subject: Sua %{entity} "%{proposal_title}" foi habilitada para receber apoios
+      title: Proposta habilitada
+    confirm_hide_proposal:
+      hi: Oi
+      confirm_hide_proposal_by_html: Sua proposta %{proposal_link} foi excluída, pois foi encontrado conteúdo incompatível com as regras para criação de projeto. Tente criar uma nova proposta tendo mais atenção as regras de criação de propostas.
+      subject: Sua %{entity} "%{proposal_title}" teve sua exclusão confirmada
+      title: Proposta excluída
