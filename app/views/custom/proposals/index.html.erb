@@ -79,7 +79,7 @@
           <%= render("shared/advanced_search", search_path: proposals_path(page: 1)) unless params[:retired].present? %>
     
           <%= render 'shared/order_links', i18n_namespace: "proposals.index" %>
-    
+
           <% if @proposals.any? %>
             <div class="show-for-small-only">
               <%= link_to t("proposals.index.start_proposal"),

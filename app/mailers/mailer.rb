@@ -16,6 +16,36 @@ class Mailer < ApplicationMailer
     end
   end
 
+  def restore_proposal(proposal)
+    @proposal = proposal
+    @email_to = @proposal.author.email
+
+    with_user(@proposal.author) do
+      subject = t('mailers.restore_proposal.subject', proposal_title: @proposal.title, entity: t("activerecord.models.#{@proposal.class.name.underscore}", count: 1).downcase)
+      mail(to: @email_to, subject: subject) if @proposal.present? && @proposal.author.present?
+    end    
+  end
+
+  def hide_proposal(proposal)
+    @proposal = proposal
+    @email_to = @proposal.author.email
+
+    with_user(@proposal.author) do
+      subject = t('mailers.hide_proposal.subject', proposal_title: @proposal.title, entity: t("activerecord.models.#{@proposal.class.name.underscore}", count: 1).downcase)
+      mail(to: @email_to, subject: subject) if @proposal.present? && @proposal.author.present?
+    end  
+  end
+
+  def confirm_hide_proposal(proposal)
+    @proposal = proposal
+    @email_to = @proposal.author.email
+
+    with_user(@proposal.author) do
+      subject = t('mailers.confirm_hide_proposal.subject', proposal_title: @proposal.title, entity: t("activerecord.models.#{@proposal.class.name.underscore}", count: 1).downcase)
+      mail(to: @email_to, subject: subject) if @proposal.present? && @proposal.author.present?
+    end      
+  end
+
   def reply(reply)
     @reply = reply
     @commentable = @reply.commentable

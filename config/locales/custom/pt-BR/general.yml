@@ -8,6 +8,7 @@ pt-BR:
       link_back_to_the_proposals: "Clique %{proposal_link} para voltar para a proposta"
       incomplete_account: "Complete os dados pessoais para ter acesso a tudo que o sistema oferece"      
       user_permission_poll: Participar em consultas públicas*
+      email_on_proposal_moderation_label: Notificar-me por email quando alguém realizar moderação sobre minhas propostas
       here: aqui      
       address: 
         label: Endereço

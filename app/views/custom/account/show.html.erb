@@ -165,6 +165,13 @@
               <%= f.label :email_on_direct_message do %>
                 <%= t("account.show.email_on_direct_message_label") %>
               <% end %>
+              <div>
+              <%= f.label :email_on_proposal_moderation do %>
+                <%= f.check_box :email_on_proposal_moderation, title: t('account.show.email_on_proposal_moderation_label'), label: false %>
+                <span class="checkbox">
+                  <%= t("account.show.email_on_proposal_moderation_label") %>
+                </span>
+              <% end %>              
             </div>
           <% end %>
 

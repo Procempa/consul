@@ -13,14 +13,29 @@ class Admin::ProposalsController < Admin::BaseController
   end
 
   def confirm_hide
-    @proposal.confirm_hide
+    if @proposal.author && @proposal.author.email_on_proposal_moderation
+      begin
+        @proposal.send_confirm_hide_proposal_email()
+      rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+        render json: { message: 'Problems sending mail' }, status: :bad_request
+      ensure
+        @proposal.confirm_hide        
+      end    
+    end    
     redirect_to request.query_parameters.merge(action: :index)
   end
 
-  def restore
+  def restore    
     @proposal.restore
     @proposal.ignore_flag
-    Activity.log(current_user, :restore, @proposal)
+    Activity.log(current_user, :restore, @proposal)    
+    if @proposal.author && @proposal.author.email_on_proposal_moderation
+      begin
+        @proposal.send_restore_proposal_email()
+      rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+        render json: { message: 'Problems sending mail' }, status: :bad_request
+      end    
+    end
     redirect_to request.query_parameters.merge(action: :index)
   end
 
