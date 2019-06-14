@@ -7,14 +7,14 @@
     <% if feature?(:allow_images) && proposal.image.present? %>
       <div class="row" data-equalizer>
 
-        <div class="small-12 medium-3 large-2 column text-center">
+        <div class="small-12 medium-3 column text-center">
           <div data-equalizer-watch>
-            <%= image_tag proposal.image_url(:thumb),
+            <%= image_tag proposal.image_url(:proposal),
                           alt: proposal.image.title.unicode_normalize %>
           </div>
         </div>
 
-        <div class="small-12 medium-6 large-7 column">
+        <div class="small-12 medium-6 column">
     <% else %>
       <div class="row">
         <div class="small-12 medium-9 column">
@@ -64,7 +64,7 @@
       </div>
 
       <div id="<%= dom_id(proposal) %>_votes"
-           class="small-12 medium-3 column supports-container"
+           class="small-12 medium-3 column"
            <%= 'data-equalizer-watch' if feature?(:allow_images) && proposal.image.present? %>>
         <% if proposal.successful? %>
           <div class="padding text-center">

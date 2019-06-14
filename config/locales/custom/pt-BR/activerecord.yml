@@ -3,7 +3,10 @@ pt-BR:
     models:
       poll:
         one: "Consulta pública"
-        other: "Consultas públicas"     
+        other: "Consultas públicas"
+      tag:
+        one: "Palavra-chave"
+        other: "Palavras-chave"
     attributes:
       budget/investment:
         heading_id: "Tema"

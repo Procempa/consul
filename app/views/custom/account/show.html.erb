@@ -64,25 +64,21 @@
             </div>
           </div>
         </div>  
-        <div>
-        <%= f.label :public_activity do %>
+        <div class="checkbox">
           <%= f.check_box :public_activity, title: t('account.show.public_activity_label'), label: false %>
-          <span class="checkbox">
+          <%= f.label :public_activity do %>
             <%= t("account.show.public_activity_label") %>
-          </span>
         <% end %>
       </div>
 
-      <div>
+      <div class="checkbox">
+        <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
         <%= f.label :public_interests do %>
-          <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
-          <span class="checkbox">
-            <%= t("account.show.public_interests_label") %>
-          </span>
+          <%= t("account.show.public_interests_label") %>
         <% end %>
       </div>
             <%= f.fields_for :address do |fa| %>            
-              <h2><%= t("account.show.address.label")%></h2>
+              <h2 class="subtitulo"><%= t("account.show.address.label")%></h2>
               
               <div class="small-12 medium-5">                            
                   <div class="inline-block">
@@ -134,50 +130,40 @@
 
 
           <% if @account.email.present? %>
-            <h2><%= t("account.show.notifications")%></h2>
+            <h2 class="subtitulo"><%= t("account.show.notifications")%></h2>
 
-            <div>
+            <div class="checkbox">
+              <%= f.check_box :email_on_comment, title: t('account.show.email_on_comment_label'), label: false %>
               <%= f.label :email_on_comment do %>
-                <%= f.check_box :email_on_comment, title: t('account.show.email_on_comment_label'), label: false %>
-                <span class="checkbox">
-                  <%= t("account.show.email_on_comment_label") %>
-                </span>
+                <%= t("account.show.email_on_comment_label") %>
               <% end %>
             </div>
 
-            <div>
+            <div class="checkbox">
+              <%= f.check_box :email_on_comment_reply, title: t('account.show.email_on_comment_reply_label'), label: false %>
               <%= f.label :email_on_comment_reply do %>
-                <%= f.check_box :email_on_comment_reply, title: t('account.show.email_on_comment_reply_label'), label: false %>
-                <span class="checkbox">
-                  <%= t("account.show.email_on_comment_reply_label") %>
-                </span>
+                <%= t("account.show.email_on_comment_reply_label") %>
               <% end %>
             </div>
 
-            <div>
-              <%= f.label :email_newsletter_subscribed do %>
-                <%= f.check_box :newsletter, title: t('account.show.subscription_to_website_newsletter_label'), label: false %>
-                <span class="checkbox">
-                  <%= t("account.show.subscription_to_website_newsletter_label") %>
-                </span>
+            <div class="checkbox">
+              <%= f.check_box :newsletter, title: t('account.show.subscription_to_website_newsletter_label'), label: false %>
+              <%= f.label :newsletter do %>
+                <%= t("account.show.subscription_to_website_newsletter_label") %>
               <% end %>
             </div>
 
-            <div>
+            <div class="checkbox">
+              <%= f.check_box :email_digest, title: t('account.show.email_digest_label'), label: false %>
               <%= f.label :email_digest do %>
-                <%= f.check_box :email_digest, title: t('account.show.email_digest_label'), label: false %>
-                <span class="checkbox">
-                  <%= t("account.show.email_digest_label") %>
-                </span>
+                <%= t("account.show.email_digest_label") %>
               <% end %>
             </div>
 
-            <div>
+            <div class="checkbox">
+              <%= f.check_box :email_on_direct_message, title: t('account.show.email_on_direct_message_label'), label: false %>
               <%= f.label :email_on_direct_message do %>
-                <%= f.check_box :email_on_direct_message, title: t('account.show.email_on_direct_message_label'), label: false %>
-                <span class="checkbox">
-                  <%= t("account.show.email_on_direct_message_label") %>
-                </span>
+                <%= t("account.show.email_on_direct_message_label") %>
               <% end %>
             </div>
           <% end %>
@@ -195,7 +181,7 @@
             </div>
           <% end %>
 
-          <%= f.submit t("account.show.save_changes_submit"), class: "button margin-top" %>
+          <%= f.submit t("account.show.save_changes_submit"), class: "button margin" %>
         </div>
 
         <div class="user-permissions small-12 medium-5 column">

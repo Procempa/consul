@@ -93,12 +93,19 @@ pt-BR:
       section_header:
         title: Orçamento Participativo    
   proposals:
+    form:
+      tag_category_label: "Tópicos"
+      tags_instructions: "Adicione tópicos a esta proposta. Você pode escolher entre as categorias propostas ou adicionar a sua própria"
+      tags_label: Tópicos
+      tags_placeholder: "Adicione os tópicos que você deseja usar, separadas por vírgulas ('s\")"
     new:
+      more_info: Como funcionam as propostas cidadãs?
       cant_answer_incomplete_account_html: "Você deve %{account_link} para poder criar."      
       account_link: "preencher os dados de sua conta"
     proposal:
-      created_guide: "Agora você deve aguardar a validação da sua proposta. Se o conteúdo não for ofensivo e tiver a intenção de propor um projeto para a cidade, sua proposta será liberada para receber apoios. Quando a proposta for validada, você receberá um email informando. Após enviar a proposta, não será possivel modifica-la."      
+      created_guide: "Agora você deve aguardar a validação da sua proposta. Se o conteúdo não for ofensivo e tiver a intenção de propor um projeto para a cidade, sua proposta será liberada para receber apoios. Quando a proposta for validada, você receberá um email informando. Após enviar a proposta, não será possivel modificá-la."      
     index:
+      featured_proposals: Destaques
       section_footer:
         title: Ajuda sobre propostas
         description: Faça uma proposta cidadã. Quanto mais apoios a proposta receber mais chance tem de ser apreciada pela Prefeitura, Conselheiros e Delegados do OP.
@@ -149,6 +156,9 @@ pt-BR:
           link_back_to_the_poll: "Clique %{poll_link} para voltar a lista de votações"            
           here: aqui
   debates:
+    form:
+      tags_label: Tópicos
+      tags_placeholder: "Adicione os tópicos que deseja usar, separadas por vírgulas (',')"
     index:
       title: Demandas
       section_header:
@@ -171,10 +181,13 @@ pt-BR:
   shared:
     tags_cloud:
       districts: "Regiões"
-      districts_list: "Lista de regiões"          
-  
+      districts_list: "Lista de regiões"
+    view_mode:
+      title: Modo de visualização
+      cards: Cards
+      list: Lista
   errors:
     messages:
       user_not_found: Usuário não encontrado
       invalid_date_range: "Intervalo de datas inválido"
-      invalid_cpf: CPF não é valido
+      invalid_cpf: CPF não é válido

@@ -62,6 +62,10 @@ h6,
   }
 }
 
+h2, .h2 {
+  line-height: 1.25;
+}
+
 .lead {
   font-size: $lead-font-size;
 }
@@ -76,6 +80,11 @@ label {
   margin-top: -0.25rem;
 }
 
+.subtitulo {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
 table {
   th, tr:nth-child(2n) {
     background-color: lighten($bordas, 20%);
@@ -88,6 +97,11 @@ thead {
 
 input, select, [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
   border-radius: 0;
+}
+
+textarea::placeholder, input::placeholder {
+    color: $texto-secundario;
+    opacity: 0.7;
 }
 
 
@@ -115,9 +129,9 @@ input, select, [type="text"], [type="password"], [type="date"], [type="datetime"
 header {
   background: #fff;
   border: 0 none;
-  @include breakpoint(small only) {
+  /*@include breakpoint(small only) {
     margin-bottom: 0;
-  }
+  } */
   > .row {
   	background-color: $cinza-base;
   	@include breakpoint(medium) {
@@ -680,6 +694,84 @@ main {
 .verify-account .already-verified .icon-check {
   color: $cor-sucesso;
 }
+
+/*.account {
+  @include breakpoint(small only) {
+    margin-top: 1.5rem;
+  }
+} */
+.user-permissions {
+  @include breakpoint(small only) {
+    margin-top: 1.5rem;
+  }
+}
+
+//Propostas (proposals)
+.proposal {
+  .in-favor {
+    margin-top: 0.75rem;
+  }
+}
+
+.debate, .proposal, .investment-project, .budget-investment, .legislation, .communities-show {
+  .panel {
+    border: 0 none;
+    box-shadow: unset;
+    border-bottom: 1px solid $bordas;
+  }
+}
+
+.featured-proposals .share-supported {
+  .ssb-twitter, .ssb-facebook, [class^="ssb-icon ssb-google"], .ssb-telegram, .icon-whatsapp {
+    width: 2.0625rem!important;
+    &:before {
+      line-height: 2.0625rem!important;
+    }
+  }
+  @include breakpoint (small only) {
+    .ssb-telegram, .icon-whatsapp {
+      color: $texto;
+      background-color: transparent;
+      height: 2.0625rem!important;
+      &:before {
+        font-size: 1.125rem;
+      }
+      &:hover {
+        color: #fff!important;
+        background-color: $link-hover!important;
+      }
+    }
+    .icon-whatsapp:before {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.featured-proposals {
+  background-color: rgba($destaque, 0.5);
+  .button {
+    color: #fff;
+  }
+  .proposal-featured {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.supported, .share-supported {
+  text-align: left;
+  @include breakpoint(medium){
+    text-align: center
+  }
+}
+
+@media print, screen and (min-width: 40em) {
+  .budget-investments-list .budget-investment .panel.with-image,
+  .proposals-list .proposal .panel.with-image {
+    padding: 1rem 0;
+  }
+}
+
 //Budgets 
 .section-header{
   .info {
@@ -700,6 +792,9 @@ main {
     h1 {
       padding-top: 2.5rem;
     }
+  }
+  .input-group {
+    margin-bottom: 0;
   }
 }
 
@@ -830,6 +925,9 @@ a.back {
 .section-header {
 	background: $destaque;
 	padding-top: 2.5rem;
+  @include breakpoint (small only) {
+    margin-top: -1.5rem;
+  }
   h1 {
     font-size: 2.25rem;
   }
@@ -918,6 +1016,15 @@ a.back {
     position: relative;
     bottom: rem-calc(-2);
   } 
+}
+
+.error {
+  margin: 0 0 1rem;
+
+  .checkbox & {
+    margin: 0;
+    display: block;
+  }
 }
 
 .help-text + .text-error {
@@ -1085,7 +1192,7 @@ $texto-secundario: $text-medium;
     position: absolute;
     left: -9999px;
     display: block;
-    + label {
+    + label, + .error + label {
       position: relative;
       padding-left: 2rem;
       margin-left: 0;
@@ -1127,7 +1234,7 @@ $texto-secundario: $text-medium;
   }
   //Mudar cor da borda quando o checkbox está marcado
   [type="checkbox"]:checked {
-    + label {
+    + label, + .error + label {
       &:before {
         border: 2px solid $input-action;
         //border-radius: $border-radius;
@@ -1136,11 +1243,11 @@ $texto-secundario: $text-medium;
   }
 
   // checked mark aspect changes 
-  [type="checkbox"]:not(:checked) + label:after {
+  [type="checkbox"]:not(:checked) + label:after, [type="checkbox"]:not(:checked) + .error + label:after {
     opacity: 0;
     transform: scale(0);
   }
-  [type="checkbox"]:checked + label:after {
+  [type="checkbox"]:checked + label:after, [type="checkbox"]:checked + .error + label:after {
     opacity: 1;
     transform: scale(1);
   }

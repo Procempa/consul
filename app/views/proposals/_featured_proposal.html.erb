@@ -1,5 +1,5 @@
 <div id="<%= dom_id(proposal) %>" class="proposal-featured clear">
-  <div class="small-12 medium-9 column">
+  <div class="small-12 medium-8 large-9 column">
     <h3><%= link_to proposal.title, proposal %></h3>
     <div class="info">
       <% if proposal.author.hidden? || proposal.author.erased? %>
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div id="<%= dom_id(proposal) %>_votes" class="small-12 medium-3 column">
+  <div id="<%= dom_id(proposal) %>_votes" class="small-12 medium-4 large-3 column">
     <%= render 'featured_votes', proposal: proposal %>
   </div>
 </div>
