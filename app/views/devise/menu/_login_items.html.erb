@@ -21,7 +21,7 @@
   </li>
 <% else %>
   <li>
-          <%= link_to t("devise_views.menu.login_items.login"), user_omniauth_authorize_path(:saml) + '?kc_locale=pt-BR',
+          <%= link_to t("devise_views.menu.login_items.login"), user_omniauth_authorize_path(:saml) + '?kc_locale=' + I18n.locale.to_s,
                 rel: "nofollow" %> 
  
     <%#= link_to t("devise_views.menu.login_items.login"),
