@@ -6,7 +6,7 @@
             signup: link_to(t("polls.show.signup"), new_user_registration_path, class: "probe-message")).html_safe %>
     </div>
     <% elsif !current_user.account_complete? %>
-    <div class="callout warning">
+    <div class="callout alert">
       <%= t('polls.show.cant_answer_incomplete_account_html',
         account_link: link_to(t('polls.show.account_link'), account_path)) %>
     </div>        

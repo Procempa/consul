@@ -134,7 +134,7 @@ pt-BR:
     show:
       send: Enviar
       vote: Votar
-      cant_answer_incomplete_account_html: "Você deve %{account_link} para poder responder."
+      cant_answer_incomplete_account_html: "<h2 class='h3'>Atenção!</h2><p>Seu cadastro no OP Digital ainda está incompleto. Você deve %{account_link} para poder visualizar e votar nas consultas do OP Digital.</p>"
       cant_answer_not_logged_in: "Para acessar esta votação, você precisa %{signin} no OP Digital."
       login_to_comment: Para deixar um comentário, você precisa %{signin} no OP Digital.
       account_link: "preencher os dados de sua conta"
