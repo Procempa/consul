@@ -21,7 +21,7 @@
     <%= form_for @account, as: :account, url: account_path do |f| %>
       <%= render "shared/errors", resource: @account %>
 
-      <div class="row">
+      <div class="row margin-bottom">
         <div class="small-12 medium-7 column">
 
           <h2><%= t("account.show.personal")%></h2>
@@ -39,44 +39,44 @@
           </div>          
 
           <div class="row">
-          <div class="small-12 medium-10">
-            <div class="small-12 medium-5 column">
-              <%= f.label t("verification.residence.new.document_type_label") %>
-              <%= f.select :document_type, document_types, prompt: "", label: false %>
+            <div class="small-12 medium-10">
+              <div class="small-12 medium-5 column">
+                <%= f.label t("verification.residence.new.document_type_label") %>
+                <%= f.select :document_type, document_types, prompt: "", label: false %>
+              </div>
+              <div class="small-12 medium-5 column end">
+      
+                <div class="inline-block">
+                  <%= f.label t("verification.residence.new.document_number") %>
+                </div>
+      
+                <div class="inline-block" data-toggle="info-document-number">
+                  <span class="icon-help"></span>
+                  <span class="show-for-sr"><%= t("verification.residence.new.document_number_help_title") %></span>
+                </div>
+      
+                <div class="dropdown-pane" id="info-document-number" data-dropdown
+                    data-hover="true" data-hover-pane="true">
+                  <%= t("verification.residence.new.document_number_help_text_html") %>
+                </div>
+      
+                <%= f.text_field :document_number, label: false  %>
+              </div>
             </div>
-            <div class="small-12 medium-5 column end">
-    
-              <div class="inline-block">
-                <%= f.label t("verification.residence.new.document_number") %>
-              </div>
-    
-              <div class="inline-block" data-toggle="info-document-number">
-                <span class="icon-help"></span>
-                <span class="show-for-sr"><%= t("verification.residence.new.document_number_help_title") %></span>
-              </div>
-    
-              <div class="dropdown-pane" id="info-document-number" data-dropdown
-                  data-hover="true" data-hover-pane="true">
-                <%= t("verification.residence.new.document_number_help_text_html") %>
-              </div>
-    
-              <%= f.text_field :document_number, label: false  %>
-            </div>
+          </div>  
+          <div class="checkbox">
+            <%= f.check_box :public_activity, title: t('account.show.public_activity_label'), label: false %>
+            <%= f.label :public_activity do %>
+              <%= t("account.show.public_activity_label") %>
+            <% end %>
           </div>
-        </div>  
-        <div class="checkbox">
-          <%= f.check_box :public_activity, title: t('account.show.public_activity_label'), label: false %>
-          <%= f.label :public_activity do %>
-            <%= t("account.show.public_activity_label") %>
-        <% end %>
-      </div>
 
-      <div class="checkbox">
-        <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
-        <%= f.label :public_interests do %>
-          <%= t("account.show.public_interests_label") %>
-        <% end %>
-      </div>
+          <div class="checkbox">
+            <%= f.check_box :public_interests, title: t('account.show.public_interests_label'), label: false %>
+            <%= f.label :public_interests do %>
+              <%= t("account.show.public_interests_label") %>
+            <% end %>
+          </div>
             <%= f.fields_for :address do |fa| %>            
               <h2 class="subtitulo"><%= t("account.show.address.label")%></h2>
               
@@ -165,13 +165,12 @@
               <%= f.label :email_on_direct_message do %>
                 <%= t("account.show.email_on_direct_message_label") %>
               <% end %>
-              <div>
-              <%= f.label :email_on_proposal_moderation do %>
-                <%= f.check_box :email_on_proposal_moderation, title: t('account.show.email_on_proposal_moderation_label'), label: false %>
-                <span class="checkbox">
-                  <%= t("account.show.email_on_proposal_moderation_label") %>
-                </span>
-              <% end %>              
+            </div>
+            <div class="checkbox">
+              <%= f.check_box :email_on_proposal_moderation, title: t('account.show.email_on_proposal_moderation_label'), label: false %>
+               <%= f.label :email_on_proposal_moderation do %>
+                <%= t("account.show.email_on_proposal_moderation_label") %>
+              <% end %>
             </div>
           <% end %>
 
