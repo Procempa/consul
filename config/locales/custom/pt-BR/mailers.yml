@@ -13,6 +13,6 @@ pt-BR:
       title: Proposta habilitada
     confirm_hide_proposal:
       hi: Oi
-      confirm_hide_proposal_by_html: Sua proposta %{proposal_link} foi excluída, pois foi encontrado conteúdo incompatível com as regras para criação de projeto. Tente criar uma nova proposta tendo mais atenção as regras de criação de propostas.
+      confirm_hide_proposal_by_html: Sua proposta %{proposal_link} foi excluída, pois foi encontrado conteúdo incompatível com as regras para criação de proposta. Tente criar uma nova proposta tendo mais atenção as regras de criação de propostas.
       subject: Sua %{entity} "%{proposal_title}" teve sua exclusão confirmada
       title: Proposta excluída
