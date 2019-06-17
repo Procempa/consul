@@ -63,7 +63,7 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "https://opdigital-hom.procempa.com.br" }
+  config.action_mailer.default_url_options = { host: "opdigital-hom.procempa.com.br", port: 443 }
   config.action_mailer.asset_host = "https://opdigital-hom.procempa.com.br"  
 
   # email
