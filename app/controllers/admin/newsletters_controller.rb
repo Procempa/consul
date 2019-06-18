@@ -49,7 +49,7 @@ class Admin::NewslettersController < Admin::BaseController
 
     if @newsletter.valid?
       @newsletter.list_of_recipient_emails.each do |recipient_email|
-        Mailer.newsletter(@newsletter, recipient_email).deliver_later
+        Mailer.newsletter(@newsletter, recipient_email).deliver_now
       end
 
       @newsletter.update(sent_at: Time.current)
