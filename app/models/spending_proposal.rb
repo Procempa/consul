@@ -113,7 +113,7 @@ class SpendingProposal < ActiveRecord::Base
   end
 
   def send_unfeasible_email
-    Mailer.unfeasible_spending_proposal(self).deliver_later
+    Mailer.unfeasible_spending_proposal(self).deliver_now
     update(unfeasible_email_sent_at: Time.current)
   end
 

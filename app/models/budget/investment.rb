@@ -200,7 +200,7 @@ class Budget
     end
 
     def send_unfeasible_email
-      Mailer.budget_investment_unfeasible(self).deliver_later
+      Mailer.budget_investment_unfeasible(self).deliver_now
       update(unfeasible_email_sent_at: Time.current)
     end
 

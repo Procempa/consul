@@ -6,7 +6,7 @@ class Management::UserInvitesController < Management::BaseController
   def create
     @emails = params[:emails].split(",").map(&:strip)
     @emails.each do |email|
-      Mailer.user_invite(email).deliver_later
+      Mailer.user_invite(email).deliver_now
     end
   end
 
