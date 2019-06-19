@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     if (request.method == 'GET')
-      redirect_to user_omniauth_authorize_path(:saml) + "?kc_locale=pt-BR"
+      redirect_to user_omniauth_authorize_path(:saml) + "?kc_locale=" + I18n.locale.to_s
     else
       super do |user|
         user.use_redeemable_code = true if params[:use_redeemable_code].present?

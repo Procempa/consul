@@ -13,12 +13,12 @@ class CommentNotifier
 
   def send_comment_email
     unless @comment.commentable.is_a?(Legislation::Annotation)
-      Mailer.comment(@comment).deliver_later if email_on_comment?
+      Mailer.comment(@comment).deliver_now if email_on_comment?
     end
   end
 
   def send_reply_email
-    Mailer.reply(@comment).deliver_later if email_on_comment_reply?
+    Mailer.reply(@comment).deliver_now if email_on_comment_reply?
   end
 
   def email_on_comment?

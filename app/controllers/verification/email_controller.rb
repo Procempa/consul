@@ -21,7 +21,7 @@ class Verification::EmailController < ApplicationController
                                 @email.recipient,
                                 @email.encrypted_token,
                                 @verified_user.document_type,
-                                @verified_user.document_number).deliver_later
+                                @verified_user.document_number).deliver_now
       redirect_to account_path, notice: t('verification.email.create.flash.success', email: @verified_user.email)
     else
       redirect_to verified_user_path, alert: t('verification.email.create.alert.failure')

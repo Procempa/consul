@@ -16,7 +16,7 @@ class Users::SessionsController < Devise::SessionsController
   def new
     if (request.method == 'GET')
       #redirect_to root_path
-      redirect_to user_omniauth_authorize_path(:saml)
+      redirect_to user_omniauth_authorize_path(:saml) + "?kc_locale=" + I18n.locale.to_s
     else
       super
     end
@@ -34,7 +34,7 @@ class Users::SessionsController < Devise::SessionsController
 
     def after_sign_out_path_for(_)
       if session['saml_uid'] # && SAML_SETTINGS.idp_slo_target_url
-        user_omniauth_authorize_path(:saml) + "/spslo"
+        user_omniauth_authorize_path(:saml) + "/spslo"+ "?kc_locale=" + I18n.locale.to_s
       else
         super
       end
