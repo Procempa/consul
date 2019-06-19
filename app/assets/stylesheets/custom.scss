@@ -70,6 +70,11 @@ h2, .h2 {
   font-size: $lead-font-size;
 }
 
+blockquote {
+  border-left: 4px solid $destaque;
+  font-style: italic;
+}
+
 label {
   color: $texto;
   .wide-order-selector & {
@@ -93,6 +98,10 @@ table {
 
 thead {
   color: $cinza-base;
+}
+
+figcaption {
+  margin-top: 0.5rem;
 }
 
 input, select, [type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
@@ -140,6 +149,11 @@ header {
   }
   .hide-for-small-only {
     .external-links {
+      padding: 0;
+    }
+  }
+  .external-links {
+    @include breakpoint(small only){
       padding: 0;
     }
   }
@@ -263,10 +277,22 @@ header {
   }
 }
 
+.user-menu {
+  @include breakpoint(small only){
+    background-color: $link!important;
+    width: 100vw;
+    margin-left: -0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+
 .subnavigation {
   @include breakpoint(medium) {
   	background-color: $cinza-base;
   	//color: #fff;
+  }
+  @include breakpoint(small only) {
+    overflow: hidden;
   }
   a {
   	color: #fff;
@@ -279,8 +305,23 @@ header {
   	&.is-active {
   		border-bottom: 4px solid $destaque;
   	}
+    @include breakpoint(small only) {
+      line-height: 2.5rem;
+    }
   }
-} 
+  @include breakpoint(small only) {
+    a.is-active {
+      border: 0 none;
+      background-color: $destaque;
+      color: $texto;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+      padding-left: 0.5rem;
+      text-decoration: none;
+      width: 100vw;
+    }
+  }
+}
 
 main {
   > .row:last-child {
@@ -293,6 +334,13 @@ main {
     a {
       &:hover, &:focus {
         color: $cta;
+      }
+    }
+    .menu {
+      @include breakpoint(small only) {
+        > li:first-child > a {
+          padding-left: 0;
+        }
       }
     }
  }
@@ -707,12 +755,11 @@ main {
 }
 
 //Propostas (proposals)
-.proposal {
+.proposal, .proposal-show {
   .in-favor {
     margin-top: 0.75rem;
   }
 }
-
 
 .participation-not-allowed {
   color: darken($cor-erro, 10%);
@@ -806,6 +853,75 @@ main {
     padding: 1rem 0;
   }
 }
+
+.additional-content .filter-subnav {
+  background-color: transparent;
+  border-bottom: 1px solid $bordas;
+}
+
+.proposal-show, .investment-project-show, .budget-investment-show {
+  .supports {
+    padding: 0;
+  }
+  .flex-video {
+    margin-bottom: 2rem;
+  }
+}
+
+.debate-show, .proposal-show, .poll-question-show, .investment-project-show, .budget-investment-show, .polls-show, .debate-quiz, .budget-investment-show, .draft-panels, .debate-questions, .communities-show, .topic-show, .milestone-content {
+  blockquote {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+  .video-link {
+    background-color: transparent;
+    padding: 0;
+    border: 0 none;
+  }
+}
+
+.documents {
+  margin-top: 2rem;
+  ul li {
+    &:not(:first-child) {
+     border-color: $bordas;
+    }
+    &:last-child {
+      padding-bottom: 0.75rem;
+    }
+  }
+  .document-link {
+    background-color: lighten($fundo-claro, 3%);
+    border-radius: 0;
+    border: 0 none;
+  }
+}
+
+.document-link p {
+  margin-bottom: 0.25rem;
+}
+
+.file-name {
+  @include breakpoint(small only) {
+    word-wrap: break-word;
+  }
+}
+
+.comments {
+  .wide-order-selector {
+    margin-top: 0;
+  }
+  .new_comment {
+    margin-bottom: 0;
+  }
+}
+
+.tabs-panel {
+  @include breakpoint(small only) {
+    padding: 0;
+  }
+}
+
 
 //Budgets 
 .section-header{
@@ -960,9 +1076,9 @@ a.back {
 .section-header {
 	background: $destaque;
 	padding-top: 2.5rem;
-  @include breakpoint (small only) {
+  /*@include breakpoint (small only) {
     margin-top: -1.5rem;
-  }
+  } */
   h1 {
     font-size: 2.25rem;
   }
@@ -1221,6 +1337,9 @@ $texto-secundario: $text-medium;
   form & {
     display:block;
   }
+  label {
+    font-weight: normal;
+  }
   margin-bottom: 0.75rem;
   > [type="checkbox"]:not(:checked),
   > [type="checkbox"]:checked {
@@ -1324,6 +1443,9 @@ $cursor-disabled: not-allowed;
 .radio {
   form & {
     display:block;
+  }
+  label {
+    font-weight: normal;
   }
   margin-bottom: 0.5rem;
   > [type="radio"]:not(:checked),

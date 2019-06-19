@@ -2,7 +2,6 @@
 
   <div class="row">
     <div class="top-bar">
-
       <div class="top-bar-title">
           <%= link_to root_path, class: "logo", accesskey: "0" do %>
             <%= image_tag(image_path_for('marca-opdigital.png'), alt: "Marca OP Digital") %>
@@ -19,7 +18,7 @@
 
       <div id="responsive_menu">
         <div class="top-bar-right">
-          <ul class="dropdown menu" data-dropdown-menu>
+          <ul class="dropdown menu user-menu" data-dropdown-menu>
             <%= render "shared/admin_login_items" %>
             <%= render "layouts/notification_item" %>
             <%= render "devise/menu/login_items" %>

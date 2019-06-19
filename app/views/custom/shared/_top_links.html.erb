@@ -1,6 +1,7 @@
 <ul class="no-bullet external-links">
   <li>
     <%= link_to t("layouts.footer.accessibility"), page_path('accessibility'),
+    class: ("is-active" if current_page?(page_path('accessibility'))),
                 title: t("shared.go_to_page") + t("layouts.footer.accessibility") %>
   </li>
 

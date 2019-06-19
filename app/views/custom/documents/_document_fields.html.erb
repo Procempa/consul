@@ -13,12 +13,12 @@
     <div class="small-9 column action-add attachment-errors document-attachment">
       <%= render_attachment(f, f.object) %>
     </div>
-    <div class="small-3 column action-remove text-right">
+    <div class="small-6 medium-3 column action-remove text-right">
       <%= render_destroy_document_link(f, f.object) %>
     </div>
   </div>
 
-  <div class="small-6 column">
+  <div class="small-12 column">
     <p class="file-name">
       <%= document_attachment_file_name(f.object) %>
     </p>
